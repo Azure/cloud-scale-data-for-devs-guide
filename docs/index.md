@@ -11,9 +11,7 @@ ms.reviewer: mjbrown
 
 # Azure Cosmos DB Java Developers Guide
 
-:::image type="complex" source="media/index/cover.svg" border="false" alt-text="Screenshot of book cover featuring title, an illustration of developer tools, the Azure Cosmos DB logo, a subtitle, and a version moniker.":::
-Screenshot of book cover featuring title, an illustration of developer tools, the Azure Cosmos DB logo, a subtitle, and a version moniker. In this screenshot, the title is "Azure Cosmos DB Java Developers Guide", the subtitle is "Bring cloud-native Java applications to Azure using Azure Cosmos DB SQL API", and the version is "1.0".
-:::image-end:::
+![Screenshot of book cover featuring title, an illustration of developer tools, the Azure Cosmos DB logo, a subtitle, and a version moniker. In this screenshot, the title is "Azure Cosmos DB Java Developers Guide", the subtitle is "Bring cloud-native Java applications to Azure using Azure Cosmos DB SQL API", and the version is "1.0".](media/index/cover.svg)
 
 ## VERSION v1.0
 
@@ -39,5 +37,4 @@ Microsoft and the trademarks listed at <https://www.microsoft.com> on the "Trade
 
 All other marks and logos are property of their respective owners.
 
-> [!div class="nextstepaction"]
 > [Next | Foreword](foreword.md)

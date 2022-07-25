@@ -13,9 +13,7 @@ ms.reviewer: mjbrown
 
 NoSQL is considered a non-relational, distributed database. NoSQL databases can efficiently query and serve substantial amounts of semi-structured and unstructured data. Unlike relational databases, NoSQL databases are schema-agnostic. NoSQL databases don't define a specific columnar structure allowing for greater flexibility, less brittle systems, and support for rapidly changing or unstructured data.
 
-:::image type="complex" source="media/intro-nosql/relational_tables.svg" alt-text="Diagram depicting a relational database schema with an Order and OrderDetails table." border="false":::
-Diagram depicting a relational database schema with an Order and OrderDetails table, using a foreign key relationship (one-to-many) defined with the OrderID column. Each table contains multiple columns with metadata about each row of data put into the relational database.
-:::image-end:::
+![Diagram depicting a relational database schema with an Order and OrderDetails table, using a foreign key relationship (one-to-many) defined with the OrderID column. Each table contains multiple columns with metadata about each row of data put into the relational database.](media/intro-nosql/relational_tables.svg)
 
 This diagram depicts an example of the contrast between a relational database table structure and a NoSQL document. On the left, relational tables have a defined schema. Specific columns and their types represent each table's structure, and relationships are represented via foreign keys. For example, a single Order row may have many Order Details rows associated with it. To query this information in its entirety, you must join both tables.
 
@@ -82,5 +80,4 @@ In this guide, we'll introduce you to Azure Cosmos DB, Microsoft's flagship non-
 
 Throughout this guide, we'll be looking at a pet store eCommerce scenario. While internally the data may seem relational, there are cases for non-relational stores. You may be getting new product information from vendors in various formats – structured, semi-structured, and unstructured. You may need to scale your operations for large traffic – such as running sales on an eCommerce site.  Reporting on this data may be complicated.  Throughout this guide, we'll use Azure Cosmos DB as our data store because of its versatility and ease of integrating with other Azure services to solve these problems.
 
-> [!div class="nextstepaction"]
 > [Next | Introduction to Azure Cosmos DB](intro-cosmos.md)
