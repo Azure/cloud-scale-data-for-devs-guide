@@ -64,9 +64,7 @@ The Core (SQL) API is the main API for interacting with Azure Cosmos DB, used fo
 
 Most non-relational databases support two consistency models - eventual and strong. Azure Cosmos DB supports a sliding scale of consistency over five consistency models.
 
-:::image type="complex" source="media/intro-cosmos/consistency_scale.svg" alt-text="Diagram of a sliding scale of consistency with tradeoffs between availability and consistency." border="false":::
-Diagram of consistency scale in this order: Eventual, Consistent Prefix, Session, Bounded Staleness, and Strong. An arrow illustrates the spectrum of data persistence and replication. The spectrum starts with performance and availability with the starting consistency (Eventual) and ends with Data integrity and consistency with the ending consistency (Strong).
-:::image-end:::
+![Diagram of consistency scale in this order: Eventual, Consistent Prefix, Session, Bounded Staleness, and Strong. An arrow illustrates the spectrum of data persistence and replication. The spectrum starts with performance and availability with the starting consistency (Eventual) and ends with Data integrity and consistency with the ending consistency (Strong).](media/intro-cosmos/consistency_scale.svg)
 
 These models from weakest to strongest are:
 
@@ -107,5 +105,4 @@ If there's a region-wide outage, the recovery point objective (RPO) - the amount
 
 For more information on consistency levels, see [consistency levels in Azure Cosmos DB](../../consistency-levels.md).
 
-> [!div class="nextstepaction"]
 > [Next | Security in Azure Cosmos DB](security.md)
