@@ -80,4 +80,4 @@ In this guide, we'll introduce you to Azure Cosmos DB, Microsoft's flagship non-
 
 Throughout this guide, we'll be looking at a pet store eCommerce scenario. While internally the data may seem relational, there are cases for non-relational stores. You may be getting new product information from vendors in various formats – structured, semi-structured, and unstructured. You may need to scale your operations for large traffic – such as running sales on an eCommerce site.  Reporting on this data may be complicated.  Throughout this guide, we'll use Azure Cosmos DB as our data store because of its versatility and ease of integrating with other Azure services to solve these problems.
 
-> [Next | Introduction to Azure Cosmos DB](intro-cosmos.md)
+> [Next &#124; Introduction to Azure Cosmos DB](intro-cosmos.md)
