@@ -2,13 +2,6 @@
 @import "fonts";
 @import "cosmos";
 
-dl,
-ol,
-p,
-ul {
-    margin-top: 1rem;
-}
-
 body {
     position: relative;
     font-weight: $ms-font-size-m;
@@ -20,9 +13,7 @@ html {
 }
 
 p {
-    margin-bottom: 0;
     font-weight: $ms-font-weight-regular;
-
 }
 
 main {
@@ -110,11 +101,19 @@ blockquote:before {
 
 }
 
-article img {
-    max-width: 100%;
-    border-color: #4189A2;
-    border-style: solid;
-    border-width: 1px;
+article {
+    img {
+        max-width: 75%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &.home {
+        img {
+            max-width: 35%;
+        }
+    }
 }
 
 .bg-black {
@@ -132,6 +131,7 @@ article img {
 .bg-note,
 blockquote {
     background-color: #243a5e;
+
     p {
         color: #FFFFFF;
     }
@@ -238,16 +238,18 @@ nav.toc>ul.nav span {
 }
 
 nav.toc>ul.nav a.nav-link {
-    color: #222;
+    color: #243a5e;
+    text-decoration: none;
 }
 
 nav.toc>ul.nav a.nav-link:hover {
-    color: #50e6ff;
+    color: #243a5e;
+    text-decoration: underline;
 }
 
 nav.toc>ul.nav a.nav-link.active {
-    background-color: #0050c5;
-    color: #FFF;
+    background-color: #243a5e;
+    color: #50e6ff;
 }
 
 main th,

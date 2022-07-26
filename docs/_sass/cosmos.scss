@@ -8,11 +8,11 @@ nav.navbar-cosmos {
 }
 
 article.home {
+    padding-top: 15px;
 
     h1 {
         display: none;
     }
-
 }
 
 article.workshop {
@@ -21,23 +21,36 @@ article.workshop {
     }
 }
 
+article {
+    .btn-primary {
+        border: #243a5e;
+        background-color: #243a5e;
+        color: #50e6ff;
 
+        &:hover {
+            background-color: #50e6ff;
+            color: #243a5e;
+            text-decoration: none;
+        }
+
+        &:before {
+            content: "\01F782\00a0";
+        }
+    }
+}
+
+.hero-container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
 
 .hero-content {
-    padding: 35px 15px;
+    padding-left: 15px;
+    padding-right: 15px;
     color: #FFFFFF;
-    font-weight: $ms-font-weight-semilight;
-
-    h1 {
-        margin: 0 0 16px;
-        font-size: 30pt;
-        line-height: 32pt;
-        font-weight: $ms-font-weight-semibold;
-    }
 
     p {
-        margin: 10px 0 6px;
-        font-weight: $ms-font-weight-regular;
+        font-weight: $ms-font-weight-semibold;
         font-size: $ms-font-size-xl;
         line-height: $ms-font-size-xxl;
     }
@@ -55,6 +68,11 @@ article.workshop {
             }
         }
     }
+
+    &.extra-padding {
+        padding-top: 35px;
+        padding-bottom: 35px;
+    }
 }
 
 .text-cosmos {
@@ -70,14 +88,4 @@ article.workshop {
     background-repeat: no-repeat;
     background-size: 45px;
     background-position: 0 5px;
-}
-
-.btn-primary {
-    border: #243a5e;
-    background-color: #243a5e;
-    color: #50e6ff;
-}
-
-.btn-primary:before {
-    content: "\01F782\00a0";
 }
