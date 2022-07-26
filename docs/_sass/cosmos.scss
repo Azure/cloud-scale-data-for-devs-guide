@@ -1,0 +1,83 @@
+nav.navbar-cosmos {
+    background-color: #2f2f2f;
+    border-color: #505050;
+}
+
+.cosmos-background {
+    background-color: #243a5e;
+}
+
+article.home {
+
+    h1 {
+        display: none;
+    }
+
+}
+
+article.workshop {
+    h1 {
+        display: none;
+    }
+}
+
+
+
+.hero-content {
+    padding: 35px 15px;
+    color: #FFFFFF;
+    font-weight: $ms-font-weight-semilight;
+
+    h1 {
+        margin: 0 0 16px;
+        font-size: 30pt;
+        line-height: 32pt;
+        font-weight: $ms-font-weight-semibold;
+    }
+
+    p {
+        margin: 10px 0 6px;
+        font-weight: $ms-font-weight-regular;
+        font-size: $ms-font-size-xl;
+        line-height: $ms-font-size-xxl;
+    }
+
+    ul {
+        li {
+            margin: 10px 0 6px;
+            font-weight: $ms-font-weight-semilight;
+            font-size: $ms-font-size-l;
+            line-height: $ms-font-size-xl;
+
+            a {
+                color: #50e6ff;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.text-cosmos {
+    color: #50e6ff;
+    font-size: $ms-font-size-xl;
+    line-height: 20px;
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    background-color: transparent;
+    background-image: url(../img/logo.svg);
+    padding-left: 50px;
+    background-repeat: no-repeat;
+    background-size: 45px;
+    background-position: 0 5px;
+}
+
+.btn-primary {
+    border: #243a5e;
+    background-color: #243a5e;
+    color: #50e6ff;
+}
+
+.btn-primary:before {
+    content: "\01F782\00a0";
+}

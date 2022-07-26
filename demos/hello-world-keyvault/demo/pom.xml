@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">  
+  <modelVersion>4.0.0</modelVersion>  
+  <parent> 
+    <groupId>org.springframework.boot</groupId>  
+    <artifactId>spring-boot-starter-parent</artifactId>  
+    <version>2.5.8</version>  
+    <relativePath/>  
+    <!-- lookup parent from repository --> 
+  </parent>  
+  <groupId>com.example</groupId>  
+  <artifactId>demo</artifactId>  
+  <version>0.0.1-SNAPSHOT</version>  
+  <name>demo</name>  
+  <description>Demo project for Spring Boot</description>  
+  <properties> 
+    <java.version>11</java.version>  
+    <azure.version>3.10.0</azure.version> 
+  </properties>  
+  <dependencies> 
+    <dependency> 
+      <groupId>org.springframework.boot</groupId>  
+      <artifactId>spring-boot-starter-web</artifactId> 
+    </dependency>  
+    <dependency> 
+      <groupId>com.azure.spring</groupId>  
+      <artifactId>azure-spring-boot-starter-keyvault-secrets</artifactId> 
+    </dependency>  
+    <dependency> 
+      <groupId>com.azure</groupId>  
+      <artifactId>azure-identity</artifactId> 
+    </dependency>  
+    <dependency> 
+      <groupId>org.springframework.boot</groupId>  
+      <artifactId>spring-boot-starter-test</artifactId>  
+      <scope>test</scope> 
+    </dependency> 
+  </dependencies>  
+  <dependencyManagement> 
+    <dependencies> 
+      <dependency> 
+        <groupId>com.azure.spring</groupId>  
+        <artifactId>azure-spring-boot-bom</artifactId>  
+        <version>${azure.version}</version>  
+        <type>pom</type>  
+        <scope>import</scope> 
+      </dependency> 
+    </dependencies> 
+  </dependencyManagement>  
+  <build> 
+    <plugins> 
+      <plugin> 
+        <groupId>org.springframework.boot</groupId>  
+        <artifactId>spring-boot-maven-plugin</artifactId> 
+      </plugin>  
+      <plugin>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-webapp-maven-plugin</artifactId>
+        <version>2.2.3</version>
+        <configuration>
+          <schemaVersion>v2</schemaVersion>
+          <resourceGroup>java-keyvault-demo-rg</resourceGroup>
+          <appServicePlanName>java-keyvault-demo-asp</appServicePlanName>
+          <appName>java-keyvault-app</appName>
+          <region>eastus</region>
+          <runtime>
+            <os>Linux</os>
+            <javaVersion>Java 11</javaVersion>
+            <webContainer>Java SE</webContainer>
+          </runtime>
+          <deployment>
+            <resources>
+              <resource>
+                <directory>${project.basedir}/target</directory>
+                <includes>
+                  <include>*.jar</include>
+                </includes>
+              </resource>
+            </resources>
+          </deployment>
+        </configuration>
+      </plugin>
+    </plugins> 
+  </build> 
+</project>

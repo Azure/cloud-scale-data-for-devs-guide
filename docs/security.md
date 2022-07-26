@@ -79,3 +79,5 @@ Azure Cosmos DB can be secured through networking as well. Options include:
 Data stored in Azure Cosmos DB is automatically encrypted with service-managed keys. Service-managed keys are keys maintained by Microsoft. If you want to add another layer of encryption, you can bring your own customer-managed keys. These keys must be stored in Azure Key Vault. The customer-managed keys must be configured during account creation. There are no extra charges for enabling the feature for your own customer-managed key; however, there may be an increase in extra processing for your encryption and decryption. This cost will be seen in the RU (Request Units) cost. For more information about setting up customer-managed keys, see [configure customer-managed keys](../../how-to-setup-cmk.md).
 
 Azure Cosmos DB takes backups of your data. If you need to restore this data with a customer-managed key, the encryption key must be available in Azure Key Vault.
+
+[Next &#124; INSERT TOPIC HERE](about:blank){: .btn .btn-primary .btn-lg }

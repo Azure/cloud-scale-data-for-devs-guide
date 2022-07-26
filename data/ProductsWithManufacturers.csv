@@ -1,0 +1,58 @@
+﻿ProductId,Name,Description,MSRP,Manufacturer
+1,Fetching Collection,"A collection of balls, sticks, and other toys for playing fetch",29.99,HulaHula
+2,Pecan Rounded Corner Perch,Rounded corner perch to be mounted in a cage for small pets. Includes mounting parts.,9.99,Parts Unlimited
+3,Rectangle Perch,Pine perch used for small pets. Mounting hardware included.,12.99,Parts Unlimited
+4,"Pet Playpen, Large","When you want to let your pets play but want them confined to an area. Good for medium and large dogs, cats, and capybaras.",59.99,Northwind Traders
+5,"Pet Playpen, Medium",When you want to let your pets play but want them confined to an area. Good for small to medium dogs and cats.,39.99,Northwind Traders
+6,"Pet Playpen, Small","When you want to let your pets play but want them confined to an area. Good for small pets - such as chinchillas, guinea pigs, and hamsters.",19.99,Northwind Traders
+7,"Pet First Aid Kit, Horse","Kit includes: hoof care kit, wound care, bandages, tweezers, thermometer, gloves, applicators, medical scissors, cold compress, manual, carrying case",49.99,Fabrikam Medical
+8,"Pet First Aid Kit, Goat","Kit includes: Nutri-drench, injectible iron, Vitamin B complex, wound care, bandages, tweezers, thermometer, gloves, applicators, medical scissors, cold compress, manual, carrying case",49.99,Fabrikam Medical
+9,"Pet First Aid Kit, Skunk","Kit includes: Molasses, milk of magnesia, dewormer, wound care, bandages, tweezers, thermometer, gloves, applicators, medical scissors, cold compress, manual, carrying case",49.99,Fabrikam Medical
+10,"Pet First Aid Kit, Reptiles - Large","Kit includes: iodine, magnifying glass, unflavored electrolyte replacement, lice treatment, wound care, bandages, tweezers, thermometer, gloves, applicators, medical scissors, cold compress, manual, carrying case",49.99,Fabrikam Medical
+11,"Pet First Aid Kit, Reptiles - Medium","Kit includes: iodine, magnifying glass, unflavored electrolyte replacement, lice treatment, wound care, bandages, tweezers, thermometer, gloves, applicators, medical scissors, cold compress, manual, carrying case",49.99,Fabrikam Medical
+12,"Pet First Aid Kit, Reptiles - Small","Kit includes: iodine, magnifying glass, unflavored electrolyte replacement, lice treatment, wound care, bandages, tweezers, thermometer, gloves, applicators, medical scissors, cold compress, manual, carrying case",49.99,Fabrikam Medical
+13,Yuzu,For the capybara bath,9.99,Wide World Importers
+14,"Fleece hammock - Christmas print, small",Hammock made with eco-friendly fleece in a Christmas print,9.99,Toy Soldier Pets
+15,"Fleece hammock - Christmas print, medium",Hammock made with eco-friendly fleece in a Christmas print,9.99,Toy Soldier Pets
+16,"Fleece hammock - Christmas print, large",Hammock made with eco-friendly fleece in a Christmas print,9.99,Toy Soldier Pets
+17,"Fleece hammock - Planet print, small",Hammock made with eco-friendly fleece in a planet print,9.99,Toy Soldier Pets
+18,"Fleece hammock - Planet print, medium",Hammock made with eco-friendly fleece in a planet print,9.99,Toy Soldier Pets
+19,"Fleece hammock - Planet print, large",Hammock made with eco-friendly fleece in a planet print,9.99,Toy Soldier Pets
+20,"Fleece hammock - Zebra print, small",Hammock made with eco-friendly fleece in a zebra print,9.99,Toy Soldier Pets
+21,"Fleece hammock - Zebra print, medium",Hammock made with eco-friendly fleece in a zebra print,9.99,Toy Soldier Pets
+22,"Fleece hammock - Zebra print, large",Hammock made with eco-friendly fleece in a zebra print,9.99,Toy Soldier Pets
+23,"Fleece hammock - Leopard print, small",Hammock made with eco-friendly fleece in a leopard print,9.99,Toy Soldier Pets
+24,"Fleece hammock - Leopard print, medium",Hammock made with eco-friendly fleece in a leopard print,9.99,Toy Soldier Pets
+25,"Fleece hammock - Leopard print, large",Hammock made with eco-friendly fleece in a leopard print,9.99,Toy Soldier Pets
+26,"Fleece hammock - Snowflakes print, small",Hammock made with eco-friendly fleece in a snowflakes print,9.99,Toy Soldier Pets
+27,"Fleece hammock - Snowflakes print, medium",Hammock made with eco-friendly fleece in a snowflakes print,9.99,Toy Soldier Pets
+28,"Fleece hammock - Snowflakes print, large",Hammock made with eco-friendly fleece in a snowflakes print,9.99,Toy Soldier Pets
+29,"Fleece hammock - Toy Soldiers print, small",Hammock made with eco-friendly fleece in a toy soldiers print,9.99,Toy Soldier Pets
+30,"Fleece hammock - Toy Soldiers print, medium",Hammock made with eco-friendly fleece in a toy soldiers print,9.99,Toy Soldier Pets
+31,"Fleece hammock - Toy Soldiers print, large",Hammock made with eco-friendly fleece in a toy soldiers print,9.99,Toy Soldier Pets
+32,"Fleece hammock - Fish print, small",Hammock made with eco-friendly fleece in a fish print,9.99,Toy Soldier Pets
+33,"Fleece hammock - Fish print, medium",Hammock made with eco-friendly fleece in a fish print,9.99,Toy Soldier Pets
+34,"Fleece hammock - Fish print, large",Hammock made with eco-friendly fleece in a fish print,9.99,Toy Soldier Pets
+35,"Fleece hammock - Leaves print, small",Hammock made with eco-friendly fleece in a leaves print,9.99,Toy Soldier Pets
+36,"Fleece hammock - Leaves print, medium",Hammock made with eco-friendly fleece in a leaves print,9.99,Toy Soldier Pets
+37,"Fleece hammock - Leaves print, large",Hammock made with eco-friendly fleece in a leaves print,9.99,Toy Soldier Pets
+38,"Fleece hammock - Chevron print, small",Hammock made with eco-friendly fleece in a chevron print,9.99,Toy Soldier Pets
+39,"Fleece hammock - Chevron print, medium",Hammock made with eco-friendly fleece in a chevron print,9.99,Toy Soldier Pets
+40,"Fleece hammock - Chevron print, large",Hammock made with eco-friendly fleece in a chevron print,9.99,Toy Soldier Pets
+41,Glider chew toy,Chew toy made of rubber in the shape of a glider,4.95,Wingtip Toys
+42,Fire truck chew toy,Chew toy made of rubber in the shape of a fire truck,6.95,Wingtip Toys
+43,Fast car chew toy,Chew toy made of rubber in the shape of a fast car,8.95,Wingtip Toys
+44,Zeppelin chew toy,Chew toy made of bamboo in the shape of a zeppelin,7.99,Tailspin Toys
+45,Propeller plane chew toy,Chew toy made of bamboo in the shape of a propeller plane,6.99,Tailspin Toys
+46,Rocket chew toy,Chew toy made of bamboo in the shape of a rocket,4.99,Tailspin Toys
+47,Fountain grass plant,For use in freshwater aquariums,14.95,Contoso
+48,Broadleaf sword plant,For use in freshwater aquariums,3.99,Contoso
+49,Brazilian sword plant,For use in freshwater aquariums,4.99,Contoso
+50,Vallisenria Americana plant,For use in freshwater aquariums,3.99,Contoso
+51,Vallisneria Nana plant,For use in freshwater aquariums,2.99,Contoso
+52,Vallisneria Contortionist plant,For use in freshwater aquariums,4.99,Contoso
+53,Halimeda plant,For use in saltwater aquariums,14.99,Wide World Importers
+54,Dragon's Tongue algae,For use in saltwater aquariums,54.99,Wide World Importers
+55,Turtle grass shoots,For use in saltwater aquariums,29.99,Wide World Importers
+56,Mermaid's Fan,For use in saltwater aquariums,12.99,Wide World Importers
+57,Shaving brush plant,For use in saltwater aquariums,13.99,Wide World Importers
