@@ -8,6 +8,7 @@ _site/
 
 ### Ruby ###
 Gemfile
+Gemfile.lock
 *.gem
 *.rbc
 /.config
