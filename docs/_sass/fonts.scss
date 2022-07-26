@@ -1,0 +1,72 @@
+// Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE in the project root for license information.
+// Derived from https://www.npmjs.com/package/office-ui-fabric-react
+
+// Font directory and paths
+$ms-font-cdn-path: 'https://static2.sharepointonline.com/files/fabric/assets/fonts' !default;
+
+// Fallback fonts, if specified system or web fonts are unavailable.
+$ms-font-family-fallbacks: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif !default;
+
+$ms-font-size-su: 42px !default;
+$ms-font-size-xxl: 28px !default;
+$ms-font-size-xl-plus: 24px !default;
+$ms-font-size-xl: 21px !default;
+$ms-font-size-l: 17px !default;
+$ms-font-size-m-plus: 15px !default;
+$ms-font-size-m: 14px !default;
+$ms-font-size-s-plus: 13px !default;
+$ms-font-size-s: 12px !default;
+$ms-font-size-xs: 11px !default;
+$ms-font-size-mi: 10px !default;
+
+$ms-font-weight-light: 100 !default;
+$ms-font-weight-semilight: 300 !default;
+$ms-font-weight-regular: 400 !default;
+$ms-font-weight-semibold: 600 !default;
+$ms-font-weight-bold: 700 !default;
+
+@mixin ms-font-face($font-family-name, $cdn-folder, $cdn-font-name: "segoeui") {
+    @font-face {
+        font-family: $font-family-name;
+        src: url("#{$ms-font-cdn-path}/#{$cdn-folder}/#{$cdn-font-name}-light.woff2") format("woff2"),
+        url("#{$ms-font-cdn-path}/#{$cdn-folder}/#{$cdn-font-name}-light.woff") format("woff");
+        font-weight: $ms-font-weight-light;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: $font-family-name;
+        src: url("#{$ms-font-cdn-path}/#{$cdn-folder}/#{$cdn-font-name}-semilight.woff2") format("woff2"),
+        url("#{$ms-font-cdn-path}/#{$cdn-folder}/#{$cdn-font-name}-semilight.woff") format("woff");
+        font-weight: $ms-font-weight-semilight;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: $font-family-name;
+        src: url("#{$ms-font-cdn-path}/#{$cdn-folder}/#{$cdn-font-name}-regular.woff2") format("woff2"),
+        url("#{$ms-font-cdn-path}/#{$cdn-folder}/#{$cdn-font-name}-regular.woff") format("woff");
+        font-weight: $ms-font-weight-regular;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: $font-family-name;
+        src: url("#{$ms-font-cdn-path}/#{$cdn-folder}/#{$cdn-font-name}-semibold.woff2") format("woff2"),
+        url("#{$ms-font-cdn-path}/#{$cdn-folder}/#{$cdn-font-name}-semibold.woff") format("woff");
+        font-weight: $ms-font-weight-semibold;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: $font-family-name;
+        src: url("#{$ms-font-cdn-path}/#{$cdn-folder}/#{$cdn-font-name}-bold.woff2") format("woff2"),
+        url("#{$ms-font-cdn-path}/#{$cdn-folder}/#{$cdn-font-name}-bold.woff") format("woff");
+        font-weight: $ms-font-weight-bold;
+        font-style: normal;
+    }
+}
+
+@include ms-font-face('Segoe UI Web (West European)', 'segoeui-westeuropean');
+
+$ms-font-family-west-european: 'Segoe UI Web (West European)', $ms-font-family-fallbacks  !default;

@@ -57,7 +57,6 @@ Azure Cosmos DB is considered multi-model because your data can be stored in div
 
 The Core (SQL) API is the main API for interacting with Azure Cosmos DB, used for querying JSON objects. When features are introduced, it's the first API to see the updates. The SQL API is the API that we're using in this guide.
 
-> [!NOTE]
 > While the SQL API may suggest relational data could work in Azure Cosmos DB, know that this database platform is built with NoSQL in mind. The flavor of SQL with this API is designed for querying JSON data and structures.
 
 ## Consistency models
@@ -105,4 +104,4 @@ If there's a region-wide outage, the recovery point objective (RPO) - the amount
 
 For more information on consistency levels, see [consistency levels in Azure Cosmos DB](../../consistency-levels.md).
 
-> [Next &#124; Security in Azure Cosmos DB](security.md)
+[Next &#124; Security in Azure Cosmos DB](security.md){: .btn .btn-primary .btn-lg }

@@ -25,4 +25,4 @@ As the focus is on cloud native Java applications, Java with Spring Boot will be
 
 Contoso has acquired an online pet supplies store that is considering migrating their Java eCommerce platform to Azure. In this guide, you'll see examples applying to an eCommerce situation. This guide showcases Azure platforms using real-world use cases. These cases could include storing product information in Azure Cosmos DB or sending notifications with Azure Logic Apps to notify someone when products have changed.
 
-> [Next &#124; Introduction to NoSQL](intro-nosql.md)
+[Next &#124; Introduction to NoSQL](intro-nosql.md){: .btn .btn-primary .btn-lg }

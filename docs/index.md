@@ -37,4 +37,4 @@ Microsoft and the trademarks listed at <https://www.microsoft.com> on the "Trade
 
 All other marks and logos are property of their respective owners.
 
-> [Next &#124; Foreword](foreword.md)
+[Next &#124; Foreword](foreword.md){: .btn .btn-primary .btn-lg }

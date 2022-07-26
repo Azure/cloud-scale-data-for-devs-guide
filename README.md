@@ -1,16 +1,10 @@
 # Azure Cosmos DB Java Developer Guide
 
+> Java + Azure Cosmos DB + Azure Spring Cloud + Azure Functions + Azure Cognitive Search + more!
+
 ![Screenshot of book cover featuring title, an illustration of developer tools, the Azure Cosmos DB logo, a subtitle, and a version moniker. In this screenshot, the title is "Azure Cosmos DB Java Developers Guide", the subtitle is "Bring cloud-native Java applications to Azure using Azure Cosmos DB SQL API", and the version is "1.0".](docs/media/index/cover.svg)
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
-
-As the maintainer of this project, please make a few updates:
-
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+[Get started reading the guide!](docs/index.md)
 
 ## Contributing
 
