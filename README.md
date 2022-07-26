@@ -1,6 +1,6 @@
 # Azure Cosmos DB Java Developer Guide
 
-![Screenshot of book cover featuring title, an illustration of developer tools, the Azure Cosmos DB logo, a subtitle, and a version moniker. In this screenshot, the title is "Azure Cosmos DB Java Developers Guide", the subtitle is "Bring cloud-native Java applications to Azure using Azure Cosmos DB SQL API", and the version is "1.0".](media/index/cover.svg)
+![Screenshot of book cover featuring title, an illustration of developer tools, the Azure Cosmos DB logo, a subtitle, and a version moniker. In this screenshot, the title is "Azure Cosmos DB Java Developers Guide", the subtitle is "Bring cloud-native Java applications to Azure using Azure Cosmos DB SQL API", and the version is "1.0".](docs/media/index/cover.svg)
 
 > This repo has been populated by an initial template to help get you started. Please
 > make sure to update the content to build a great experience for community-building.
