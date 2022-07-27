@@ -7,6 +7,7 @@ ms.date: 08/19/2022
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
+sequence: 13
 ---
 
 # Bulk Executor
@@ -73,3 +74,5 @@ of these bulk operations against the sample code.
 ## Learn more
 
 - [Azure Cosmos DB bulk executor library overview](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-overview)
+
+[Next &#124; Schema design considerations](schema-considerations.md){: .btn .btn-primary .btn-lg }

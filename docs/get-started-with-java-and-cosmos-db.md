@@ -1,5 +1,5 @@
 ---
-title: Get started with Java and Azure Cosmos DB for the developers guide
+title: Get started with Java and Azure Cosmos DB
 description: Get started using Java and Azure Cosmos DB for the developers guide. 
 ms.service: cosmos-db
 ms.topic: reference
@@ -7,9 +7,10 @@ ms.date: 08/19/2022
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
+sequence: 5
 ---
 
-# Get started with Java and Azure Cosmos DB for the developers guide
+# Get started with Java and Azure Cosmos DB
 
 In this guide, we work with a Spring Boot application that uses Azure Cosmos DB for its data store. We'll use Azure Cosmos DB's Core (SQL) API. This application takes an opinionated approach to development using Java 11, Spring Data, and reactive development.
 
@@ -88,7 +89,6 @@ pet-supplies-demo -n pet-supplies
 
 Before creating a container for your Azure Cosmos DB database, you need to be sure of your data model and establish a partition key. A partition key is an immutable property on a document that is used to logically group documents by their partition key value.
 
-> [!NOTE]
 > Once a partition key is set for a container, it can't change. The partition key is a design time decision.
 
 These are some things you need to keep in mind when choosing a partition key:
@@ -189,3 +189,5 @@ mvn spring-boot:run
 - [How to model and partition data on Azure Cosmos DB using a real-world example](https://docs.microsoft.com/azure/cosmos-db/sql/how-to-model-partition-example)
 
 - [Partition Strategy - Azure Cosmos DB Essentials, Season 2](https://www.youtube.com/watch?v=QLgK8yhKd5U)
+
+[Next &#124; Deploying to Azure App Service](deploy-to-azure-app-service.md){: .btn .btn-primary .btn-lg }

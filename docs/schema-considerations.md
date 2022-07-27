@@ -1,4 +1,16 @@
-# Schema Design Considerations
+---
+title: Schema design considerations
+description: Learn about schema design considerations.
+ms.service: cosmos-db
+ms.topic: reference
+ms.date: 08/19/2022
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
+sequence: 14
+---
+
+# Schema design considerations
 
 Azure Cosmos DB stores data as schema-less JSON objects. Any schema
 intended would have to be managed or enforced by outside applications.
@@ -97,3 +109,5 @@ height="1.8333333333333333in"}
 
 -   [Azure Cosmos DB Essentials Series, Season 2 - Schema Design
     Strategy (YouTube)](https://www.youtube.com/watch?v=bKDaL-GRSAM)
+
+[Next &#124; Azure Cosmos DB for mission critical situations](mission-critical-situations-for-cosmos-db.md){: .btn .btn-primary .btn-lg }

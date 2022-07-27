@@ -7,13 +7,13 @@ ms.date: 08/19/2022
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
+sequence: 4
 ---
 
 # Get started with Java and Azure Key Vault
 
 When working with Azure resources within Azure itself, you can use managed identities to give resources proper access. System-assigned managed identities are preferred, as they live with their associated resource and are deleted when the resource is deleted. In this example, we'll create a Spring Boot application that can read a value from Azure Key Vault.
 
-> [!NOTE]
 > We'll be using suffixes on many resource names to help keep them straight as to what they represent.
 
 ## Prerequisites
@@ -54,7 +54,6 @@ We'll use Azure Key Vault to store a secret value. Throughout this guide, we'll 
   az keyvault secret set  --vault-name java-keyvault-demo-kv --name "keyName" --value "secretValue"
   ```
 
-> [!NOTE]
 > Azure key vault names are globally unique. If you try to use a name already being used, you'll get a VaultAlreadyExists error.
 
 At this point, you should have a key vault with a key to be fetched.
@@ -198,7 +197,6 @@ We need to set up the environment variables for the
 DefaultAzureCredentialBuilder. These variables will hold values from our
 service principal.
 
-> [!NOTE]
 > Contact your Azure administrator to create the service principal if you don't have the rights to do so in your tenant.
 
 To create a service principal, it needs a name. We're using the name
@@ -465,3 +463,5 @@ We also created a service principal, which isn't tied to a resource. To
 delete the service principal, run:
 
 az ad sp delete --id AZURE_CLIENT_ID
+
+[Next &#124; Get started with Java and Azure Cosmos DB](get-started-with-java-and-cosmos-db.md){: .btn .btn-primary .btn-lg }

@@ -7,6 +7,7 @@ ms.date: 08/19/2022
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
+sequence: 8
 ---
 
 # Azure Cosmos DB change feed
@@ -105,7 +106,6 @@ With regards to the ttl property:
 
 There are a few ways to read the change feed that either deal with push models or pull models. Push models are the easiest way to get data from the change feed.
 
-> [!NOTE]
 > If you need to control the feed consumption at a customized pace, you'll need to use the pull model. If that is the case, refer to this article on the [Change feed pull model in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql/change-feed-pull-model).
 
 There are two ways to get push notifications:
@@ -142,3 +142,5 @@ Our code is specifically monitoring product changes, though you can see this as 
 - [Change feed design patterns in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql/change-feed-design-patterns)
 
 - [Azure Cosmos DB Workshop - Azure Cosmos DB Change Feed](https://cosmosdb.github.io/labs/dotnet/labs/08-change_feed_with_azure_functions.html#use-azure-cosmos-db-change-feed-to-write-data-to-eventhub-using-azure-functions)
+
+[Next &#124; Azure Cosmos DB Trigger for Azure Functions in Java](change-feed-with-cosmos-db-trigger-function.md){: .btn .btn-primary .btn-lg }

@@ -7,6 +7,7 @@ ms.date: 08/19/2022
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
+sequence: 2
 ---
 
 # What is Azure Cosmos DB?

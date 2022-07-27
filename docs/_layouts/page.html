@@ -7,42 +7,65 @@ layout: default
     <div class="cosmos-background hero-container container-fluid">
         <div class="hero-content container extra-padding">
             <h1>{{page.title}}</h1>
-        </div> 
-    </div> 
+        </div>
+    </div>
     <div class="pb-4 container">
         <main class="row extra-padding">
-            <aside class="col-sm-2">       
+            <aside class="col-sm-2">
                 <nav id="linksMenu" class="toc sticky-top">
-                    <ul class="nav navbar-nav flex-column">
+                    <ul class="nav flex-column">
                         <li class="nav-item">
                             <a class="nav-link" href="{{ site.github.url }}">
                                 Back to Start
                             </a>
                         </li>
+                        {%
+                        assign refpages = site.pages
+                        | where_exp: "page", "page['ms.topic'] == 'reference'"
+                        | where_exp: "page", "page.sequence"
+                        | sort: "sequence"
+                        %}
+                        {% for page in refpages %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ page.url }}" id="step-{{ page.sequence }}">
+                                {{ page.title }}
+                            </a>
+                            <ul class="nav flex-column" id="{{ page.name | slugify }}">
+                            </ul>
+                        </li>
+                        {% endfor %}
                     </ul>
-                </nav>         
+                </nav>
             </aside>
             <article class="workshop col-sm-6 mb-5 pt-4">
                 {{ content }}
             </article>
             <aside class="col-sm-4">
-                <!-- Reserved for right-bumper content -->                
+                <!-- Reserved for right-bumper content -->
             </aside>
         </main>
     </div>
     {% include footer.html %}
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js" integrity="sha512-7O5pXpc0oCRrxk8RUfDYFgn0nO1t+jLuIOQdOMRp4APB7uZ4vSjspzp5y6YDtDs4VzUSTbWzBFZ/LKJhnyFOKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js" integrity="sha512-gU7kztaQEl7SHJyraPfZLQCNnrKdaQi5ndOyt4L4UPL/FHDd/uB9Je6KDARIqwnNNE27hnqoWLBq+Kpe4iHfeQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"
+        integrity="sha512-7O5pXpc0oCRrxk8RUfDYFgn0nO1t+jLuIOQdOMRp4APB7uZ4vSjspzp5y6YDtDs4VzUSTbWzBFZ/LKJhnyFOKw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"
+        integrity="sha512-gU7kztaQEl7SHJyraPfZLQCNnrKdaQi5ndOyt4L4UPL/FHDd/uB9Je6KDARIqwnNNE27hnqoWLBq+Kpe4iHfeQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        $(function() {
-            $('article img').each(function() {
+        $(function () {
+            $('article img').each(function () {
                 var src = $(this).attr('src');
                 $(this).wrap('<a href="' + src + '" target="_blank"></a>');
             });
-            $('article > h2').each(function() {
-                $('nav.toc > ul').append(
+            $('article > h2').each(function () {
+                $('nav.toc ul#{{ page.name | slugify }}').append(
                     $('<li>')
                         .attr('class', 'nav-item')
                         .append(
@@ -50,48 +73,48 @@ layout: default
                                 .attr('class', 'nav-link')
                                 .text($(this).text())
                                 .attr('href', '#' + $(this).attr('id'))
-                        ) 
+                        )
                 );
             });
             $('[data-bs-spy="scroll"]').each(function () {
                 var $spy = $(this).scrollspy('refresh')
             });
-            $('pre').each(function(index) {
+            $('pre').each(function (index) {
                 var generatedId = 'codeBlock' + index;
                 var languageClass = $(this).children('code:first').attr('class').split(' ')[0];
-                var language = languageClass == 'language-sh' ? 'shell' : 
-                    languageClass == 'language-js' ? 'javascript' : 
-                    languageClass == 'language-json' ? 'json' : 
-                    languageClass == 'language-java' ? 'java' : 
-                    languageClass == 'language-xml' ? 'xml' : 
-                    languageClass == 'language-sql' ? 'sql' : 
-                    languageClass == 'language-csharp' ? 'c#' : 'code';
+                var language = languageClass == 'language-sh' ? 'shell' :
+                    languageClass == 'language-js' ? 'javascript' :
+                        languageClass == 'language-json' ? 'json' :
+                            languageClass == 'language-java' ? 'java' :
+                                languageClass == 'language-xml' ? 'xml' :
+                                    languageClass == 'language-sql' ? 'sql' :
+                                        languageClass == 'language-csharp' ? 'c#' : 'code';
                 $(this).attr('id', generatedId);
                 var header = $('<div/>', {
-                  class: 'code-header mt-3 mb-0 bg-light d-flex justify-content-between border',
+                    class: 'code-header mt-3 mb-0 bg-light d-flex justify-content-between border',
                 }).append(
-                    $('<span/>', {     
+                    $('<span/>', {
                         class: 'mx-2 text-muted text-uppercase font-weight-light',
                         html: language
                     })
                 ).append(
-                    $('<button/>', {   
+                    $('<button/>', {
                         class: 'm-0 btn btn-code btn-sm btn-light codeBtn rounded-0 border-left text-muted font-weight-light',
-                    'data-clipboard-target': '#' + generatedId,
-                    type: 'button'
+                        'data-clipboard-target': '#' + generatedId,
+                        type: 'button'
                     }).append(
-                    $('<i/>', {
-                        class: 'fa-solid fa-copy',
-                      'aria-hidden': 'true'
-                    })
-                  ).append(
-                    'Copy'
-                  )
+                        $('<i/>', {
+                            class: 'bi bi-clipboard-fill me-2',
+                            'aria-hidden': 'true'
+                        })
+                    ).append(
+                        'Copy'
+                    )
                 );
                 header.insertBefore($(this));
                 $(this).addClass('mt-0');
             });
-            hljs.initHighlightingOnLoad();
+            hljs.highlightAll();
             new ClipboardJS('.btn-code');
         });
     </script>

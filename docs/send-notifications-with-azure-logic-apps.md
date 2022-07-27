@@ -7,6 +7,7 @@ ms.date: 08/19/2022
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
+sequence: 11
 ---
 
 # Send notifications with Azure Logic Apps
@@ -117,3 +118,5 @@ Select **Run Trigger,** then **Run**.
 
 -   [Integration and automation platform options in Azure \| Microsoft
     Docs](https://docs.microsoft.com/en-us/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs)
+
+[Next &#124; Scaling in Azure Cosmos DB](scaling-in-cosmos-db.md){: .btn .btn-primary .btn-lg }

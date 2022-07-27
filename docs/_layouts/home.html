@@ -3,30 +3,43 @@ layout: default
 ---
 
 <body class="pb-4">
-    {% include navigation.html %}   
+    {% include navigation.html %}
     <div class="cosmos-background hero-container container-fluid">
         <div class="hero-content container">
             <p>
                 {{site.description}}
             </p>
             {% include links.html %}
-        </div> 
-    </div> 
+        </div>
+    </div>
     <div class="pb-4 container">
         <main>
-            <article class="home mb-5">
-                {{ content }}
+            <article class="home mb-5 row">
+                <aside class="col-sm-4">
+                    <img src="media/index/cover.svg" alt="Screenshot of book cover featuring title, an illustration of developer tools, the Azure Cosmos DB logo, a subtitle, and a version moniker. In this screenshot, the title is 'Azure Cosmos DB Java Developers Guide', the subtitle is 'Bring cloud-native Java applications to Azure using Azure Cosmos DB SQL API', and the version is '1.0'." />
+                </aside>
+                <section class="col-sm-8">
+                    {{ content }}
+                </section>
             </article>
         </main>
     </div>
     {% include footer.html %}
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js" integrity="sha512-7O5pXpc0oCRrxk8RUfDYFgn0nO1t+jLuIOQdOMRp4APB7uZ4vSjspzp5y6YDtDs4VzUSTbWzBFZ/LKJhnyFOKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js" integrity="sha512-gU7kztaQEl7SHJyraPfZLQCNnrKdaQi5ndOyt4L4UPL/FHDd/uB9Je6KDARIqwnNNE27hnqoWLBq+Kpe4iHfeQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"
+        integrity="sha512-7O5pXpc0oCRrxk8RUfDYFgn0nO1t+jLuIOQdOMRp4APB7uZ4vSjspzp5y6YDtDs4VzUSTbWzBFZ/LKJhnyFOKw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"
+        integrity="sha512-gU7kztaQEl7SHJyraPfZLQCNnrKdaQi5ndOyt4L4UPL/FHDd/uB9Je6KDARIqwnNNE27hnqoWLBq+Kpe4iHfeQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        $(function() {
-            $('article img').each(function() {
+        $(function () {
+            $('article img').each(function () {
                 var src = $(this).attr('src');
                 $(this).wrap('<a href="' + src + '" target="_blank"></a>');
             });
