@@ -2,7 +2,7 @@
 title: Azure Cosmos DB Java Developers Guide
 description: The Azure Cosmos DB Java Developer Guide is a guide for bringing Cloud Native Java applications to Azure and using Azure Cosmos DB for your data needs.
 ms.service: cosmos-db
-ms.topic: reference
+ms.topic: overview
 ms.date: 08/19/2022
 author: seesharprun
 ms.author: sidandrews
@@ -10,8 +10,6 @@ ms.reviewer: mjbrown
 ---
 
 # Azure Cosmos DB Java Developers Guide
-
-![Screenshot of book cover featuring title, an illustration of developer tools, the Azure Cosmos DB logo, a subtitle, and a version moniker. In this screenshot, the title is "Azure Cosmos DB Java Developers Guide", the subtitle is "Bring cloud-native Java applications to Azure using Azure Cosmos DB SQL API", and the version is "1.0".](media/index/cover.svg)
 
 ## VERSION v1.0
 

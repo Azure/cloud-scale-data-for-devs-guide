@@ -7,6 +7,7 @@ ms.date: 08/19/2022
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
+sequence: 10
 ---
 
 # Event sourcing
@@ -111,7 +112,6 @@ Update the **pom.xml** file to include this new environment variable:
 </property>
 ```
 
-> [!NOTE]
 > The \@EventHubOutput annotation's connection property will look for the AzureEventHubConnection application setting.
 
 ### Deploy the Azure Function
@@ -132,3 +132,5 @@ Make some changes to your Contoso Pet Supplies data to trigger the change feed.
 Wait about 10 minutes, then check the Azure Event Hubs for events in the log, ready to be consumed by its subscribers.
 
 ![Screenshot showing the Event Hubs Instance Overview page.](./media/event-sourcing/event-hubs-instance-overview.png)
+
+[Next &#124; Sending Notifications with Azure Logic Apps](send-notifications-with-azure-logic-apps.md){: .btn .btn-primary .btn-lg }

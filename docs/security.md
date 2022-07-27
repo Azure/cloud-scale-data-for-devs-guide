@@ -7,6 +7,7 @@ ms.date: 08/19/2022
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
+sequence: 3
 ---
 
 # Security in Azure Cosmos DB
@@ -80,4 +81,4 @@ Data stored in Azure Cosmos DB is automatically encrypted with service-managed k
 
 Azure Cosmos DB takes backups of your data. If you need to restore this data with a customer-managed key, the encryption key must be available in Azure Key Vault.
 
-[Next &#124; INSERT TOPIC HERE](about:blank){: .btn .btn-primary .btn-lg }
+[Next &#124; Getting started with Java and Azure Key Vault](get-started-with-java-and-key-vault.md){: .btn .btn-primary .btn-lg }

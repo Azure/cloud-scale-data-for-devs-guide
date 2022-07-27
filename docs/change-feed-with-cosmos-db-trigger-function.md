@@ -7,6 +7,7 @@ ms.date: 08/19/2022
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
+sequence: 9
 ---
 
 # Azure Cosmos DB Trigger for Azure Functions in Java
@@ -77,7 +78,6 @@ When prompted, input N so that you can trigger the advanced options prompts. The
 
 - trigger: CosmosDBTrigger
 
-> [!NOTE]
 > Java 11 functionality in Azure Functions is in Preview at the time of this writing, so we're using Java 8 for this particular section.
 
 The Maven archetype will generate boilerplate scaffolding. In Function.java, populate the following values:
@@ -90,7 +90,6 @@ The Maven archetype will generate boilerplate scaffolding. In Function.java, pop
 
 - connectionStringSetting: "AzureCosmosDBConnectionString"
 
-> [!NOTE]
 > That's the connection string setting value. The connection string itself can be stored in local.settings.json.
 
 Update the @FunctionName annotation to have a more meaningful name such
@@ -135,7 +134,6 @@ In the **pom.xml** file, in the section for the Azure Functions Maven Plugin, ad
 </property>
 ```
 
-> [!NOTE]
 > The \@CosmosDBTrigger annotation's connectionStringSetting property will look for the AzureCosmosDBConnectionString application setting.
 
 To deploy the code to Azure, run:
@@ -172,3 +170,5 @@ If you make changes to your Contoso Pet Supplies data, your Azure Function shoul
 In the Azure portal, navigate to the function itself on the Function App resource. Select **Monitor**. You should see the function app invoked for your changes. If you select the timestamp, a panel with invocation details will appear.
 
 ![Screenshot showing the Monitor page of the Azure Function App.](./media/change-feed-with-cosmos-db-trigger-function/function-app-monitor.png)
+
+[Next &#124; Event Sourcing](event-sourcing.md){: .btn .btn-primary .btn-lg }

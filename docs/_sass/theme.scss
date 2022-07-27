@@ -103,7 +103,7 @@ blockquote:before {
 
 article {
     img {
-        max-width: 75%;
+        max-width: 85%;
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -111,17 +111,29 @@ article {
 
     &.home {
         img {
-            max-width: 35%;
+            max-width: 100%;
         }
     }
 }
 
+.navbar-light {
+    background-color: #d2d2d2;
+}
+
+.navbar-text a {
+    color: #505050;
+}
+
+.bg-light {
+    background-color: #d2d2d2;
+}
+
 .bg-black {
-    background-color: #000;
+    background-color: #000000;
 }
 
 .text-black {
-    color: #000;
+    color: #000000;
 }
 
 .bg-azure {
@@ -224,6 +236,12 @@ nav.toc>ul.nav {
 
 nav.toc>ul.nav a.nav-link {
     padding: 0.75rem 0.25rem;
+}
+
+ul.nav {
+    li {
+        list-style: none;
+    }
 }
 
 nav.toc>ul.nav a.nav-link,

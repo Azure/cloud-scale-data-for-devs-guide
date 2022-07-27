@@ -7,6 +7,7 @@ ms.date: 08/19/2022
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
+sequence: 15
 ---
 
 # Azure Cosmos DB for mission critical situations
@@ -36,7 +37,6 @@ These settings are configurable in the Azure portal, under the **Backup & Restor
 
 ![](/media/image.png){width="5.0in" height="4.864583333333333in"}
 
-> [!NOTE]
 > Restoring always restores into a new account.
 
 Learn more about how to work with continuous backup and restoring in this article on [Continuous backup with point in time restore feature in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/continuous-backup-restore-introduction).
@@ -68,3 +68,5 @@ There are multiple ways to manage data access in Azure Cosmos DB. With multiple 
 However, if service-managed keys aren't enough, you can use customer-managed keys as a second layer of data encryption. Learn more about [Configure customer-managed keys for your Azure Cosmos DB account](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk).
 
 Another feature for data encryption in Azure Cosmos DB is known as Always Encrypted. This feature supports client-side encryption, which should be used when transmitting sensitive data such as credit card numbers or personal identification numbers such as national identification numbers. Always Encrypted allows you to set access controls at the property level for stored objects. Learn more on how to [Use client-side encryption with Always Encrypted for Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-always-encrypted?tabs=java).
+
+[Next &#124; Migrate to Azure Spring Cloud](migrate-to-azure-spring-cloud.md){: .btn .btn-primary .btn-lg }

@@ -7,6 +7,7 @@ ms.date: 08/19/2022
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
+sequence: 12
 ---
 
 # Scaling in Azure Cosmos DB
@@ -56,3 +57,5 @@ max RU/s.
 -   [How to choose between manual and autoscale on Azure Cosmos DB \|
     Microsoft
     Docs](https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-choose-offer)
+
+[Next &#124; The Bulk Executor](bulk-executor.md){: .btn .btn-primary .btn-lg }

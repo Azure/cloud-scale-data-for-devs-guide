@@ -7,6 +7,7 @@ ms.date: 08/19/2022
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
+sequence: 7
 ---
 
 # CRUD Operations with Azure Cosmos DB
@@ -87,3 +88,5 @@ Some things to note for us to make this happen:
 - [Partial document update in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/partial-document-update)
 
 - [Frequently asked questions on partial document update in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/partial-document-update-faq)
+
+[Next &#124; Azure Cosmos DB Change Feed](change-feed-concepts.md){: .btn .btn-primary .btn-lg }
