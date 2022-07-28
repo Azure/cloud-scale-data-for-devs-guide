@@ -34,7 +34,7 @@ We are building this example from the chain we started with our Azure Cosmos DB 
 
    ![](/media/image.png)
 
-1. Search for logic app, then select **Logic App.**
+1. Search for **logic app**, then select **Logic App.**
 
    ![](/media/image2.png)
 
@@ -66,7 +66,7 @@ events are available in Event Hub**.
 
    ![](/media/image4.png)
 
-1. Give your connection a name. For Connection String, set it to the value
+1. Give your connection a name. For **Connection String**, set it to the value
 you used in AZURE_EVENT_HUB_CONNECTION. Then, select **Create**.
 
 1. Once the step connects to the event hub, enter the following settings:
@@ -83,12 +83,11 @@ you used in AZURE_EVENT_HUB_CONNECTION. Then, select **Create**.
 
 1. Sign in with your Office 365 credentials.
 
-1. Put your email address in the To list.
+1. Put your email address in the .**To** list.
 
 1. For the subject, use **Contoso Product Update**.
 
-1. For the body, use: "The following product is updated:"
-.
+1. For the body, use: "The following product is updated:".
 
 1. Add **Content** from the **Dynamic content** dialog.
 
@@ -98,7 +97,7 @@ you used in AZURE_EVENT_HUB_CONNECTION. Then, select **Create**.
 
 1. Select **Run Trigger,** then **Run**.
 
-## Learn More
+## Learn more
 
 - [Overview for Azure Logic Apps - Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
 
