@@ -19,10 +19,10 @@ In this guide, we work with a Spring Boot application that uses Azure Cosmos DB 
 - An Azure subscription or free Azure Cosmos DB trial account
   - If you don't have an [Azure subscription](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-  - We'll create an [Azure Cosmos DB free tier account](https://docs.microsoft.com/azure/cosmos-db/optimize-dev-test#azure-cosmos-db-free-tier), with the first 400 RU/s and 5 GB of storage for free.
+  - We'll create an [Azure Cosmos DB free tier account](https://docs.microsoft.com/azure/cosmos-db/optimize-dev-test#azure-cosmos-db-free-tier), which gives you the first 400 RU/s and 5 GB of storage for free.
 
 - Azure CLI
-  - The Azure CLI can be used with Windows, macOS, Linux, Docker, and in Azure Cloud Shell. For installation guidance, refer to this [How to Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) article.
+  - Azure CLI can be used with Windows, macOS, Linux, Docker, and in Azure Cloud Shell. For installation guidance, refer to [How to Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
   - We'll use Azure CLI extensions to work with Azure Cosmos DB and Azure Spring Cloud.
 
@@ -39,7 +39,7 @@ In this guide, we work with a Spring Boot application that uses Azure Cosmos DB 
 
 ## Create a resource group for the pet supplies demo
 
-We need a resource group to hold our Azure resources for this demo. Before creating your resource group, determine a location to use. If you're uncertain of the locations available, run the following command:
+We need a resource group to hold our Azure resources for this demo. Before creating your resource group, determine the location you'll use. If you're uncertain of which locations are available, run the following command:
 
 ```azurecli
 az account list-locations -o table
@@ -54,29 +54,29 @@ az group create --location eastus --resource-group
 pet-supplies-demo-rg
 ```
 
-## Create an Azure Cosmos DB Core (SQL) API pet supplies demo instance
+## Create a Cosmos DB Core (SQL) API pet supplies demo instance
 
-In order to set up your Azure Cosmos DB account to work with the demo, you'll need to follow the steps to:
+In order to set up your Cosmos DB account to work with the demo, you'll need to do the following:
 
-1. Create an Azure Cosmos DB account.
+1. Create a Cosmos DB account.
 
-1. Create an Azure Cosmos DB Core (SQL) API database.
+1. Create a Cosmos DB Core (SQL) API database.
 
 1. Create the pet-supplies container.
 
 These can all be created using the Azure CLI and the Cosmos DB extension.
 
-### Create an Azure Cosmos DB account
+### Create a Cosmos DB account
 
-To create an Azure Cosmos DB account, run the following command:
+To create a Cosmos DB account, run the following command:
 
 ```azurelcli
 az cosmosdb create -n pet-supplies-demo -g pet-supplies-demo-rg --enable-free-tier true --default-consistency-level Session
 ```
 
-This command may take a few minutes to create your Azure Cosmos DB account.
+It may take a few minutes to create your Cosmos DB account with this command.
 
-### Create an Azure Cosmos DB database with the Core (SQL) API
+### Create a Cosmos DB database with the Core (SQL) API
 
 To create the pet-supplies database with the Core (SQL) API, run the following command:
 
@@ -85,17 +85,17 @@ az cosmosdb sql database create -g pet-supplies-demo-rg --account-name
 pet-supplies-demo -n pet-supplies
 ```
 
-### Create a container for Azure Cosmos DB Core (SQL) API
+### Create a container for Cosmos DB Core (SQL) API
 
-Before creating a container for your Azure Cosmos DB database, you need to be sure of your data model and establish a partition key. A partition key is an immutable property on a document that is used to logically group documents by their partition key value.
+Before creating a container for your Azure Cosmos DB database, you need to be sure of your data model and you must establish a partition key. A partition key is an immutable property on a document that is used to logically group documents by their partition key value.
 
-> Once a partition key is set for a container, it can't change. The partition key is a design time decision.
+> Once a partition key is set for a container, it can't change. The partition key is a design-time decision.
 
-These are some things you need to keep in mind when choosing a partition key:
+Keep the following in mind when you choose partition keys:
 
-- The partition key should have a wide range of values.
+- Partition keys should have a wide range of values.
 
-- The partition key should have an even spread of data across the values.
+- Partition keys should have an even spread of data across the values.
 
 - Cross-partition queries are expensive and should be avoided.
 
@@ -107,21 +107,21 @@ pet-supplies-demo --database-name pet-supplies --name pet-supplies
 --partition-key-path "/documentType"
 ```
 
-## Running the Code
+## Run the Code
 
-There are a few things you need to set up before you can run this code.
+There are a few things you need to set up before you can run your code.
 
-1. Clone this repository
+1. Clone the repository
 
 1. Set up environment variables.
 
-1. Create the instance of Azure Cosmos DB Core (SQL) API.
+1. Create an instance of Azure Cosmos DB Core (SQL) API.
 
 1. Run the code.
 
 ### Clone the repository
 
-Our sample code is available here. The repository contains the following:
+Our sample code is available in the [azure/azure-cosmos-db-java-dev-guide](https://github.com/Azure/azure-cosmos-db-java-dev-guide/tree/main/demos) repository. This repository contains the following:
 
 - Demos folder with the following demos:
 
@@ -129,11 +129,11 @@ Our sample code is available here. The repository contains the following:
 
   - Cosmos-db: The main sample we'll refer to throughout the rest of the guide
 
-Once the repository is cloned, you can continue following this guide.
+Once you clone the repository, you can continue to follow this guide.
 
 ### Set the environment variables
 
-Once the Azure Cosmos DB Core (SQL) API instance is created, then create environment variables with the URI and the key. **application-default.properties** is configured to look for the following environment variables:
+Once you create your Cosmos DB Core (SQL) API instance, then create environment variables with the URI and the key. **application-default.properties** is configured to look for the following environment variables:
 
 - AZURE_COSMOS_URI
 
@@ -151,7 +151,7 @@ tsv)
 
 #### Get the value for AZURE_COSMOS_KEY*
 
-This is for the read and write key. Use the following command to store the key in the environment variable named AZURE_COSMOS_KEY:
+AZURE_COSMOS_KEY is a read and write key. Use the following command to store the key in the environment variable named AZURE_COSMOS_KEY:
 
 ```azurecli
 AZURE_COSMOS_KEY=$(az cosmosdb keys list --name pet-supplies-demo -g
@@ -160,13 +160,13 @@ pet-supplies-demo-rg --query "primaryMasterKey" -o tsv)
 
 ### Run the code
 
-Install dependencies:
+Install your dependencies:
 
 ```maven
 mvn install to install dependencies.
 ```
 
-Run locally and access the API at `http://localhost:8080:`
+Run the following code locally then access the API at `http://localhost:8080:`
 
 ```maven
 mvn spring-boot:run
