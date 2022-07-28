@@ -22,8 +22,7 @@ Azure Cosmos DB is built for mission critical situations. In addition to being g
 
 ## Continuous backup and restore
 
-Azure Cosmos DB performs data backups without impacting the performance and availability of your databases. It operates without consuming additional RUs. These backups are taken in every region where the
-account exists. These backups can be used for a point-in-time restoration within the retention period.
+Azure Cosmos DB performs data backups without impacting the performance and availability of your databases. It operates without consuming additional RUs. These backups are taken in every region where the account exists. These backups can be used for a point-in-time restoration within the retention period.
 
 Retention periods are the lowest of these two situations:
 
@@ -35,8 +34,9 @@ The continuous backups are stored in locally redundant storage blobs by default.
 
 These settings are configurable in the Azure portal, under the **Backup & Restore** setting for your Azure Cosmos DB account.
 
-![](/media/image.png){width="5.0in" height="4.864583333333333in"}
+![](/media/image.png)
 
+> [!NOTE]
 > Restoring always restores into a new account.
 
 Learn more about how to work with continuous backup and restoring in this article on [Continuous backup with point in time restore feature in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/continuous-backup-restore-introduction).
@@ -45,7 +45,7 @@ Learn more about how to work with continuous backup and restoring in this articl
 
 Your Azure Cosmos DB is publicly accessible by default if the request comes in with a valid authorization token. However, you can configure your Azure Cosmos DB account to be more secure.
 
-![](/media/image2.png){width="5.0in" height="2.0104166666666665in"}
+![](/media/image2.png)
 
 Looking at the resource in the Azure portal, there are a couple sections under Settings to know about for securing your Azure Cosmos DB account:
 
@@ -55,15 +55,13 @@ Looking at the resource in the Azure portal, there are a couple sections under S
 
 You can use the firewall portion to allow connections from specific IP addresses and CIDR ranges. Note that the IP addressing is in IPv4 notation. Learn more about how to [Configure IP firewall in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall).
 
-You can secure Azure Cosmos DB by putting it on a virtual network for access. Virtual network traffic accesses Azure Cosmos DB via a service endpoint. Learn more about how to [Configure access to Azure Cosmos DB
-from virtual networks](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-vnet-service-endpoint).
+You can secure Azure Cosmos DB by putting it on a virtual network for access. Virtual network traffic accesses Azure Cosmos DB via a service endpoint. Learn more about how to [Configure access to Azure Cosmos DB from virtual networks](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-vnet-service-endpoint).
 
-Virtual networks accessing Azure Cosmos DB work in conjunction with Azure Private Link, by exposing a private endpoint to a subnet within your virtual network. Learn more about how to [Configure Azure Private
-Link for an Azure Cosmos DB account](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints).
+Virtual networks accessing Azure Cosmos DB work in conjunction with Azure Private Link, by exposing a private endpoint to a subnet within your virtual network. Learn more about how to [Configure Azure Private Link for an Azure Cosmos DB account](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints).
 
 ## Secure data via additional encryption
 
-There are multiple ways to manage data access in Azure Cosmos DB. With multiple keys, read-only keys, and role-based access control, you can manage the access of the data. The data itself is also secured in other ways. By default, the data stored in Azure Cosmos DB is encrypted with service-managed keys. This means there's nothing you need to do for\ this first layer of encryption.
+There are multiple ways to manage data access in Azure Cosmos DB. With multiple keys, read-only keys, and role-based access control, you can manage the access of the data. The data itself is also secured in other ways. By default, the data stored in Azure Cosmos DB is encrypted with service-managed keys. This means there's nothing you need to do for this first layer of encryption.
 
 However, if service-managed keys aren't enough, you can use customer-managed keys as a second layer of data encryption. Learn more about [Configure customer-managed keys for your Azure Cosmos DB account](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk).
 

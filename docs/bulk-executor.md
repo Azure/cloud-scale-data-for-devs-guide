@@ -1,6 +1,6 @@
 ---
-title: Bulk Executor
-description: Learn about The Bulk Executor, which is a feature in Azure Cosmos DB.
+title: Bulk executor
+description: Learn about the bulk executor, which is a Azure Cosmos DB feature that allows bulk inserts, updates, and deletes.
 ms.service: cosmos-db
 ms.topic: reference
 ms.date: 08/19/2022
@@ -10,11 +10,9 @@ ms.reviewer: mjbrown
 sequence: 13
 ---
 
-# Bulk Executor
+# Bulk executor
 
-The Bulk Executor is a feature in Azure Cosmos DB that allows bulk
-inserts, updates, and deletes. Inserts and updates appear in the change
-feed.
+The bulk executor is a feature in Azure Cosmos DB that allows bulk inserts, updates, and deletes. Inserts and updates appear in the change feed.
 
 Let's see how we incorporate it into our current code sample.
 
@@ -30,14 +28,13 @@ Add a new dependency in the **pom.xml** file:
 </dependency>
 ```
 
-As this gets away from the Spring Data setup, we created a
-DocumentDbConfiguration class specifically for use with the bulk executor.
+As this moves away from the Spring Data setup, we created a `DocumentDbConfiguration` class specifically for use with the bulk executor.
 
 ## Add application properties
 
 We added details to **application-default.properties**:
 
-```json
+```properties
 # values for bulk executor
 azure.cosmos.collection=pet-supplies
 azure.cosmos.partitionKey=documentType
@@ -46,30 +43,27 @@ azure.cosmos.collectionThroughput = 100000;
 
 ## Update code
 
-Most of the bulk operations are happening in the BulkExecutorService.
-Each operation is in their own class file:
+Most of the bulk operations occur in `BulkExecutorService`. Each operation is in their own class file:
 
-- BulkUpdateOperation
+- `BulkUpdateOperation`
 
-- BulkDeleteItem
+- `BulkDeleteItem`
 
-- BulkUpdateItem
+- `BulkUpdateItem`
 
-- BulkExecutorService
+- `BulkExecutorService`
 
-We updated our models to inherit from a BaseModel class.
+We updated our models to inherit from a `BaseModel` class.
 
-We added a controller for calling the bulk operations, with the
-following endpoints:
+We added a controller for calling the bulk operations, with the following endpoints:
 
-- /api/bulk POST -- bulk import
+- `/api/bulk POST`: Bulk import
 
-- /api/bulk PUT -- bulk update
+- `/api/bulk PUT`: Bulk update
 
-- /api/bulk DELETE --bulk delete
+- `/api/bulk DELETE`: Bulk delete
 
-We've included a section in the Postman collection for you to try each
-of these bulk operations against the sample code.
+We've included a section in the Postman collection for you to try each of these bulk operations against the sample code.
 
 ## Learn more
 

@@ -16,28 +16,29 @@ Azure App Service is one of the ways to host Java applications in Azure. Once yo
 
 ## Modify the POM
 
-> You don't need to install anything separately. The **pom.xml** file has a reference in the \<build\> section for the azure-webapp-maven-plugin artifact.
+> [!NOTE]
+> You don't need to install anything separately. The **pom.xml** file has a reference in the \<build> section for the azure-webapp-maven-plugin artifact.
 
-In the **pom.xml** file, update the \<properties\> section for the
-following properties:
+In the **pom.xml** file, update the \<properties> section for the following properties:
 
-- azure.webapp.AppName: App name
+- azure.webapp.AppName: \<App name>
 
-- azure.webapp.appServicePlanName: App Service Plan Name
+- azure.webapp.appServicePlanName: \<App service plan name>
 
-- azure.webapp.region: Region code, such as eastus, westus, etc.
+- azure.webapp.region: \<Region code, such as eastus, westus>
 
-- azure.webapp.resourceGroup: Resource group name
+- azure.webapp.resourceGroup: \<Resource group name>
 
 ## Deploy the application
 
 Once the configuration information is updated for your values, deploy the application with the following command:
 
-```maven
+```cmd
 mvn package azure-webapp:deploy
 ```
 
-> The plugin section in the pom.xml file has an \<appSettings\> section. This will copy our environment variables and their values to the Azure App Service app's settings.
+> [!NOTE]
+> The plugin section in the pom.xml file has an \<appSettings> section. This will copy our environment variables and their values to the Azure App Service app's settings.
 
 ![Screenshot showing the App Service Configuration page.](./media/deploy-to-azure-app-service/app-service-configuration.png)
 
