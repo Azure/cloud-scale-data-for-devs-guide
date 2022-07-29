@@ -63,9 +63,9 @@ Most of the interface functions are using default implementations. However, our 
 
 - `findByProductId`
 
-The findByCustomerId is annotated with a query to filter on the customer ID. The findByProductId will search for all wish lists that have a particular product ID in their array of product IDs. These are annotated with the \@Query annotation to use a custom Azure Cosmos DB SQL query. As a wish list is tied to one customer, the query for findByCustomerId makes use of the = operator. Since a wishlist can have many products, the query for findByProductId makes use of the `ARRAY_CONTAINS()` function to check the array of product IDs tied to a wishlist.
+The `findByCustomerId` is annotated with a query to filter on the customer ID. The `findByProductId` will search for all wish lists that have a particular product ID in their array of product IDs. These are annotated with the @Query annotation to use a custom Azure Cosmos DB SQL query. As a wish list is tied to one customer, the query for `findByCustomerId` makes use of the = operator. Since a wishlist can have many products, the query for `findByProductId` makes use of the `ARRAY_CONTAINS()` function to check the array of product IDs tied to a wishlist.
 
-If you need to customize queries or add additional queries, make use of the \@Query annotation and use Azure Cosmos DB's SQL syntax for the query.
+If you need to customize queries or add additional queries, make use of the @Query annotation and use Azure Cosmos DB's SQL syntax for the query.
 
 ## Partial document updates
 
