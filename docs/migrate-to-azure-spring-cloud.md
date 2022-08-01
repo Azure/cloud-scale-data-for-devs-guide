@@ -30,7 +30,7 @@ This is the way our application is broken up for deployment to Azure Spring Clou
 
 - Configuration server linked to a Git repository
 
-![](/media/image7.png)
+![Diagram showing the parts of an application to be deployed to Azure Spring Cloud.](./media/migrate-to-azure-spring-cloud/azure-spring-cloud-deployment.png)
 
 ## Create an Azure Spring Cloud instance
 
@@ -109,7 +109,7 @@ To get an Azure Spring Cloud Config Server running:
 
 1. On the left menu, select **Config Server**.
 
-   ![](/media/image8.png)
+   ![Screenshot showing the Azure Spring Cloud page with Config Server selected.](./media/migrate-to-azure-spring-cloud/azure-spring-cloud-config-server.png)
 
 1. Add a default repository with the following details:
 
@@ -132,7 +132,7 @@ To get an Azure Spring Cloud Config Server running:
 1. Select **Validate**. Once the settings are validated, select
     **Apply**.
 
-   ![](/media/image9.png)
+   ![Screenshot showing the default repository URI.](./media/migrate-to-azure-spring-cloud/default-repository-uri.png)
 
 Your service settings can now live in the **application.properties** or **application.yml** file in the Config Server repo.
 
@@ -172,7 +172,7 @@ Once the app is created, we can add a service binding for the app to talk direct
 
 1. From the left menu, select **Service bindings.** Then, select **Create service binding.**
 
-   ![](/media/imagea.png)
+   ![Screenshot showing the pet-supplies-app app with Service bindings and Create service binding selected.](./media/migrate-to-azure-spring-cloud/select-create-service-binding.png)
 
 1. In the **Create service binding dialog**, set the following
 settings:
@@ -191,15 +191,15 @@ settings:
 
    - **Key:** Select the **Primary master key**.
 
-   ![](/media/imageb.png)
+   ![Screenshot showing the Create service binding page.](./media/migrate-to-azure-spring-cloud/create-service-binding-page-settings.png)
 
 1. Once all settings are set, select **Create**.
 
-1. Once the service binding is created, select the **pet-supplies-api** from the Binding Name column. 
+1. Once the service binding is created, select the **pet-supplies-api** from the Binding Name column.
 
    This opens the **View service binding** dialog. Notice that the **Property** section has the settings needed for connecting to Azure Cosmos DB. We will use this rather than storing the connection information in Azure Key Vault.
 
-   ![](/media/imaged.png)
+   ![Screenshot showing the View service binding page with the Property section highlighted.](./media/migrate-to-azure-spring-cloud/view-service-binding-page.png)
 
 ### Set up logging (optional)
 
@@ -216,7 +216,7 @@ logging.
 
 1. From the left menu, select **Diagnostic settings**. Then, select **Add diagnostic setting.**
 
-   ![](/media/image.png)
+   ![Screenshot showing the Diagnostic settings page of the Azure Spring Cloud instance with Add diagnostic setting selected.](./media/migrate-to-azure-spring-cloud/select-add-diagnostic-setting.png)
 
 1. Set the following settings:
 

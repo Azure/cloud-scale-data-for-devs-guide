@@ -12,25 +12,25 @@ sequence: 9
 
 # Azure Cosmos DB Trigger for Azure Functions in Java
 
-Previously, we used the change feed processor with reactive programming to monitor the change feed. We can also do this by using an *Azure Cosmos DB Trigger* for *Azure Functions*.
+We used the change feed processor with reactive programming to monitor the change feed, in the Previous unit. We can also monitor the change feed by using an *Azure Cosmos DB Trigger* for *Azure Functions*.
 
-In the upcoming code sample, we use an *Azure Function App* to listen to the change feed. We then pass the changes along to an event store.
+In the upcoming code sample, we use an *Azure Function App* to listen to the change feed. We then pass changes along to an event store.
 
-## Setting up the Azure Function App
+## Set up the Azure Function App
 
 To use Azure Functions, we need to create a storage account. When you create a storage account, you need to make sure you stay within the following guidelines:
 
 - Storage account names must be between 3 and 24 characters in length.
 
-- Use numbers and lower-case letters only.
+- Use numbers and lowercase letters only.
 
-Use the following command as a guide:
+You can use the following command as a guide:
 
 ```azurecli
 az storage account create --name petsuppliesstorage -g pet-supplies-demo-rg --location eastus --sku Standard_LRS
 ```
 
-Store the Azure Storage connection string in this environment variable, as we may need it later:
+Store your Azure Storage connection string in this environment variable, as we may need it later:
 
 ```azurecli
 AZURE_WEBJOBS_STORAGE=$(az storage account show-connection-string --name petsuppliesstorage -g pet-supplies-demo-rg --query "connectionString" -o tsv)
@@ -60,7 +60,7 @@ Use the following settings:
 
 - package: com.function
 
-When prompted, input *N* to trigger the advanced options prompts. The additional settings include:
+When prompted, input `N` to trigger the advanced options prompts. The additional settings include:
 
 - appName: cosmosChangeFeedProcessorFunction
 
@@ -114,7 +114,7 @@ We'll use [the Maven Plugin for Azure Functions](https://github.com/microsoft/az
 
 We'll store our connection information in app settings variables on our Azure App Service resource.
 
-In the `pom.xml` file, in the section for the Azure Functions Maven plugin, add the following properties to the \<appSettings> section:
+In the `pom.xml` file, in the section for the Azure Functions Maven plugin, add the following properties to the **appSettings** section:
 
 ```xml
 <property>
@@ -128,7 +128,7 @@ In the `pom.xml` file, in the section for the Azure Functions Maven plugin, add 
 ```
 
 > [!NOTE]
-> The \@CosmosDBTrigger annotation's `connectionStringSetting` property will look for the `AzureCosmosDBConnectionString` application setting.
+> The `@CosmosDBTrigger` annotation's connectionStringSetting property will look for the `AzureCosmosDBConnectionString` application setting.
 
 To deploy the code to Azure, run:
 
@@ -136,7 +136,7 @@ To deploy the code to Azure, run:
 mvn azure-functions:deploy
 ```
 
-This plugin will create:
+This plugin will create the following:
 
 - App Service plan
 
@@ -156,10 +156,10 @@ You can also see these values in the Azure portal:
 
 ![Screenshot showing the Configuration page of the Azure Function App.](./media/change-feed-with-cosmos-db-trigger-function/function-app-configuration.png)
 
-If you make changes to your Contoso Pet Supplies data, it should trigger your Azure Function to pick up those changes. There's some lag time between the action and it appearing in the logs.
+If you make changes to your Contoso Pet Supplies data, it should trigger your Azure Function to pick up those changes. There's some lag time between the action and when it appears in the logs.
 
-In Azure portal, navigate to the function on the Function App resource. Select **Monitor**. You should see the function app invoked for your changes. If you select the timestamp, a panel with invocation details will appear.
+In Azure portal, navigate to the function on the Function App resource. Select **Monitor**. You should see the function app invoked for your changes. If you select timestamp, a panel with invocation details will appear.
 
-![Screenshot showing the Monitor page of the Azure Function App.](./media\change-feed-with-cosmos-db-trigger-function/function-app-monitor.png)
+![Screenshot showing the Monitor page on Azure Function App.](./media\change-feed-with-cosmos-db-trigger-function/function-app-monitor.png)
 
-[Next &#124; Event Sourcing](event-sourcing.md){: .btn .btn-primary .btn-lg }
+[Next &#124; Event sourcing](event-sourcing.md){: .btn .btn-primary .btn-lg }
