@@ -16,7 +16,7 @@ Another approach to monitoring the change feed is using an Azure Cosmos DB Trigg
 
 In our code sample, we use an Azure Function App to listen to the change feed and pass the changes along to an event store.
 
-## Setting up the Azure Function App
+## Set up the Azure Function App
 
 In order to use Azure Functions, we need to create a storage account. When you create a storage account, you need to make sure you stay within the following guidelines:
 
@@ -86,7 +86,7 @@ The Maven archetype will generate boilerplate scaffolding. In Function.java, pop
 > [!NOTE]
 > "AzureCosmosDBConnectionString" is the connection string setting value. You can store the connection string in **local.settings.json**.
 
-Update the \@FunctionName annotation to have a more meaningful name such as CosmosDBChangeFeedMonitor.
+Update the @FunctionName annotation to have a more meaningful name such as CosmosDBChangeFeedMonitor.
 
 The archetype also created a file called **local.settings.json** at the same level as the **host.json** file. Update **local.settings.json** with the following settings:
 
@@ -128,7 +128,7 @@ In the **pom.xml** file, in the section for the Azure Functions Maven plugin, ad
 ```
 
 > [!NOTE]
-> The \@CosmosDBTrigger annotation's `connectionStringSetting` property will look for the `AzureCosmosDBConnectionString` application setting.
+> The @CosmosDBTrigger annotation's connectionStringSetting property will look for the AzureCosmosDBConnectionString application setting.
 
 To deploy the code to Azure, run:
 
@@ -162,4 +162,4 @@ In the Azure portal, navigate to the function itself on the Function App resourc
 
 ![Screenshot showing the Monitor page of the Azure Function App.](./media\change-feed-with-cosmos-db-trigger-function/function-app-monitor.png)
 
-[Next &#124; Event Sourcing](event-sourcing.md){: .btn .btn-primary .btn-lg }
+[Next &#124; Event sourcing](event-sourcing.md){: .btn .btn-primary .btn-lg }

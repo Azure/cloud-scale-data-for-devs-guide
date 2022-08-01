@@ -28,7 +28,7 @@ The Manual setting for scaling your containers gives you the control to set your
 
 ![Screenshot showing the manual scale settings.](./media/scaling-in-cosmos-db/manual-scale-settings.png)
 
-Autoscale works better in cases where your traffic ebbs and flows. If you choose to configure your container to use the Autoscale setting, you need to specify the maximum number of RU/s required by the resource. Your Azure Cosmos DB container will scale from 10% of max RU/s to the max RU s.
+Autoscale works better in cases where your traffic ebbs and flows. If you choose to configure your container to use the Autoscale setting, you need to specify the maximum number of RU/s required by the resource. Your Azure Cosmos DB container will scale from 10% of max RU/s to the max RU/s.
 
 ## Learn more
 
@@ -36,4 +36,4 @@ Autoscale works better in cases where your traffic ebbs and flows. If you choose
 
 - [How to choose between manual and autoscale on Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-choose-offer)
 
-[Next &#124; The Bulk Executor](bulk-executor.md){: .btn .btn-primary .btn-lg }
+[Next &#124; Bulk executor](bulk-executor.md){: .btn .btn-primary .btn-lg }

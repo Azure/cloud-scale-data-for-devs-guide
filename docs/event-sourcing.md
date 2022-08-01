@@ -48,7 +48,7 @@ AZURE_EVENT_HUB_CONNECTION=$(az eventhubs eventhub authorization-rule keys list 
 
 ## Update the code
 
-We need to update our function to take on the \@EventHubOutput annotation. We've also updated the return type and are returning the array of objects coming from the change feed. The updated class in **Function.java** should look like this:
+We need to update our function to take on the @EventHubOutput annotation. We've also updated the return type and are returning the array of objects coming from the change feed. The updated class in **Function.java** should look like this:
 
 ```java
 public class Function {
@@ -107,7 +107,7 @@ Update the **pom.xml** file to include this new environment variable:
 ```
 
 > [!NOTE]
-> The \@EventHubOutput annotation's connection property will look for the AzureEventHubConnection application setting.
+> The @EventHubOutput annotation's connection property will look for the AzureEventHubConnection application setting.
 
 ## Deploy the Azure Function
 
