@@ -30,7 +30,7 @@ When you deploy your sample application to Azure Spring Cloud, you can divide it
 
 - Azure Spring Cloud configuration server linked to a Git repository
 
-![Diagram showing the parts of an application to be deployed to Azure Spring Cloud.](./media/migrate-to-azure-spring-cloud/azure-spring-cloud-deployment.png)
+![Diagram showing the parts of an application to be deployed to Azure Spring Cloud.](media/migrate-to-azure-spring-cloud/azure-spring-cloud-deployment.png)
 
 ## Create an Azure Spring Cloud instance
 
@@ -110,7 +110,7 @@ To run an Azure Spring Cloud configuration server:
 
 1. On the left menu, select **Config Server**.
 
-   ![Screenshot showing the Azure Spring Cloud page with Config Server selected.](./media/migrate-to-azure-spring-cloud/azure-spring-cloud-config-server.png)
+   ![Screenshot showing the Azure Spring Cloud page with Config Server selected.](media/migrate-to-azure-spring-cloud/azure-spring-cloud-config-server.png)
 
 1. Add a default repository with the following details:
 
@@ -130,7 +130,7 @@ To run an Azure Spring Cloud configuration server:
 
 1. Select **Validate**. After the settings are validated, select **Apply**.
 
-   ![Screenshot showing the default repository URI.](./media/migrate-to-azure-spring-cloud/default-repository-uri.png)
+   ![Screenshot showing the default repository URI.](media/migrate-to-azure-spring-cloud/default-repository-uri.png)
 
    Your service settings are now stored in the **application.properties** or **application.yml** file in the Azure Spring Cloud configuration server repository.
 
@@ -170,7 +170,7 @@ After you create the app, add a service binding for the app to talk directly wit
 
 1. From the left menu, select **Service bindings**. Then, select **Create service binding**.
 
-   ![Screenshot showing the pet-supplies-app app with Service bindings and Create service binding selected.](./media/migrate-to-azure-spring-cloud/select-create-service-binding.png)
+   ![Screenshot showing the pet-supplies-app app with Service bindings and Create service binding selected.](media/migrate-to-azure-spring-cloud/select-create-service-binding.png)
 
 1. In the **Create service binding dialog**, configure the following settings:
 
@@ -188,7 +188,7 @@ After you create the app, add a service binding for the app to talk directly wit
 
    - **Key**: Select the **Primary master key**.
 
-   ![Screenshot showing the settings on the Create service binding page.](./media/migrate-to-azure-spring-cloud/create-service-binding-page-settings.png)
+   ![Screenshot showing the settings on the Create service binding page.](media/migrate-to-azure-spring-cloud/create-service-binding-page-settings.png)
 
 1. After you've finished configuring the settings, select **Create**.
 
@@ -196,7 +196,7 @@ After you create the app, add a service binding for the app to talk directly wit
 
    The **View service binding** dialog appears. Notice that the **Property** section has the settings needed for connecting to Azure Cosmos DB. Use these settings rather than storing the connection information in Azure Key Vault.
 
-   ![Screenshot showing the View service binding page with the Property section highlighted.](./media/migrate-to-azure-spring-cloud/view-service-binding-page.png)
+   ![Screenshot showing the View service binding page with the Property section highlighted.](media/migrate-to-azure-spring-cloud/view-service-binding-page.png)
 
 ### Set up logging (optional)
 
@@ -216,7 +216,7 @@ To set up diagnostic logging, follow these steps:
 
 1. From the left menu, select **Diagnostic settings**. Then, select **Add diagnostic setting**.
 
-   ![Screenshot showing the Diagnostic settings page of the Azure Spring Cloud instance with Add diagnostic setting selected.](./media/migrate-to-azure-spring-cloud/select-add-diagnostic-setting.png)
+   ![Screenshot showing the Diagnostic settings page of the Azure Spring Cloud instance with Add diagnostic setting selected.](media/migrate-to-azure-spring-cloud/select-add-diagnostic-setting.png)
 
 1. Configure the following settings:
 

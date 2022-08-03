@@ -18,7 +18,7 @@ For our code demo, we're building on top of the Cosmos DB Trigger for Azure Func
 
 Our end goal for this part is to have our function triggered by the Azure Cosmos DB change feed. It will send its outputs to Azure Event Hubs.
 
-![Diagram showing the Azure Cosmos DB trigger.](./media/event-sourcing/cosmos-db-trigger.png)
+![Diagram showing the Azure Cosmos DB trigger.](media/event-sourcing/cosmos-db-trigger.png)
 
 ## Create Azure Event Hubs resources
 
@@ -48,7 +48,7 @@ AZURE_EVENT_HUB_CONNECTION=$(az eventhubs eventhub authorization-rule keys list 
 
 ## Update the code
 
-We need to update our function to take on the @EventHubOutput annotation. We've also updated the return type and are returning the array of objects coming from the change feed. The updated class in **Function.java** should look like this:
+We need to update our function to take on the `@EventHubOutput` annotation. We've also updated the return type and are returning the array of objects coming from the change feed. The updated class in **Function.java** should look like this:
 
 ```java
 public class Function {
@@ -106,8 +106,7 @@ Update the **pom.xml** file to include this new environment variable:
 </property>
 ```
 
-> [!NOTE]
-> The @EventHubOutput annotation's connection property will look for the AzureEventHubConnection application setting.
+> The `@EventHubOutput` annotation's connection property will look for the AzureEventHubConnection application setting.
 
 ## Deploy the Azure Function
 
@@ -120,12 +119,12 @@ mvn azure-functions:deploy
 
 When this is deployed, you should see a new environment variable:
 
-![Screenshot showing the Function App Configuration page.](./media/event-sourcing/function-app-configuration.png)
+![Screenshot showing the Function App Configuration page.](media/event-sourcing/function-app-configuration.png)
 
 Make some changes to your Contoso Pet Supplies data to trigger the change feed.
 
 Wait about 10 minutes, then check the Azure Event Hubs for events in the log, ready to be consumed by its subscribers.
 
-![Screenshot showing the Event Hubs Instance Overview page.](./media/event-sourcing/event-hubs-instance-overview.png)
+![Screenshot showing the Event Hubs Instance Overview page.](media/event-sourcing/event-hubs-instance-overview.png)
 
 [Next &#124; Sending Notifications with Azure Logic Apps](send-notifications-with-azure-logic-apps.md){: .btn .btn-primary .btn-lg }

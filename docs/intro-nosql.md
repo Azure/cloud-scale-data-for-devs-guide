@@ -63,7 +63,7 @@ These characteristics lend themselves to these benefits for NoSQL:
 
 We'll demonstrate these benefits in our Contoso pet supplies application.
 
-If you're coming from a relational background and still aren’t sure how NoSQL differs, see [Understanding the differences between NoSQL and relational databases](../../relational-nosql.md).
+If you're coming from a relational background and still aren’t sure how NoSQL differs, see [Understanding the differences between NoSQL and relational databases](https://docs.microsoft.com/azure/cosmos-db/relational-nosql).
 
 ## NoSQL options
 

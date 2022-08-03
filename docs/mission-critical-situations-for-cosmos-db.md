@@ -34,9 +34,8 @@ The continuous backups are stored in locally redundant storage blobs by default.
 
 These settings are configurable in the Azure portal, under the **Backup & Restore** setting for your Azure Cosmos DB account.
 
-![Screenshot showing a Azure Cosmos DB account with Backup and Restore selected.](./media/mission-critical-situations-for-cosmos-db/backup-and-restore-settings.png)
+![Screenshot showing a Azure Cosmos DB account with Backup and Restore selected.](media/mission-critical-situations-for-cosmos-db/backup-and-restore-settings.png)
 
-> [!NOTE]
 > Restoring always restores into a new account.
 
 Learn more about how to work with continuous backup and restoring in this article on [Continuous backup with point in time restore feature in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/continuous-backup-restore-introduction).
@@ -45,7 +44,7 @@ Learn more about how to work with continuous backup and restoring in this articl
 
 Your Azure Cosmos DB is publicly accessible by default if the request comes in with a valid authorization token. However, you can configure your Azure Cosmos DB account to be more secure.
 
-![Screenshot showing a Azure Cosmos DB account with Firewall and virtual networks selected.](./media/mission-critical-situations-for-cosmos-db/firewall-and-virtual-network-settings.png)
+![Screenshot showing a Azure Cosmos DB account with Firewall and virtual networks selected.](media/mission-critical-situations-for-cosmos-db/firewall-and-virtual-network-settings.png)
 
 Looking at the resource in the Azure portal, there are a couple sections under Settings to know about for securing your Azure Cosmos DB account:
 

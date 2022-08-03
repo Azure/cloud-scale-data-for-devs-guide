@@ -70,7 +70,6 @@ When prompted, input *N* so that you can trigger the advanced options prompts. T
 
 - trigger: CosmosDBTrigger
 
-> [!NOTE]
 > Java 11 functionality in Azure Functions is in preview at the time of this writing, so we're using Java 8 for this particular section.
 
 The Maven archetype will generate boilerplate scaffolding. In Function.java, populate the following values:
@@ -83,10 +82,9 @@ The Maven archetype will generate boilerplate scaffolding. In Function.java, pop
 
 - connectionStringSetting: "AzureCosmosDBConnectionString"
 
-> [!NOTE]
 > "AzureCosmosDBConnectionString" is the connection string setting value. You can store the connection string in **local.settings.json**.
 
-Update the @FunctionName annotation to have a more meaningful name such as CosmosDBChangeFeedMonitor.
+Update the `@FunctionName` annotation to have a more meaningful name such as CosmosDBChangeFeedMonitor.
 
 The archetype also created a file called **local.settings.json** at the same level as the **host.json** file. Update **local.settings.json** with the following settings:
 
@@ -127,8 +125,7 @@ In the **pom.xml** file, in the section for the Azure Functions Maven plugin, ad
 </property>
 ```
 
-> [!NOTE]
-> The @CosmosDBTrigger annotation's connectionStringSetting property will look for the AzureCosmosDBConnectionString application setting.
+> The `@CosmosDBTrigger` annotation's connectionStringSetting property will look for the AzureCosmosDBConnectionString application setting.
 
 To deploy the code to Azure, run:
 
@@ -154,12 +151,12 @@ az functionapp config appsettings list -g pet-supplies-demo-rg --name cosmosChan
 
 You can also see these values in the Azure portal:
 
-![Screenshot showing the Configuration page of the Azure Function App.](./media/change-feed-with-cosmos-db-trigger-function/function-app-configuration.png)
+![Screenshot showing the Configuration page of the Azure Function App.](media/change-feed-with-cosmos-db-trigger-function/function-app-configuration.png)
 
 If you make changes to your Contoso Pet Supplies data, your Azure Function should be triggered to pick up those changes. There's some lag time between the action happening and it appearing in the logs.
 
 In the Azure portal, navigate to the function itself on the Function App resource. Select **Monitor**. You should see the function app invoked for your changes. If you select the timestamp, a panel with invocation details will appear.
 
-![Screenshot showing the Monitor page of the Azure Function App.](./media\change-feed-with-cosmos-db-trigger-function/function-app-monitor.png)
+![Screenshot showing the Monitor page of the Azure Function App.](media/change-feed-with-cosmos-db-trigger-function/function-app-monitor.png)
 
 [Next &#124; Event sourcing](event-sourcing.md){: .btn .btn-primary .btn-lg }
