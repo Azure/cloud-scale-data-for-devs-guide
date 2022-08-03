@@ -20,7 +20,7 @@ When you create an Azure Cosmos DB account, it contains a set of keys for Read-W
 
 * Store the keys in environment variables. Environment variables make it easy to store the values in a place without checking them in to source control. When it comes to deploying the solution into Azure, Azure App Service, Azure Functions, and Azure Spring Cloud support environment variables as well.
 
-* Another option for storing secure values is in Azure Key Vault. For more information on working with Java and Azure Key Vault, check out our [Hello World code sample with Java and Azure Key Vault](https://github.com/solliancenet/cosmos-db-java-quickstart/blob/main/03_SecurityConcepts/03_Hello_World_with_Java_Key_Vault.md).
+* Another option for storing secure values is in Azure Key Vault. For more information on working with Java and Azure Key Vault, check out our [Hello World code sample with Java and Azure Key Vault](get-started-with-java-and-key-vault.md).
 
 ## Role-based access control
 

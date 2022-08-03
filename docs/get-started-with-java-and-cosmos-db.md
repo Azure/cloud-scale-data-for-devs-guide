@@ -19,7 +19,7 @@ In this guide, we work with a *Spring Boot* application that uses *Azure Cosmos 
 - An Azure subscription or free Azure Cosmos DB trial account
   - If you don't have an [Azure subscription](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-  - For this example, we'll create an [Azure Cosmos DB free tier account](https://docs.microsoft.com/azure/cosmos-db/optimize-dev-test#azure-cosmos-db-free-tier). This account comes with 5 GB of free storage and also includes the first 400 RU/s for free.
+  - For this example, we'll create an [Azure Cosmos DB free tier account](https://docs.microsoft.com/azure/cosmos-db/optimize-dev-test#azure-cosmos-db-free-tier). This account comes with 25 GB of free storage and also includes the first 1,000 RU/s for free.
 
 - Azure CLI
   - Azure CLI can be used with Windows, macOS, Linux, Docker, and in Azure Cloud Shell. For installation guidance, refer to [How to Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
