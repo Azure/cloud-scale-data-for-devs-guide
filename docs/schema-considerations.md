@@ -65,8 +65,8 @@ By setting "/documentType" as our partition key, we have a key that could work w
 
 ## Additional References
 
-- [Partition Strategy &vert; Azure Cosmos DB Essentials Season 2 (YouTube)](https://www.youtube.com/watch?v=QLgK8yhKd5U)
+- [Partition Strategy - Azure Cosmos DB Essentials Season 2 (YouTube)](https://www.youtube.com/watch?v=QLgK8yhKd5U)
 
-- [Schema Design Strategy &vert; Azure Cosmos DB Essentials Season 2 (YouTube)](https://www.youtube.com/watch?v=bKDaL-GRSAM)
+- [Schema Design Strategy - Azure Cosmos DB Essentials Season 2 (YouTube)](https://www.youtube.com/watch?v=bKDaL-GRSAM)
 
 [Next &#124; Azure Cosmos DB for mission critical situations](mission-critical-situations-for-cosmos-db.md){: .btn .btn-primary .btn-lg }
