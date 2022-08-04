@@ -1,6 +1,6 @@
 ---
 title: CRUD Operations with Azure Cosmos DB
-description: Learn about CRUD Operations with Azure Cosmos DB.
+description: Learn about CRUD Operations at an introductory level in Azure Cosmos database and how to implement them.
 ms.service: cosmos-db
 ms.topic: reference
 ms.date: 08/19/2022
@@ -12,11 +12,11 @@ sequence: 7
 
 # CRUD Operations with Azure Cosmos DB
 
-Creating, reading, updating, and deleting records in Azure *Cosmos DB* requires little code. The *Spring Data* for the Azure Cosmos DB Core (SQL) API artifact supports Spring Data's `CrudRepository` and `ReactiveCrudRepository` interfaces. It also includes `CosmosRepository` and `ReactiveCosmosRepository`.
+To create, read, update, and delete records in Azure *Cosmos DB* a small amount of code is required. *Spring Data* for the Cosmos DB Core (SQL) API artifact supports the `CrudRepository` and `ReactiveCrudRepository` interfaces. It also includes `CosmosRepository` and `ReactiveCosmosRepository`.
 
-For this application, we're using `ReactiveCosmosRepository`.
+For this application, we use `ReactiveCosmosRepository`.
 
-The code is structured using:
+The code is structured using the following:
 
 - Controllers serving as API endpoints
 
@@ -49,7 +49,7 @@ ReactiveCosmosRepository<Thing, String> {
 }
 ```
 
-Repositories in Spring Data for Cosmos DB Core (SQL) API artifact support more operations that we didn't use in the sample code:
+Repositories in Spring Data for Cosmos DB Core (SQL) API artifact support more operations than we use in the sample code:
 
 - Delete entity
 
@@ -57,25 +57,25 @@ Repositories in Spring Data for Cosmos DB Core (SQL) API artifact support more o
 
 ## Implementing CRUD operations
 
-Most CRUD interface functions use default implementations. However, our wish list object is complex, so we've added a few more functions to help us out:
+Most Spring Data interface functions use default implementations. However, our wish list object is complex, so we add a few more functions:
 
 - `findByCustomerId`
 
 - `findByProductId`
 
-`findByCustomerId` is annotated with a query to filter on the customer ID. `findByProductId` will search for all wish lists that have a particular product ID in their array of product IDs. These are annotated with the @Query annotation to use a custom Cosmos DB SQL query. As a wish list is tied to one customer, the query for `findByCustomerId` uses the = operator. A wish list can contain many products, so the query for `findByProductId` uses the `ARRAY_CONTAINS()` function to check the array of product IDs that are tied to a wish list.
+`findByCustomerId` is annotated with a query to filter by customer ID. `findByProductId` will search through all wish list arrays for a particular product ID. These are annotated with the `@Query` annotation to use a custom Cosmos DB SQL query. Wish lists are tied to a single customer, so the query for `findByCustomerId` uses the = operator. A wish list can contain many products, so the query for `findByProductId` uses the `ARRAY_CONTAINS()` function. This checks the array of product IDs that are tied to a wish list.
 
-If you need to customize queries or add additional queries, you can use @Query annotation and Cosmos DB's SQL syntax to create the query.
+If you need to customize queries or add additional queries, you can use `@Query` annotation and Cosmos DB's SQL syntax to create queries.
 
 ## Partial document updates
 
-If you're making a small change to an object, you don't necessarily have to do a full document update. Cosmos DB supports partial document updates, by using PATCH updates. We've implemented an endpoint in our Products API to update product prices as partial updates.
+To make a small change to an object, you don't necessarily have to do a full document update. Cosmos DB supports partial document updates, by using PATCH updates. We implemented an endpoint in our Products API to update product prices as partial updates.
 
-Some things to note to make this happen:
+There are things to note about partial document updates:
 
-- We need to suppress attempts to bind queries to the method. So we've assigned a Query annotation over the method in the repository.
+- We need to suppress attempts to bind queries to the method. So we assign a Query annotation over the method in the repository.
 
-- Partial document updates are in the Cosmos DB Java SDK v4, not the Spring Data for the Cosmos DB Core (SQL) API artifact.
+- Partial document updates are in Cosmos DB Java SDK v4, not Spring Data for the Cosmos DB Core (SQL) API artifact.
 
 ## Learn more
 

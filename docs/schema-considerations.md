@@ -1,6 +1,6 @@
 ---
-title: Schema design considerations
-description: Learn about schema design considerations.
+title: Schema design considerations for Azure Cosmos DB and schema-less JSON objects
+description: Learn how to work with schema-less JSON objects in Azure Cosmos database and about schema design considerations.
 ms.service: cosmos-db
 ms.topic: reference
 ms.date: 08/19/2022
@@ -10,11 +10,11 @@ ms.reviewer: mjbrown
 sequence: 14
 ---
 
-# Schema design considerations
+# Schema design considerations for Azure Cosmos database
 
-Azure Cosmos DB stores data as schema-less JSON objects. Any schema intended would have to be managed or enforced by outside applications.
+Azure Cosmos DB stores data as schema-less JSON objects. The schema you intend to use needs to be managed or enforced by outside applications.
 
-Now that said, there are decisions in your database design that need to be made before you create your Azure Cosmos DB database. These are the things that you need to think about when it comes to your JSON objects:
+There are decisions in your Cosmos DB design that need to be made before you create the database. You need to consider the following when creating JSON objects:
 
 - Data modeling
 
@@ -22,51 +22,51 @@ Now that said, there are decisions in your database design that need to be made 
 
 ## Data modeling
 
-Before storing the data, make sure you have objects stored in a way that makes sense.
+Before you store data, make sure your objects are stored in a logical way.
 
-In a nonrelational database, data is stored denormalized, optimized for querying and writes.
+In nonrelational databases, data is stored denormalized. They are optimized for queries and writes.
 
 Consider the Contoso Pet Supplies models in a relational entity relationship diagram:
 
-![Diagram showing the Contoso Pet Supplies relational database model.](./media/schema-considerations/contoso-pet-supplies-relational-database-model.png)
+![Diagram that shows the Contoso Pet Supplies relational database model.](./media/schema-considerations/contoso-pet-supplies-relational-database-model.png)
 
-Notice that tables are broken out by entities, and bridge tables are present to establish relationships between entities.
+Notice that tables are organized by entities, and bridge tables establish the relationships between entities.
 
-When breaking this into documents for Azure Cosmos DB, we need to consider some things:
+When we break this into documents for Cosmos DB, we need to consider the following:
 
-- How is this data being accessed?
+- How is this data accessed?
 
-- Are columns being called together frequently in queries?
+- Are columns called together frequently in queries?
 
-- Are columns being called together frequently in queries via JOINs? Keep in mind that the relational concept of JOINs does not translate to the JOIN in Azure Cosmos DB.
+- Are columns called together frequently in queries via JOINs? Keep in mind that the relational concept of JOINs does not translate to the JOIN in Cosmos DB.
 
-- Are columns being updated together?
+- Are columns updated together?
 
-Sometimes, entities translate 1-to-1 in relational to nonrelational. Sometimes, you'll find that it makes more sense to embed entities -- such as embedding the manufacturer within a product, especially if we are not using the manufacturer by itself and only use it when we're working with products. In cases where you need to use JOINs in relational queries, you may need to denormalize the data, such as passing along a customer email for wishlist notifications as updates to the wishlist need to go to the customer.
+Sometimes entities translate 1-to-1 in relational to nonrelational. At other times you'll find that it makes more sense to embed entities. This can occur when you embed the manufacturer within a product. For example, if we don't use the manufacturer alone but use it only when we work with products. When you need to use JOINs in relational queries, you may need to denormalize the data. For example when you pass customer emails for wishlist notifications. That's because wishlist updates need to go to the customer.
 
-This article gives guidance on [Modeling data in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql/modeling-data).
+This article gives guidance on [Modeling data in Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql/modeling-data).
 
 ## Partition key decisions
 
-The partition key is used to store objects of the same value of the partition key property together. For example, if we wanted to categorize our products, we could store them in a separate container and partition them by category. This would store products of the same category together in a logical partition. When determining what to use for the partition key, keep this guidance in mind:
+The partition key stores objects of the same value together in the partition key. For example, if we want to categorize our products, we could store them in a separate container and partition them by category. This would store products of the same category together in a logical partition. When determining what to use for the partition key, keep this guidance in mind:
 
-- For read-heavy containers, use a field that is optimized for frequently run queries.
+- For read-heavy containers, use a field that is optimized for frequently-run queries.
 - For write-heavy containers, use a field with diverse data that balances the load.
 
-When looking at the models in the Contoso Pet Supplies project, we created a property called documentType to use as our partition key. We got to that decision based on a couple exercises:
+When looking at models in the Contoso Pet Supplies project, we create a property called `documentType` to use as the partition key. A couple of exercises bring us to that decision:
 
-- We first looked at our data to see what details were being stored in our objects. If they all had to live in one container, what would the queries look like? There would be a lot of queries filtered by the object's type.
+- We first look at our data to see what details are stored in our objects. If they all have to live in one container, what would the queries look like? There would be many queries filtered by object type.
 
-- We then looked at what our data looked like for being loaded in the database. The object's type would be diverse enough to balance the load across partitions where each value will have a similar load and no single value would take on a heavy load.
+- We then view our data for how it loads in the database. The object type needs to be diverse enough to balance the load across partitions. It needs to ensure each value has a similar load and that no single value takes on a heavy load.
 
-By setting "/documentType" as our partition key, we have a key that could work well for our environment.
+By setting `documentType` as our partition key, we have a key that works well for our environment.
 
 ![Diagram showing the Contoso Pet Supplies partitions.](./media/schema-considerations/contoso-pet-supplies-partitions.png)
 
 ## Additional References
 
-- [Partition Strategy | Azure Cosmos DB Essentials Season 2 (YouTube)](https://www.youtube.com/watch?v=QLgK8yhKd5U)
+- [Partition Strategy | Cosmos DB Essentials Season 2 (YouTube)](https://www.youtube.com/watch?v=QLgK8yhKd5U)
 
-- [Schema Design Strategy | Azure Cosmos DB Essentials Season 2 (YouTube)](https://www.youtube.com/watch?v=bKDaL-GRSAM)
+- [Schema Design Strategy | Cosmos DB Essentials Season 2 (YouTube)](https://www.youtube.com/watch?v=bKDaL-GRSAM)
 
-[Next &#124; Azure Cosmos DB for mission critical situations](mission-critical-situations-for-cosmos-db.md){: .btn .btn-primary .btn-lg }
+[Next &#124; Cosmos DB for mission critical situations](mission-critical-situations-for-cosmos-db.md){: .btn .btn-primary .btn-lg }
