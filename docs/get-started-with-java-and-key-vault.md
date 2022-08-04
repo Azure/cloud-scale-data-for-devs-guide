@@ -1,6 +1,6 @@
 ---
 title: Get started with Java and Azure Key Vault
-description: Get started using Java and Azure Key Vault. 
+description: Learn how to get started using Java with Azure Key Vault, and work through configuration and code examples. 
 ms.service: cosmos-db
 ms.topic: reference
 ms.date: 08/19/2022
@@ -12,7 +12,7 @@ sequence: 4
 
 # Get started with Java and Azure Key Vault
 
-When you work with Azure resources from within Azure, you can use managed identities to give resources correct access. System-assigned managed identities are preferable because they live with their associated resource and are deleted when the resource is deleted. In the following example, we create a *Spring Boot* application that can read a value from *Azure Key Vault*.
+When you work with Azure resources from within Azure, you can use managed identities to give resources correct access. System-assigned managed identities are preferable because they live with their associated resources and they are deleted when the resource is deleted. In the following example, we create a *Spring Boot* application that can read a value from *Azure Key Vault*.
 
 > [!NOTE]
 > We use suffixes on many resource names for clarity on what they represent.
@@ -31,7 +31,7 @@ When you work with Azure resources from within Azure, you can use managed identi
 
 We create a resource group to store all of the resources in this example. Throughout this example, we use the name **java-keyvault-demo-rg**.
 
-1. Log into Azure via the CLI with the following command:
+1. Sign in to Azure via the CLI with the following command:
 
    ```azurecli
    az login
@@ -45,9 +45,9 @@ We create a resource group to store all of the resources in this example. Throug
 
 ## Create a key vault
 
-Throughout this guide, we store connection strings and other application secrets in Azure Key Vault. The upcoming example shows you how to work with Azure Key Vault in Java. We use the name **java-keyvault-demo-kv**.
+Throughout this guide, we store connection strings and other application secrets in Azure Key Vault. The upcoming code examples show you how to work with Azure Key Vault in Java. We use the name **java-keyvault-demo-kv**.
 
-1. To create a key vault, you need your resource name and your resource group name. Your key vault can be created with:
+1. To create a key vault, you need your resource name and your resource group name. Your key vault can be created with the following command:
 
    ```azurecli
    az keyvault create  --name java-keyvault-demo-kv -g java-keyvault-demo-rg
@@ -60,11 +60,11 @@ Throughout this guide, we store connection strings and other application secrets
    ```
 
 > [!NOTE]
-> Azure key vault names are globally unique. If you input a name that's already in use, you get a VaultAlreadyExists error.
+> Azure key vault names are globally unique. If you input a name that's already in use, you get a **VaultAlreadyExists** error.
 
 At this point, you should have a key vault with a key available to be fetched.
 
-## Confirm vault setup in Azure portal
+## Confirm vault set up in Azure portal
 
 You can see the Azure Key Vault resource and its stored values from within Azure portal.
 
@@ -104,7 +104,7 @@ Now that we have a value to retrieve, let's create a Java Spring Boot applicatio
 
 Visual Studio Code has tools that work with Java. The Spring Initializr Java Support extension creates Spring Boot starters like [https://start.spring.io](https://start.spring.io/) without having to leave the editor and without having to extract an archive file. We create a *Spring Web* application with a plan to eventually migrate it to an Azure web hosting resource.
 
-1. Open the command palette in Visual Studio Code. Search for Spring Initializr. Select **Spring Initializr: Create a Maven Project ...**.
+1. Open the command palette in Visual Studio Code. Search for *Spring Initializr*. Select **Spring Initializr: Create a Maven Project ...**.
 
 1. For the Spring Boot version, select **2.5.8**. We use the most recent stable version below 2.6. We use this version throughout this guide because many Azure dependencies require versions greater than or equal to the 2.2.11.RELEASE, and less than 2.6.0-ML.
 
@@ -112,9 +112,9 @@ Visual Studio Code has tools that work with Java. The Spring Initializr Java Sup
 
 1. For Project language, select **Java**.
 
-1. For Group ID, enter com.example. Select **Enter**.
+1. For Group ID, enter *com.example*. Select **Enter**.
 
-1. For Artifact ID, enter demo. Select **Enter**.
+1. For Artifact ID, enter *demo*. Select **Enter**.
 
 1. For packaging type, select **Jar**.
 
@@ -130,7 +130,7 @@ Visual Studio Code has tools that work with Java. The Spring Initializr Java Sup
 
 Once we have the Spring Boot-generated app, then we need to tailor it to our needs.
 
-1. Add a file to **src\main\java\com\example\demo** named **KeyvaultDemoController.java**.
+1. Add a file to *src\main\java\com\example\demo* named *KeyvaultDemoController.java*.
 
 1. Add the following source code to the file:
 
@@ -166,9 +166,9 @@ Once we have the Spring Boot-generated app, then we need to tailor it to our nee
    }
    ```
 
-1. We use `DefaultAzureCredentialBuilder` to manage our credentials for Azure key vault. This enables us to use these credentials. When running the code locally, `DefaultAzureCredentialBuilder` looks for three environment variables: AZURE_CLIENT_ID, AZURE_CLIENT_SECRET, and AZURE_TENANT_ID. 
+1. We use `DefaultAzureCredentialBuilder` to manage our credentials for Azure key vault. This enables us to use these credentials. When running the code locally, `DefaultAzureCredentialBuilder` looks for three environment variables: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID`.
 
-We create a service principal to use in our development environment. When the application is deployed to Azure, `DefaultAzureCredentialBuilder` looks for the managed identities and service principals of Azure resources that attempt to access Key Vault. To use `DefaultAzureCredentialBuilder`, we need to add azure-identity as a dependency to the **pom.xml** file. Add the following code in the \<dependencies> section of pom.xml:
+We create a service principal to use in our development environment. When the application is deployed to Azure, `DefaultAzureCredentialBuilder` looks for the managed identities and service principals of Azure resources that attempt to access Key Vault. To use `DefaultAzureCredentialBuilder`, we need to add `azure-identity` as a dependency to the *pom.xml* file. Add the following code in the \<dependencies> section of *pom.xml*:
 
    ```xml
    <dependency>
@@ -190,7 +190,7 @@ To create a service principal, you first need to choose a name. We use the name 
 az ad sp create-for-rbac -n java-keyvault-demo-sp --role=Contributor
 ```
 
-The previous command produces output values similar to these:
+The previous command produces output values similar to the following:
 
 ```output
 {
@@ -206,19 +206,19 @@ The previous command produces output values similar to these:
 
 There are four environment variables to set up locally for this example:
 
-- KEY_VAULT_NAME: For our demo, we use **java-keyvault-demo-kv**.
+- `KEY_VAULT_NAME`: For our demo, we use **java-keyvault-demo-kv**.
 
-- AZURE_CLIENT_ID: Set this to the appId value.
+- `AZURE_CLIENT_ID`: Set this to the appId value.
 
-- AZURE_CLIENT_SECRET: Set this to the password value.
+- `AZURE_CLIENT_SECRET`: Set this to the password value.
 
-- AZURE_TENANT_ID: Set this to the tenant value.
+- `AZURE_TENANT_ID`: Set this to the tenant value.
 
 ### Package and run locally
 
 Once everything has been configured, run `mvn clean package -DskipTests` to package the demo.
 
-Run the Spring Boot web application in Tomcat using: `mvn spring-boot:run`. This produces a url for the web application. Make note of this url.
+Run the Spring Boot web application in Tomcat using: `mvn spring-boot:run`. This produces a url for the web application. Make note of the url.
 
 ### Confirm the output
 
@@ -248,7 +248,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.3.0:config`.
 
 The previous command creates the initial settings for your Azure App Service. Our application is deployed to a **Linux** Azure App Service plan with a **Java 11** runtime.
 
-Once you complete the configurator, then look at **pom.xml**. Make note of the \<build> section. It should look like this:
+Once you complete the configurator, then look at *pom.xml*. Make note of the \<build> section. It should look like this:
 
 ```xml
 <build>
@@ -288,7 +288,7 @@ Once you complete the configurator, then look at **pom.xml**. Make note of the \
 </build>
 ```
 
-If you see your SubscriptionId in the POM file, remove it. It isn't necessary to store it in this file. Pay close attention to the following settings:
+If you see your **SubscriptionId** in the POM file, remove it. It isn't necessary to store it in this file. Pay close attention to the following settings:
 
 - \<appServicePlanName> is used to specify the associated App Service plan.
 
@@ -358,7 +358,7 @@ To confirm that access worked correctly, view **Access policies** and confirm th
 
 We don't explicitly store the key vault name in our application. With Azure App Service applications, you can use application settings. To configure application settings, you need to know your Azure App name, resource group name, and the key-value pair for the application setting.
 
-To set the KEY_VAULT_NAME variable, run:
+To set the `KEY_VAULT_NAME` variable, run:
 
 ```azurecli
 az webapp config appsettings set --name java-keyvault-app --resource-group java-keyvault-demo-rg --settings KEY_VAULT_NAME=java-keyvault-demo-kv
@@ -376,7 +376,7 @@ To confirm that the key vault name was set successfully:
 
     ![Screenshot that shows the Configuration page of the App Service with Application settings selected and the hidden value of the key vault highlighted.](./media/get-started-with-java-and-key-vault/select-key-vault-app-application-settings.png)
 
-1. To see the value of KEY_VAULT_NAME, select the **Hidden** value. Select to show the **value** link. You should see the name of the key vault resource.
+1. To see the value of `KEY_VAULT_NAME`, select the **Hidden** value. Select to show the **value** link. You should see the name of the key vault resource.
 
 ### Confirm that the Azure App Service works successfully
 

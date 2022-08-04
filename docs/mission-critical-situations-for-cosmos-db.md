@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB for mission critical situations
-description: Learn about Azure Cosmos DB for mission critical situations.
+description: Learn about Azure Cosmos DB for mission critical situations, as well as security features, and backup and restore.
 ms.service: cosmos-db
 ms.topic: reference
 ms.date: 08/19/2022
