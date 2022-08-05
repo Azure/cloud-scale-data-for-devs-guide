@@ -20,7 +20,7 @@ When you create an Azure Cosmos DB account, it contains a set of keys for Read-W
 
 * Store the keys in environment variables. Environment variables make it easy to store the values in a place without checking them in to source control. When it comes to deploying the solution into Azure, Azure App Service, Azure Functions, and Azure Spring Cloud support environment variables as well.
 
-* Another option for storing secure values is in Azure Key Vault. For more information on working with Java and Azure Key Vault, check out our [Hello World code sample with Java and Azure Key Vault](https://github.com/solliancenet/cosmos-db-java-quickstart/blob/main/03_SecurityConcepts/03_Hello_World_with_Java_Key_Vault.md).
+* Another option for storing secure values is in Azure Key Vault. For more information on working with Java and Azure Key Vault, check out our [Hello World code sample with Java and Azure Key Vault](get-started-with-java-and-key-vault.md).
 
 ## Role-based access control
 
@@ -59,7 +59,7 @@ You can configure Azure Cosmos DB to use only RBAC and not allow the use of the 
 
 ## Managed identities
 
-Azure resources can have a managed identity for authentication purposes between Azure resources. Services that support managed identities for Azure resources include Azure App Service, Azure Spring Cloud, Azure Logic Apps, and Azure Functions. For a comprehensive list of services that support managed identities, see [what Azure services support managed identity](../../../active-directory/managed-identities-azure-resources/overview.md#what-azure-services-support-the-feature). The mentioned services are offerings we use throughout this guide. Rather than having to rely on keys, we can use these managed identities to grant roles via RBAC. When you create a managed identity, it lives with the resource. When the resource is deleted, the managed identity is also deleted.
+Azure resources can have a managed identity for authentication purposes between Azure resources. Services that support managed identities for Azure resources include Azure App Service, Azure Spring Cloud, Azure Logic Apps, and Azure Functions. For a comprehensive list of services that support managed identities, see [what Azure services support managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#what-azure-services-support-the-feature). The mentioned services are offerings we use throughout this guide. Rather than having to rely on keys, we can use these managed identities to grant roles via RBAC. When you create a managed identity, it lives with the resource. When the resource is deleted, the managed identity is also deleted.
 
 Suppose we have a microservice running in Azure Spring Cloud. The microservice wants to write to Azure Cosmos DB and needs the key. You can grant the managed identity access to read the keys via the Cosmos DB Account Reader role. Managed identities are seen on the screen for RBAC.
 
@@ -71,13 +71,13 @@ When working in applications, you may be tempted to store key information in app
 
 Azure Cosmos DB can be secured through networking as well. Options include:
 
-* [IP firewall](../../how-to-configure-firewall.md)
-* [Virtual network support](../../how-to-configure-vnet-service-endpoint.md)
-* [Private endpoints using Azure Private Link](../../how-to-configure-private-endpoints.md)
+* [IP firewall](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall)
+* [Virtual network support](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-vnet-service-endpoint)
+* [Private endpoints using Azure Private Link](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)
 
 ## Encrypting data
 
-Data stored in Azure Cosmos DB is automatically encrypted with service-managed keys. Service-managed keys are keys maintained by Microsoft. If you want to add another layer of encryption, you can bring your own customer-managed keys. These keys must be stored in Azure Key Vault. The customer-managed keys must be configured during account creation. There are no extra charges for enabling the feature for your own customer-managed key; however, there may be an increase in extra processing for your encryption and decryption. This cost will be seen in the RU (Request Units) cost. For more information about setting up customer-managed keys, see [configure customer-managed keys](../../how-to-setup-cmk.md).
+Data stored in Azure Cosmos DB is automatically encrypted with service-managed keys. Service-managed keys are keys maintained by Microsoft. If you want to add another layer of encryption, you can bring your own customer-managed keys. These keys must be stored in Azure Key Vault. The customer-managed keys must be configured during account creation. There are no extra charges for enabling the feature for your own customer-managed key; however, there may be an increase in extra processing for your encryption and decryption. This cost will be seen in the RU (Request Units) cost. For more information about setting up customer-managed keys, see [configure customer-managed keys](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk).
 
 Azure Cosmos DB takes backups of your data. If you need to restore this data with a customer-managed key, the encryption key must be available in Azure Key Vault.
 

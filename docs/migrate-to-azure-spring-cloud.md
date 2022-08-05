@@ -12,89 +12,90 @@ sequence: 16
 
 ## Migrate to Azure Spring Cloud
 
-When it comes to microservices and Java in Azure, consider Azure Spring Cloud. It allows you to easily migrate Sprint Boot microservices to Azure with no code changes. It also supports scaling microservices both vertically and horizontally, which makes it a smart choice for a Spring Boot Cloud native application host.
+If you want to use microservices and Java in Azure, consider Azure Spring Cloud. It allows you to easily migrate Sprint Boot microservices to Azure without needing to change your code. It also supports scaling microservices, both vertically and horizontally, which makes it a smart choice for a Spring Boot Cloud native application host.
 
-The components used for Azure Spring Cloud include:
+The components of Azure Spring Cloud include:
 
 - Azure Spring Cloud configuration server
 
 - Spring Boot microservices
 
-- Spring Cloud registry for discovering microservices
+- Azure Spring Cloud registry for discovering microservices
 
-This is the way our application is broken up for deployment to Azure Spring Cloud:
+When you deploy your sample application to Azure Spring Cloud, you can divide it into the following parts:
 
 - Pet supplies services
 
 - Discovery service
 
-- Configuration server linked to a Git repository
+- Azure Spring Cloud configuration server linked to a Git repository
 
-![Diagram showing the parts of an application to be deployed to Azure Spring Cloud.](./media/migrate-to-azure-spring-cloud/azure-spring-cloud-deployment.png)
+![Diagram showing the parts of an application to be deployed to Azure Spring Cloud.](media/migrate-to-azure-spring-cloud/azure-spring-cloud-deployment.png)
 
 ## Create an Azure Spring Cloud instance
 
-We need to create an Azure Spring Cloud instance for our resources to live.
+Create an Azure Spring Cloud instance to hold your resources:
 
-> [!NOTE]
-> To work with Azure Spring Cloud from Azure CLI, you may need to install the **spring-cloud** extension. This can be installed by running:
+1. To use Azure Spring Cloud with Azure CLI, you might need to install the **spring-cloud** extension. To do so, run the following command:
 
 ```azurecli
 az extension add --name spring-cloud
 ```
 
-To create the Azure Spring Cloud instance, you need a name for the resource and a resource group. When naming your Azure Spring Cloud instance, keep the following in mind:
+1. As you name your Azure Spring Cloud instance, keep the following points in mind:
 
-- The name can contain only lowercase letters, numbers and hyphens. The first character must be a letter. The last character must be a letter or number. The value must be between 4 and 32 characters long.
+   - The name can contain only lowercase letters, numbers and hyphens as follows:
+     - The first character must be a letter.
+     - The last character must be a letter or number.
+     - The name must be between 4 and 32 characters long.
 
-- The name of an Azure Spring Cloud needs to be unique across all of Azure. You may need to use identifying prefixes or suffixes to help achieve this uniqueness.
+   - The name of an Azure Spring Cloud must be unique across all of Azure. To help achieve this uniqueness, you might need to use identifying prefixes or suffixes.
 
-Set the following environment variables:
+1. Set the following environment variables:
 
-- AZURE_RESOURCE_GROUP=ms-cosmos-db-java-guide
+   - AZURE_RESOURCE_GROUP=ms-cosmos-db-java-guide
+   - AZURE_SPRING_CLOUD_NAME=ms-cosmos-db-java-guide-spring-SUFFIX
 
-- AZURE_SPRING_CLOUD_NAME=ms-cosmos-db-java-guide-spring-SUFFIX
+1. For this example app, run the following command. Because this application isn't a production application, use the Basic SKU:
 
-We are using the Basic SKU since this isn't a production application.
+   ```azurecli
+   az spring-cloud create -n $AZURE_SPRING_CLOUD_NAME -g $AZURE_RESOURCE_GROUP --sku Basic
+   ```
 
-For our example app, run:
+   After you run this command, it creates an Application Insights component for gathering analytics and telemetry.
 
-```azurecli
-az spring-cloud create -n $AZURE_SPRING_CLOUD_NAME -g $AZURE_RESOURCE_GROUP --sku Basic
-```
+1. Set the session defaults for the resource group and Azure Spring Cloud names so that you don't need to enter them for every command:
 
-This will also create an Application Insights component for gathering analytics and telemetry.
-
-We will also set defaults for Azure CLI so that we do not need to specify group and spring-cloud in all our commands. Run the following commands to set the default resource group and spring-cloud for our Azure CLI session:
-
-```azurecli
-az configure --defaults group=$AZURE_RESOURCE_GROUP
-az configure --defaults spring-cloud=$AZURE_SPRING_CLOUD_NAME
-```
+   ```azurecli
+   az configure --defaults group=$AZURE_RESOURCE_GROUP
+   az configure --defaults spring-cloud=$AZURE_SPRING_CLOUD_NAME
+   ```
 
 ### Azure Spring Cloud configuration server
 
-The Azure Spring Cloud configuration server needs a Git repository for storing the Spring Boot configuration files. This allows you to achieve a few things:
+The Azure Spring Cloud configuration server needs a Git repository for storing the Spring Boot configuration files. Using a Git repository has the following advantages:
 
 - Your configuration is stored in a central location, making it easier to maintain.
 
-- You can secure your Git repository so that only the people who need access to those configuration details -- such as application passwords - can access them.
+- You can secure your Git repository to limit access to specific applications and users.
 
-- With the configuration stored in a Git server, it is easy to push changes or roll them back as needed.
+- With the configuration stored in a Git server, it's easy to push changes or roll them back as needed.
 
-- Your secrets do not need to be stored with the application itself.
+- Your secrets don't need to be stored with the application itself.
 
 The Git repository can be public, secured by SSH, or secured using HTTP basic authentication.
 
-The configuration files can be stored in YAML in **application.yml** or in name-value pairs in **application.properties.**
+You can store the configuration files in YAML in **application.yml** or in name-value pairs in **application.properties**.
 
-To get an Azure Spring Cloud Config Server running:
+To run an Azure Spring Cloud configuration server:
 
-1. Create a Git repository with an application.yml or application.properties file to store the configuration needed for the services. This is our application.properties file for the Azure Spring Cloud Config Server:
+1. Create a Git repository with an **application.yml** or **application.properties** file to store the configuration needed for the services.
+
+   The following sample shows the **application.properties** file for the Azure Spring Cloud configuration server:
 
    ```properties
    # azure.cosmos properties are needed for the CosmosConfiguration bean
-   # azure.cosmosdb values are coming from Service bindings on Azure Spring Cloud apps
+   # azure.cosmosdb values are from Service bindings on Azure Spring Cloud apps
    azure.cosmos.uri=${azure.cosmosdb.uri}
    azure.cosmos.key=${azure.cosmosdb.key}
    azure.cosmos.database=${azure.cosmosdb.database}
@@ -103,170 +104,167 @@ To get an Azure Spring Cloud Config Server running:
    spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
    ```
 
-1. Create a Git personal access token (PAT) with repo access to be used by the Azure Spring Cloud Config Server.
+1. Create a Git personal access token (PAT) with repo access for the Azure Spring Cloud configuration server to use.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to the Azure Spring Cloud instance.
 
 1. On the left menu, select **Config Server**.
 
-   ![Screenshot showing the Azure Spring Cloud page with Config Server selected.](./media/migrate-to-azure-spring-cloud/azure-spring-cloud-config-server.png)
+   ![Screenshot showing the Azure Spring Cloud page with Config Server selected.](media/migrate-to-azure-spring-cloud/azure-spring-cloud-config-server.png)
 
 1. Add a default repository with the following details:
 
-    - **URI**: Git repository URI, including the .git
+    - **URI**: Git repository URI, including the .git extension.
 
-    - **Label**: branch or tag to use; defaults to master. Since our
-        repo defaults to main, we used main.
+    - **Label**: The branch or tag to use, which defaults to main.
 
     - **Search Path**: \<blank>
 
-    - **Authentication:** Select **Public** so that it brings up the
-        authentication dropdown.
+    - **Authentication**: Select **Public** to display the authentication dropdown and configure the following settings:
 
-       - **Authentication Type**: Select **HTTP Basic**
+       - **Authentication Type**: Select **HTTP Basic**.
 
-       - **Username:** Use your Git username.
+       - **Username:** Enter your Git username.
 
-       - **Password:** Use your password or personal access token.
+       - **Password:** Enter your password or personal access token.
 
-1. Select **Validate**. Once the settings are validated, select
-    **Apply**.
+1. Select **Validate**. After the settings are validated, select **Apply**.
 
-   ![Screenshot showing the default repository URI.](./media/migrate-to-azure-spring-cloud/default-repository-uri.png)
+   ![Screenshot showing the default repository URI.](media/migrate-to-azure-spring-cloud/default-repository-uri.png)
 
-Your service settings can now live in the **application.properties** or **application.yml** file in the Config Server repo.
+   Your service settings are now stored in the **application.properties** or **application.yml** file in the Azure Spring Cloud configuration server repository.
 
 ## Deploy a Maven application to Azure Spring Cloud
 
-Let's deploy our service complete with CRUD to Azure Spring Cloud.
+Let's deploy our service, complete with CRUD, to Azure Spring Cloud.
 
 ### Create the Azure Spring Cloud app
 
-Once the Azure Spring Cloud instance is created, you need to create an app in it. Each service will have its own app.
+After you create the Azure Spring Cloud instance, you need to create an app for it. Each service has its own app.
 
-To create a new app, you need:
+1. To create a new app, gather the following information:
 
-- Azure resource group
+   - Name of the Azure resource group to use
 
-- Name for the Azure Spring Cloud instance
+   - Name for the Azure Spring Cloud instance
 
-- Name for the app
+   - Name for the app
 
-- Runtime version
+   - Runtime version
 
-You can also specify whether to assign an endpoint and assign a managed identity. Since we will want this to be public, we will assign an endpoint. As we are not explicitly granting access between Azure resources, we are not creating a managed identity on this application.
+   You can also specify whether to assign an endpoint and assign a managed identity. We'll assign an endpoint for it, because we want this app to be public. Because we're not explicitly granting access between Azure resources, we're not creating a managed identity on this sample app.
 
-This is the code we are using to create our Azure Spring Cloud pet-supplies-app app:
+1. Enter the following command to create the Azure Spring Cloud pet-supplies-app app:
 
-```azurecli
-az spring-cloud app create -n pet-supplies-app --runtime-version Java_11 --assign-endpoint true
-```
+   ```azurecli
+   az spring-cloud app create -n pet-supplies-app --runtime-version Java_11 --assign-endpoint true
+   ```
 
-### Linking the Azure Spring Cloud app to Azure Cosmos DB
+### Link the Azure Spring Cloud app to Azure Cosmos DB
 
-Once the app is created, we can add a service binding for the app to talk directly with Azure Cosmos DB.
+After you create the app, add a service binding for the app to talk directly with Azure Cosmos DB:
 
 1. In the Azure portal, navigate to the Azure Spring Cloud resource.
 
-1. Select the **pet-supplies-app** App**.**
+1. Select the **pet-supplies-app** app.
 
-1. From the left menu, select **Service bindings.** Then, select **Create service binding.**
+1. From the left menu, select **Service bindings**. Then, select **Create service binding**.
 
-   ![Screenshot showing the pet-supplies-app app with Service bindings and Create service binding selected.](./media/migrate-to-azure-spring-cloud/select-create-service-binding.png)
+   ![Screenshot showing the pet-supplies-app app with Service bindings and Create service binding selected.](media/migrate-to-azure-spring-cloud/select-create-service-binding.png)
 
-1. In the **Create service binding dialog**, set the following
-settings:
+1. In the **Create service binding dialog**, configure the following settings:
 
-   - **Name:** This is the name for the service binding. We are using pet-supplies-api.
+   - **Name**: The name for the service binding, **pet-supplies-api**.
 
    - **Subscription**: Choose your subscription.
 
    - **Binding type**: Select **Azure Cosmos DB**.
 
-   - **Resource name:** Select your Azure Cosmos DB instance.
+   - **Resource name**: Select your Azure Cosmos DB instance.
 
-   - **API type:** Select **sql**.
+   - **API type**: Select **sql**.
 
-   - **Database name**: Select **pet-supplies.**
+   - **Database name**: Select **pet-supplies**.
 
-   - **Key:** Select the **Primary master key**.
+   - **Key**: Select the **Primary master key**.
 
-   ![Screenshot showing the Create service binding page.](./media/migrate-to-azure-spring-cloud/create-service-binding-page-settings.png)
+   ![Screenshot showing the settings on the Create service binding page.](media/migrate-to-azure-spring-cloud/create-service-binding-page-settings.png)
 
-1. Once all settings are set, select **Create**.
+1. After you've finished configuring the settings, select **Create**.
 
-1. Once the service binding is created, select the **pet-supplies-api** from the Binding Name column.
+1. After the service binding is created, select **pet-supplies-api** from the Binding Name column.
 
-   This opens the **View service binding** dialog. Notice that the **Property** section has the settings needed for connecting to Azure Cosmos DB. We will use this rather than storing the connection information in Azure Key Vault.
+   The **View service binding** dialog appears. Notice that the **Property** section has the settings needed for connecting to Azure Cosmos DB. Use these settings rather than storing the connection information in Azure Key Vault.
 
-   ![Screenshot showing the View service binding page with the Property section highlighted.](./media/migrate-to-azure-spring-cloud/view-service-binding-page.png)
+   ![Screenshot showing the View service binding page with the Property section highlighted.](media/migrate-to-azure-spring-cloud/view-service-binding-page.png)
 
 ### Set up logging (optional)
 
-Logging makes it easier for debugging issues with deployment. We will set up a Log workspace and have our logs go to it. This is how to create it via the Azure CLI.
+Setting up diagnostic logging makes it easier to debug issues in deploying the Azure Spring Cloud solution, because you can then query the logs for information.
 
-```azurecli
-az monitor log-analytics workspace create --workspace-name ms-cosmos-db-java-guide-logs
-```
+To set up diagnostic logging, follow these steps:
 
-Once the log workspace is created, then we can set up diagnostic
-logging.
+1. Create a log workspace with the following Azure CLI command:
+
+   ```azurecli
+   az monitor log-analytics workspace create --workspace-name ms-cosmos-db-java-guide-logs
+   ```
+
+   After the log workspace is created, you're ready to set up diagnostic logging.
 
 1. In the Azure portal, navigate to the Azure Spring Cloud instance.
 
-1. From the left menu, select **Diagnostic settings**. Then, select **Add diagnostic setting.**
+1. From the left menu, select **Diagnostic settings**. Then, select **Add diagnostic setting**.
 
-   ![Screenshot showing the Diagnostic settings page of the Azure Spring Cloud instance with Add diagnostic setting selected.](./media/migrate-to-azure-spring-cloud/select-add-diagnostic-setting.png)
+   ![Screenshot showing the Diagnostic settings page of the Azure Spring Cloud instance with Add diagnostic setting selected.](media/migrate-to-azure-spring-cloud/select-add-diagnostic-setting.png)
 
-1. Set the following settings:
+1. Configure the following settings:
 
-   - Set the **Diagnostic setting name** to write-all-logs.
+   - Set the **Diagnostic setting name** to **write-all-logs**.
 
-   - Check all Categories under **Logs**.
+   - Select all categories under **Logs**.
 
-   - Check **AllMetrics** under **Metrics**.
+   - Under **Metrics**, select **AllMetrics**.
 
-   - In **Destination details**, check **Send to Log Analytics workspace** and specify the Log workspace we just created.
+   - In **Destination details**, select **Send to Log Analytics workspace**, and then specify the log workspace you just created.
 
 1. Select **Save**.
 
-This will help us if we run into issues in deploying our solution to Azure Spring Cloud, as we can then query the logs to see any information.
-
 ## Deploy the code to Azure Spring Cloud app
 
-Once the Azure Spring Cloud instance and app are created, you can deploy the code to the Azure Spring Cloud app. To deploy to an Azure Spring Cloud app, you need:
+After you create the Azure Spring Cloud instance and app, you can deploy the code to the Azure Spring Cloud app:
 
-- App name
+1. Gather the following information:
 
-- Azure Spring Cloud instance name (service)
+   - App name
+   - Azure Spring Cloud instance name (service)
+   - Azure resource group name
+   - Artifact path
 
-- Azure Resource Group
+1. Enter the following command:
 
-- Artifact path
+   ```azurecli
+   az spring-cloud app deploy -n pet-supplies-app --artifact-path target/demo-0.0.1-SNAPSHOT.jar
+   ```
 
-This is the code we are using:
+   After this command is complete, you'll receive a JSON response object indicating that the deployment was successful.
 
-```azurecli
-az spring-cloud app deploy -n pet-supplies-app --artifact-path target/demo-0.0.1-SNAPSHOT.jar
+1. You can now use the URL of the app to test access. To do so, use the following curl command:
 
-This takes a few minutes to perform. Once completed, you should get a JSON response object indicating that the deployment was successful.
+   ```curl
+   curl $(az spring-cloud app list --query "[?name=='pet-supplies-app'].[properties.url]" -o tsv)
+   ```
 
-Once this is successful, you can use the URL of the app to test access. To curl the URL, use the following command:
+## Clean up resources
 
-```curl
-curl $(az spring-cloud app list --query "[?name=='pet-supplies-app'].[properties.url]" -o tsv)
-```
-
-## Tear down
-
-Once you have gotten your application in Azure Spring Cloud for this demo, please be sure to tear this down. **This service is not included in our goal for an application running for $20/month, as even the Basic SKU is hundreds of dollars per month.**
+To avoid unnecessary expenses, remove the Basic SKU you created after you're finished and delete the resource group, which also deletes its contents.
 
 ## Learn more
 
-To learn more about Azure Spring Cloud, consider the following resources:
+To learn more about Azure Spring Cloud, see the following resources:
 
-- [Azure Spring Cloud documentation](https://docs.microsoft.com/azure/spring-cloud/)
+- [Azure Spring Cloud documentation](/azure/spring-cloud)
 
 - [Azure Spring Cloud training](https://github.com/microsoft/azure-spring-cloud-training)
 
-- [Azure Spring Cloud pricing](https://azure.microsoft.com/pricing/details/spring-cloud/)
+- [Azure Spring Cloud pricing](https://azure.microsoft.com/pricing/details/spring-cloud)

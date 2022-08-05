@@ -32,11 +32,11 @@ The following example is built from the chain that we started with our Azure Cos
 
 1. In Azure portal, select **Create a resource.**
 
-   ![Screenshot that shows the Azure portal Home page with Create a resource group highlighted.](./media/send-notifications-with-azure-logic-apps/select-create-resource.png)
+   ![Screenshot that shows the Azure portal Home page with Create a resource group highlighted.](media/send-notifications-with-azure-logic-apps/select-create-resource.png)
 
 1. Search for the phrase, *logic app*, then select the **Logic App** icon.
 
-   ![Screenshot that shows logic app search results on the Marketplace page.](./media/send-notifications-with-azure-logic-apps/search-for-logic-app.png)
+   ![Screenshot that shows logic app search results on the Marketplace page.](media/send-notifications-with-azure-logic-apps/search-for-logic-app.png)
 
 1. Select **Create**.
 
@@ -59,11 +59,11 @@ The following example is built from the chain that we started with our Azure Cos
 1. Once the logic app is created, navigate to the resource. This will load
 the *Logic App Designer*. Select **Blank Logic App**.
 
-   ![Screenshot that shows the Templates page with Blank Logic App selected.](./media/send-notifications-with-azure-logic-apps/select-blank-logic-app.png)
+   ![Screenshot that shows the Templates page with Blank Logic App selected.](media/send-notifications-with-azure-logic-apps/select-blank-logic-app.png)
 
 1. For the first task, search for the phrase, *event hub* and then select the trigger **When events are available in Event Hub**.
 
-   ![Screenshot that shows event hub search.](./media/send-notifications-with-azure-logic-apps/search-for-event-hub.png)
+   ![Screenshot that shows event hub search.](media/send-notifications-with-azure-logic-apps/search-for-event-hub.png)
 
 1. Give your connection a name. For **Connection String**, set it to the value
 you used in `AZURE_EVENT_HUB_CONNECTION`. Then, select **Create**.

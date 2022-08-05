@@ -14,7 +14,6 @@ sequence: 4
 
 When you work with Azure resources from within Azure, you can use managed identities to give resources correct access. System-assigned managed identities are preferable because they live with their associated resources and they are deleted when the resource is deleted. In the following example, we create a *Spring Boot* application that can read a value from *Azure Key Vault*.
 
-> [!NOTE]
 > We use suffixes on many resource names for clarity on what they represent.
 
 ## Prerequisites
@@ -59,7 +58,6 @@ Throughout this guide, we store connection strings and other application secrets
    az keyvault secret set  --vault-name java-keyvault-demo-kv --name "keyName" --value "secretValue"
    ```
 
-> [!NOTE]
 > Azure key vault names are globally unique. If you input a name that's already in use, you get a **VaultAlreadyExists** error.
 
 At this point, you should have a key vault with a key available to be fetched.
@@ -72,13 +70,13 @@ You can see the Azure Key Vault resource and its stored values from within Azure
 
 1. Select **Resource groups**.
 
-   ![Screenshot that shows the Azure portal Home page with Resource groups highlighted.](./media/get-started-with-java-and-key-vault/select-resource-groups.png)
+   ![Screenshot that shows the Azure portal Home page with Resource groups highlighted.](media/get-started-with-java-and-key-vault/select-resource-groups.png)
 
 1. Select the name of your resource group.
 
 1. Select the name of the key vault.
 
-   ![Screenshot that shows the Resource group page with the key vault highlighted.](./media/get-started-with-java-and-key-vault/select-key-vault.png)
+   ![Screenshot that shows the Resource group page with the key vault highlighted.](media/get-started-with-java-and-key-vault/select-key-vault.png)
 
 1. From the navigation in the **Key Vault** resource, select **Secrets** to load your stored secrets. Then, select the key named **keyName**.
 
@@ -86,15 +84,15 @@ You can see the Azure Key Vault resource and its stored values from within Azure
 
 1. Select the current version to view the stored value.
 
-   ![Screenshot that shows the key vault Versions page with the current version highlighted.](./media/get-started-with-java-and-key-vault/select-key-current-version.png)
+   ![Screenshot that shows the key vault Versions page with the current version highlighted.](media/get-started-with-java-and-key-vault/select-key-current-version.png)
 
 1. Select **Show Secret Value** to see the stored secret value.
 
-   ![Screenshot that shows the key vault Secret Version page with Show Secret Version highlighted.](./media/get-started-with-java-and-key-vault/select-show-secret-value.png)
+   ![Screenshot that shows the key vault Secret Version page with Show Secret Version highlighted.](media/get-started-with-java-and-key-vault/select-show-secret-value.png)
 
 1. Notice that the secret value can be revealed.
 
-   ![Screenshot that shows the key vault Secret Version page with the secret value highlighted.](./media/get-started-with-java-and-key-vault/view-secret-value.png)
+   ![Screenshot that shows the key vault Secret Version page with the secret value highlighted.](media/get-started-with-java-and-key-vault/view-secret-value.png)
 
 ## Create a Java Spring Boot application with Azure Key Vault and run it locally
 
@@ -108,7 +106,7 @@ Visual Studio Code has tools that work with Java. The Spring Initializr Java Sup
 
 1. For the Spring Boot version, select **2.5.8**. We use the most recent stable version below 2.6. We use this version throughout this guide because many Azure dependencies require versions greater than or equal to the 2.2.11.RELEASE, and less than 2.6.0-ML.
 
-   ![Screenshot that shows the Spring Initializr install page.](./media/get-started-with-java-and-key-vault/spring-initializr-install.png)
+   ![Screenshot that shows the Spring Initializr install page.](media/get-started-with-java-and-key-vault/spring-initializr-install.png)
 
 1. For Project language, select **Java**.
 
@@ -181,8 +179,7 @@ We create a service principal to use in our development environment. When the ap
 
 We need to set up environment variables for `DefaultAzureCredentialBuilder`. These variables hold values from our service principal.
 
-> [!NOTE]
-> Contact your Azure administrator to create a service principal if you don't have rights to do so in your tenant.
+> Contact your Azure administrator to create a service principal if you don't have the rights to do so in your tenant.
 
 To create a service principal, you first need to choose a name. We use the name **java-keyvault-demo-sp**. Create your service principal using the following command:
 
@@ -323,7 +320,6 @@ mvn package azure-webapp:deploy
 
 The Maven Plugin for Azure Web Apps uses your Azure CLI access token for authentication and publish the app to Azure.
 
-> [!NOTE]
 > At this point, the code is deployed but it needs to be configured to work successfully.
 
 ### Create a system-assigned managed identity for the App Service
@@ -352,7 +348,7 @@ az keyvault set-policy --name java-keyvault-demo-kv --object-id YOUR_PRINCIPAL_I
 
 To confirm that access worked correctly, view **Access policies** and confirm that the managed identity appears under the **Application** section.
 
-![Screenshot that shows the Access policies page of the key vault with the secret permissions values highlighted.](./media/get-started-with-java-and-key-vault/key-vault-access-policies.png)
+![Screenshot that shows the Access policies page of the key vault with the secret permissions values highlighted.](media/get-started-with-java-and-key-vault/key-vault-access-policies.png)
 
 ### Set the KEY_VAULT_NAME environment variable
 
@@ -370,11 +366,11 @@ To confirm that the key vault name was set successfully:
 
 1. From the navigation in the App Service plan screen, select **Apps**. Then, select **java-keyvault-app**.
 
-   ![Screenshot that shows the Apps page of the App Service plan with the key vault highlighted.](./media/get-started-with-java-and-key-vault/select-key-vault-app.png)
+   ![Screenshot that shows the Apps page of the App Service plan with the key vault highlighted.](media/get-started-with-java-and-key-vault/select-key-vault-app.png)
 
 1. From the navigation in the **App Service** screen, select **Configuration**. Then select **Application settings**.
 
-    ![Screenshot that shows the Configuration page of the App Service with Application settings selected and the hidden value of the key vault highlighted.](./media/get-started-with-java-and-key-vault/select-key-vault-app-application-settings.png)
+    ![Screenshot that shows the Configuration page of the App Service with Application settings selected and the hidden value of the key vault highlighted.](media/get-started-with-java-and-key-vault/select-key-vault-app-application-settings.png)
 
 1. To see the value of `KEY_VAULT_NAME`, select the **Hidden** value. Select to show the **value** link. You should see the name of the key vault resource.
 
@@ -386,7 +382,7 @@ Once the managed identity is granted access to the key vault and the key vault n
 
 1. On the **Overview** pane, find the **URL**. Select the url to go to the deployed app.
 
-   ![Screenshot that shows the key vault page of the App Service with the URL highlighted.](./media/get-started-with-java-and-key-vault/view-key-vault-app-url.png)
+   ![Screenshot that shows the key vault page of the App Service with the URL highlighted.](media/get-started-with-java-and-key-vault/view-key-vault-app-url.png)
 
    The secret value of **secretValue** appears.
 

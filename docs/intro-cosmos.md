@@ -33,7 +33,7 @@ Data can be configured to be readable and writeable across multiple regions. The
 
 Azure Cosmos DB is horizontally scalable - adding capacity as needed to increase the storage and throughput. It can adapt to needs, scaling from 10 s to 100 s of millions of requests per second over multiple regions. Whether it's consistent traffic or bursts of traffic, Azure Cosmos DB can be configured to scale according to your needs. There's manual provisioned throughput  for when you have predictable request traffic. It can autoscale to set a maximum throughput, and Azure Cosmos DB between the max throughput and 10% of that amount. With the autoscaling, you can trust that Azure Cosmos DB will scale out. when that burst of traffic in sales and views hits, Azure Cosmos DB will scale in when it needs to.
 
-While the system is massively scalable, there are quotas around resources such as the maximum storage across all items per partition. For more information on service quotas, see [Azure Cosmos DB service quotas](../../concepts-limits.md).
+While the system is massively scalable, there are quotas around resources such as the maximum storage across all items per partition. For more information on service quotas, see [Azure Cosmos DB service quotas](https://docs.microsoft.com/azure/cosmos-db/concepts-limits).
 
 ## Maintenance
 
@@ -43,9 +43,9 @@ Azure Cosmos DB's infrastructure is maintained by Microsoft. Other than configur
 
 The cost of database operations in Azure Cosmos DB is expressed in a rate-based currency called Request Units (RUs). RUs are calculated based on usage of CPU, IOPS, and memory resources. A point read - getting an item by its partition key and ID - for a 1-KB item is one RU. Throughput can be provisioned at the database level, and the container level.
 
-Traditional Azure Cosmos DB pricing for the provisioned throughput capacity mode is broken into two components - provisioned throughput and consumed storage. The serverless capacity mode is handled on usage. For more information on choosing the capacity mode for your Azure Cosmos DB account, see [how to choose between provisioned throughput and serverless](../../throughput-serverless.md).
+Traditional Azure Cosmos DB pricing for the provisioned throughput capacity mode is broken into two components - provisioned throughput and consumed storage. The serverless capacity mode is handled on usage. For more information on choosing the capacity mode for your Azure Cosmos DB account, see [how to choose between provisioned throughput and serverless](https://docs.microsoft.com/azure/cosmos-db/throughput-serverless).
 
-For more information on managing costs, see [plan and manage costs for Azure Cosmos DB](../../plan-manage-costs.md).
+For more information on managing costs, see [plan and manage costs for Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/plan-manage-costs).
 
 ## Multi-model with multiple APIs
 
@@ -103,6 +103,6 @@ The strongest consistency model offered by Azure Cosmos DB is Strong. This consi
 
 If there's a region-wide outage, the recovery point objective (RPO) - the amount of time you're able to lose - is tied to the consistency level. The RPO is dependent on the number of regions, the replication mode, and the consistency level. Consider the table below to show how they matter.
 
-For more information on consistency levels, see [consistency levels in Azure Cosmos DB](../../consistency-levels.md).
+For more information on consistency levels, see [consistency levels in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/consistency-levels).
 
 [Next &#124; Security in Azure Cosmos DB](security.md){: .btn .btn-primary .btn-lg }

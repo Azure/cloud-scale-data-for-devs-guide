@@ -90,7 +90,7 @@ public CosmosClientBuilder getCosmosClientBuilder() {
 
 Inserts and updates appear in the change feed. However, if you delete an item from a collection, it isn't captured by the change feed. The way to capture deletes is two-fold:
 
-- Enable Time to Live (ttl) in the collection. This enables you to set expiration times on documents. View [configure time to live in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql/how-to-time-to-live?tabs=dotnetv2%2Cjavav4) for more information.
+- Enable Time to Live (ttl) in the collection. This enables you to set expiration times on documents. View [configure time to live in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql/how-to-time-to-live?tabs=javav4) for more information.
 
 - Use the ttl property of an item to mark it for deletion.
 
@@ -124,7 +124,7 @@ Azure Functions are the simplest way to work with the change feed. You need to u
 
 To use the Change Feed Processor in our application, we create `ChangeFeedService`. This starts the change feed processor. As the service picks up changes from the change feed, it passes them to the `handleChanges` function.
 
-![Diagram showing how the Change Feed Processor works.](./media/change-feed-concepts/change-feed-processor.png)
+![Diagram showing how the Change Feed Processor works.](media/change-feed-concepts/change-feed-processor.png)
 
 We have a Change Feed controller so that we can access output from the change feed via the API. The Change Feed controller gets changes from the Change Feed service. This activity happens in the
 `ChangeFeedService.java` file.
@@ -143,6 +143,6 @@ There's a link on the home page of the sample application to the Change Feed ser
 
 - [Change feed design patterns in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql/change-feed-design-patterns)
 
-- [Azure Cosmos DB Workshop - Azure Cosmos DB Change Feed](https://cosmosdb.github.io/labs/dotnet/labs/08-change_feed_with_azure_functions.html#use-azure-cosmos-db-change-feed-to-write-data-to-eventhub-using-azure-functions)
+- [Azure Cosmos DB Workshop - Azure Cosmos DB Change Feed](https://github.com/AzureCosmosDB/labs/blob/master/java/labs/08-change_feed_with_azure_functions.md)
 
 [Next &#124; Azure Cosmos DB Trigger for Azure Functions in Java](change-feed-with-cosmos-db-trigger-function.md){: .btn .btn-primary .btn-lg }

@@ -28,9 +28,9 @@ In nonrelational databases, data is stored denormalized. They are optimized for 
 
 Consider the Contoso Pet Supplies models in a relational entity relationship diagram:
 
-![Diagram that shows the Contoso Pet Supplies relational database model.](./media/schema-considerations/contoso-pet-supplies-relational-database-model.png)
+![Diagram that shows the Contoso Pet Supplies relational database model.](media/schema-considerations/contoso-pet-supplies-relational-database-model.png)
 
-Notice that tables are organized by entities, and bridge tables establish the relationships between entities.
+Notice that tables are organized by entities, and bridge tables establish the relthat shows ationships between entities.
 
 When we break this into documents for Cosmos DB, we need to consider the following:
 
@@ -61,12 +61,12 @@ When looking at models in the Contoso Pet Supplies project, we create a property
 
 By setting `documentType` as our partition key, we have a key that works well for our environment.
 
-![Diagram showing the Contoso Pet Supplies partitions.](./media/schema-considerations/contoso-pet-supplies-partitions.png)
+![Diagram showing the Contoso Pet Supplies partitions.](media/schema-considerations/contoso-pet-supplies-partitions.png)
 
 ## Additional References
 
-- [Partition Strategy | Cosmos DB Essentials Season 2 (YouTube)](https://www.youtube.com/watch?v=QLgK8yhKd5U)
+- [Partition Strategy - Azure Cosmos DB Essentials Season 2 (YouTube)](https://www.youtube.com/watch?v=QLgK8yhKd5U)
 
-- [Schema Design Strategy | Cosmos DB Essentials Season 2 (YouTube)](https://www.youtube.com/watch?v=bKDaL-GRSAM)
+- [Schema Design Strategy - Azure Cosmos DB Essentials Season 2 (YouTube)](https://www.youtube.com/watch?v=bKDaL-GRSAM)
 
 [Next &#124; Cosmos DB for mission critical situations](mission-critical-situations-for-cosmos-db.md){: .btn .btn-primary .btn-lg }

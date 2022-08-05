@@ -16,7 +16,7 @@ sequence: 12
 
 At the time that you create your database, you need to decide whether to use provisioned throughput or serverless scaling.
 
-![Screenshot that shows the New Database page with Provision throughput selected.](./media/scaling-in-cosmos-db/provision-throughput-selected.png)
+![Screenshot that shows the New Database page with Provision throughput selected.](media/scaling-in-cosmos-db/provision-throughput-selected.png)
 
 Serverless scalability is coupled with *Azure Functions* and other [Azure serverless](https://azure.microsoft.com/solutions/serverless/) solutions. With serverless, you pay on a per-hour basis rather than in RUs. Serverless accounts aren't geo-redundant, because they're limited to a single region.
 
@@ -28,7 +28,7 @@ With provisioned throughput, scale settings are configured at the container leve
 
 The **Manual** setting for scaling your containers gives you control to set the throughput of the container. This works best when you have a consistent, steady workload. When you configure a container for manual throughput, you need to set the desired throughput. In our example, we set scaling to 400 RUs and it consistently stays at 400 RUs. If the workload gets heavier, we need to adjust the setting manually.
 
-![Screenshot that shows manual scale settings.](./media/scaling-in-cosmos-db/manual-scale-settings.png)
+![Screenshot that shows the manual scale settings.](media/scaling-in-cosmos-db/manual-scale-settings.png)
 
 The **Autoscale** setting works best in cases when traffic ebbs and flows. If you choose Autoscale for your container, you need to specify a maximum number of RUs for the resource. Your Azure Cosmos DB container can scale from 10% of max RUs to the max RUs.
 

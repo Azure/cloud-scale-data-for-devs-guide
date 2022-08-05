@@ -16,8 +16,7 @@ sequence: 6
 
 ## Modify the POM
 
-> [!NOTE]
-> You don't need to install anything separately. The **pom.xml** file has a reference in the **build** section for the `azure-webapp-maven-plugin` artifact.
+> You don't need to install anything separately. The **pom.xml** file has a reference in the \<build> section for the azure-webapp-maven-plugin artifact.
 
 In the **pom.xml** file, update the following properties in the \<properties> section:
 
@@ -37,10 +36,9 @@ Once you update your configuration information with your values, deploy the appl
 mvn package azure-webapp:deploy
 ```
 
-> [!NOTE]
-> The **Plugin** section of the `pom.xml` file has an **appSettings** section. It will copy your environment variables and their values to Azure App Service app settings.
+> The plugin section in the pom.xml file has an \<appSettings> section. This will copy our environment variables and their values to the Azure App Service app's settings.
 
-![Screenshot showing the App Service Configuration page.](./media/deploy-to-azure-app-service/app-service-configuration.png)
+![Screenshot showing the App Service Configuration page.](media/deploy-to-azure-app-service/app-service-configuration.png)
 
 Once the project is deployed, you'll see a message "Successfully deployed the artifact to" with a URL for your Azure App Service application. Curl the URL and ensure you get an HTTP status of 200.
 
