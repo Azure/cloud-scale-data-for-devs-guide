@@ -12,13 +12,13 @@ sequence: 6
 
 # Deploy to Azure App Service
 
-Azure App Service is one of the ways to host Java applications in Azure. Once you have the sample running locally, use the [Maven Plugin for Azure App Service](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/) to deploy the sample app to Azure App Service. This tool will create the resources if they don't exist.
+*Azure App Service* is one of the ways to host Java applications in Azure. Once your sample app is running locally, use the [Maven Plugin for Azure App Service](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/) to deploy the sample app to Azure App Service. This tool creates the resources if they don't exist.
 
 ## Modify the POM
 
 > You don't need to install anything separately. The **pom.xml** file has a reference in the \<build> section for the azure-webapp-maven-plugin artifact.
 
-In the **pom.xml** file, update the \<properties> section for the following properties:
+In the **pom.xml** file, update the following properties in the \<properties> section:
 
 - azure.webapp.AppName: \<App name>
 
@@ -30,7 +30,7 @@ In the **pom.xml** file, update the \<properties> section for the following prop
 
 ## Deploy the application
 
-Once the configuration information is updated for your values, deploy the application with the following command:
+Once you update your configuration information with your values, deploy the application by using the following command:
 
 ```cmd
 mvn package azure-webapp:deploy

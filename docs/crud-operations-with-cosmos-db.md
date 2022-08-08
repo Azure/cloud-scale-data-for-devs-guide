@@ -1,6 +1,6 @@
 ---
 title: CRUD Operations with Azure Cosmos DB
-description: Learn about CRUD Operations with Azure Cosmos DB.
+description: Learn about CRUD Operations at an introductory level in Azure Cosmos database and how to implement them.
 ms.service: cosmos-db
 ms.topic: reference
 ms.date: 08/19/2022
@@ -12,11 +12,11 @@ sequence: 7
 
 # CRUD Operations with Azure Cosmos DB
 
-Creating, reading, updating, and deleting records in Azure Cosmos DB require little code. The Spring Data for the Azure Cosmos DB Core (SQL) API artifact supports Spring Data's `CrudRepository` and `ReactiveCrudRepository` interfaces. It also includes `CosmosRepository` and `ReactiveCosmosRepository`.
+To create, read, update, and delete records in Azure *Cosmos DB* a small amount of code is required. *Spring Data* for the Cosmos DB Core (SQL) API artifact supports the `CrudRepository` and `ReactiveCrudRepository` interfaces. It also includes `CosmosRepository` and `ReactiveCosmosRepository`.
 
-For this application, we're using `ReactiveCosmosRepository`.
+For this application, we use `ReactiveCosmosRepository`.
 
-The code is structured with:
+The code is structured using the following:
 
 - Controllers serving as API endpoints
 
@@ -36,7 +36,7 @@ We have repositories for:
 
 - Wish lists
 
-Each of the reactive repositories follows this pattern:
+Each of the reactive repositories follow this pattern:
 
 ```java
 @Repository
@@ -49,7 +49,7 @@ ReactiveCosmosRepository<Thing, String> {
 }
 ```
 
-The repositories in the Spring Data for Azure Cosmos DB Core (SQL) API artifact also support the following operations that we didn't implement in the sample code:
+Repositories in Spring Data for Cosmos DB Core (SQL) API artifact support more operations than we use in the sample code:
 
 - Delete entity
 
@@ -57,7 +57,7 @@ The repositories in the Spring Data for Azure Cosmos DB Core (SQL) API artifact 
 
 ## Implementing CRUD operations
 
-Most of the interface functions are using default implementations. However, our wish list object is complex, so we've added a few more functions to help us out:
+Most Spring Data interface functions use default implementations. However, our wish list object is complex, so we add a few more functions:
 
 - `findByCustomerId`
 
@@ -69,13 +69,13 @@ If you need to customize queries or add additional queries, make use of the `@Qu
 
 ## Partial document updates
 
-If you're making a small change to an object, you don't necessarily have to do a full document update. Azure Cosmos DB supports a partial document update using a PATCH update. We've implemented an endpoint in our Products API to update a product's price as a partial update.
+To make a small change to an object, you don't necessarily have to do a full document update. Cosmos DB supports partial document updates, by using PATCH updates. We implemented an endpoint in our Products API to update product prices as partial updates.
 
-Some things to note for us to make this happen:
+There are things to note about partial document updates:
 
-- We need to suppress the issue of trying to bind a query to the method, so we've assigned a Query annotation over the method in the repository.
+- We need to suppress attempts to bind queries to the method. So we assign a Query annotation over the method in the repository.
 
-- The partial document updates are in the Azure Cosmos DB Java SDK v4, not the Spring Data for the Azure Cosmos DB Core (SQL) API artifact.
+- Partial document updates are in Cosmos DB Java SDK v4, not Spring Data for the Cosmos DB Core (SQL) API artifact.
 
 ## Learn more
 

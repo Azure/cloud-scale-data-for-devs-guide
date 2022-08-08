@@ -1,5 +1,5 @@
 ---
-title: Bulk executor
+title: Explore the Bulk executor feature of Azure Cosmos DB
 description: Learn about the bulk executor, which is a Azure Cosmos DB feature that allows bulk inserts, updates, and deletes.
 ms.service: cosmos-db
 ms.topic: reference
@@ -12,13 +12,13 @@ sequence: 13
 
 # Bulk executor
 
-The bulk executor is a feature in Azure Cosmos DB that allows bulk inserts, updates, and deletes. Inserts and updates appear in the change feed.
+ Bulk executor is an Azure Cosmos DB feature that allows bulk inserts, updates, and deletes. When inserts and updates occur, they appear in the change feed.
 
-Let's see how we incorporate it into our current code sample.
+Let's see how we can incorporate bulk executor into our code sample.
 
 ## Add a dependency
 
-Add a new dependency in the **pom.xml** file:
+Add a new dependency in the *pom.xml* file:
 
 ```xml
 <dependency>
@@ -28,11 +28,11 @@ Add a new dependency in the **pom.xml** file:
 </dependency>
 ```
 
-As this moves away from the Spring Data setup, we created a `DocumentDbConfiguration` class specifically for use with the bulk executor.
+As this moves away from the Spring Data setup, we create a `DocumentDbConfiguration` class specifically for use with bulk executor.
 
 ## Add application properties
 
-We added details to **application-default.properties**:
+We add details to **application-default.properties**:
 
 ```properties
 # values for bulk executor
@@ -43,7 +43,7 @@ azure.cosmos.collectionThroughput = 100000;
 
 ## Update code
 
-Most of the bulk operations occur in `BulkExecutorService`. Each operation is in their own class file:
+Most of the bulk operations occur in `BulkExecutorService`. Each operation is in its own class file:
 
 - `BulkUpdateOperation`
 
@@ -53,9 +53,9 @@ Most of the bulk operations occur in `BulkExecutorService`. Each operation is in
 
 - `BulkExecutorService`
 
-We updated our models to inherit from a `BaseModel` class.
+We update our models to inherit from a `BaseModel` class.
 
-We added a controller for calling the bulk operations, with the following endpoints:
+We add a controller to call the bulk operations, with the following endpoints:
 
 - `/api/bulk POST`: Bulk import
 

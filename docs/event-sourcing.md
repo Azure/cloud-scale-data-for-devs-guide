@@ -1,6 +1,6 @@
 ---
-title: Event sourcing
-description: Learn about the event sourcing design pattern. 
+title: Explore the Event sourcing design pattern
+description: Learn about the event sourcing design pattern and how to apply it to Azure Cosmos DB change feed. 
 ms.service: cosmos-db
 ms.topic: reference
 ms.date: 08/19/2022
@@ -12,17 +12,18 @@ sequence: 10
 
 # Event sourcing
 
-The event sourcing pattern is a design pattern used to capture events in the order they happen. This pattern is used for things such as audit trails and migrating data to other systems. This data source of events can also be used in nonrelational data stores as the source of truth when working with eventual consistency. The Azure Cosmos DB change feed is a good source to use for event sourcing, since it's an append-only feed that preserves the order of the changes. It captures the events of adding and updating data.
+The event sourcing pattern is a design pattern that captures events in the same order as they occur. This pattern is used for tasks such as audit trails and data migration. It can also be used as the source of truth in nonrelational data stores when you work with eventual consistency. The Azure Cosmos DB change feed is good for event sourcing, it's append-only and preserves the order of changes. It also captures data add and update events.
 
-For our code demo, we're building on top of the Cosmos DB Trigger for Azure Functions. We'll be sending our events to Azure Event Hubs, to eventually be used to trigger notifications for products that are updated.
+The following code sample builds on Cosmos DB trigger for Azure Functions. We send events to *Azure Event Hubs* to trigger notifications for product updates.
 
-Our end goal for this part is to have our function triggered by the Azure Cosmos DB change feed. It will send its outputs to Azure Event Hubs.
+Our goal is to use the Cosmos DB change feed to trigger our function. This will then send output to Event Hubs.
 
 ![Diagram showing the Azure Cosmos DB trigger.](media/event-sourcing/cosmos-db-trigger.png)
 
+
 ## Create Azure Event Hubs resources
 
-In order to work with the Azure Event Hubs, you need to first create an Azure Event Hubs namespace:
+To work with Event Hubs, you first need to create an Event Hubs namespace:
 
 ```azurecli
 az eventhubs namespace create --name pet-supplies-events -g pet-supplies-demo-rg -l eastus
@@ -34,7 +35,7 @@ Once the namespace is created, then the event hub can be created:
 az eventhubs eventhub create --name pet-supplies-events -g pet-supplies-demo-rg --namespace-name pet-supplies-events
 ```
 
-Once the namespace and event hub are created, then you need to create an authorization rule for accessing the event hub. In our case, we want to be able to publish to the event hub in addition to seeing what's in the event hub. Use the following command:
+Once the namespace and event hub are created, then you need to create an authorization rule for accessing the event hub. In this case, we want to publish to the event hub and then view what's in the event hub. Use the following command for this:
 
 ```azurecli
 az eventhubs eventhub authorization-rule create --resource-group pet-supplies-demo-rg --name pet-supplies-events-auth --eventhub-name pet-supplies-events --namespace-name pet-supplies-events --rights Listen Send
@@ -83,7 +84,7 @@ public Object[] pushToEventGrid(
 
 ## Update configurations
 
-Update **local.settings.json** to include the event hub connection information:
+Update *local.settings.json* to include information from the event hub connection:
 
 ```json
 {
@@ -97,7 +98,7 @@ Update **local.settings.json** to include the event hub connection information:
 }
 ```
 
-Update the **pom.xml** file to include this new environment variable:
+Update the *pom.xml* file to include your new environment variable:
 
 ```xml
 <property>
@@ -108,22 +109,22 @@ Update the **pom.xml** file to include this new environment variable:
 
 > The `@EventHubOutput` annotation's connection property will look for the AzureEventHubConnection application setting.
 
-## Deploy the Azure Function
+## Deploy Azure Function
 
-Deploy these changes to the Azure App Service with the following commands:
+Deploy the previous changes to Azure App Service using the following commands:
 
 ```cmd
 mvn clean package
 mvn azure-functions:deploy
 ```
 
-When this is deployed, you should see a new environment variable:
+When your changes deploy successfully, you should see a new environment variable:
 
 ![Screenshot showing the Function App Configuration page.](media/event-sourcing/function-app-configuration.png)
 
-Make some changes to your Contoso Pet Supplies data to trigger the change feed.
+As a test, change your Contoso Pet Supplies data to trigger the change feed.
 
-Wait about 10 minutes, then check the Azure Event Hubs for events in the log, ready to be consumed by its subscribers.
+Wait about 10 minutes, then check Event Hubs for events in the log that are ready to be consumed by its subscribers.
 
 ![Screenshot showing the Event Hubs Instance Overview page.](media/event-sourcing/event-hubs-instance-overview.png)
 
