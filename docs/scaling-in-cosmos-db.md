@@ -12,25 +12,24 @@ sequence: 12
 
 # Scaling in Azure Cosmos DB
 
-*Azure Cosmos DB* offers *serverless* and *provisioned throughput* scaling. Serverless scalability works well with intermittent workloads. In the upcoming demo however we give you an example of provisioned throughput.
+Azure Cosmos DB works with scaling throughput in two ways: provisioned throughput, which is used in the demo, and serverless.
 
-At the time that you create your database, you need to decide whether to use provisioned throughput or serverless scaling.
+At the time that you create your database, you must decide whether to use provisioned throughput or serverless scaling.
 
 ![Screenshot that shows the New Database page with Provision throughput selected.](media/scaling-in-cosmos-db/provision-throughput-selected.png)
 
-Serverless scalability is coupled with *Azure Functions* and other [Azure serverless](https://azure.microsoft.com/solutions/serverless/) solutions. With serverless, you pay on a per-hour basis rather than in RUs. Serverless accounts aren't geo-redundant, because they're limited to a single region.
+Serverless scalability works well with intermittent workloads, and is coupled with Azure Functions and other [Azure serverless](https://azure.microsoft.com/solutions/serverless/) offerings. With serverless scalability, you pay on a per-hour basis rather than on RU/s. Serverless accounts aren't geo-redundant, as they're limited to one region.
 
 With provisioned throughput, scale settings are configured at the container level. There are two options for scaling container throughput:
 
 - Manual
-
 - Autoscale
 
-The **Manual** setting for scaling your containers gives you control to set the throughput of the container. This works best when you have a consistent, steady workload. When you configure a container for manual throughput, you need to set the desired throughput. In our example, we set scaling to 400 RUs and it consistently stays at 400 RUs. If the workload gets heavier, we need to adjust the setting manually.
+The Manual setting for scaling your containers gives you control to set the throughput of the container. This setting works best when for a consistent, steady workload. When you configure a container for manual throughput, you need to set the desired throughput. In our example, we set scaling to 400 RU/s and it consistently stays at 400 RU/s. If the workload gets heavier, we need to adjust the setting manually.
 
 ![Screenshot that shows the manual scale settings.](media/scaling-in-cosmos-db/manual-scale-settings.png)
 
-The **Autoscale** setting works best in cases when traffic ebbs and flows. If you choose Autoscale for your container, you need to specify a maximum number of RUs for the resource. Your Azure Cosmos DB container can scale from 10% of max RUs to the max RUs.
+The Autoscale setting works best in cases when traffic ebbs and flows. If you choose Autoscale for your container, you need to specify a maximum number of RU/s for the resource. Your Azure Cosmos DB container can scale from 10% of maximum RU/s to the maximum RU/s.
 
 ## Learn more
 

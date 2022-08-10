@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB Trigger for Azure Functions in Java
-description: Learn about the Azure Cosmos DB Trigger for Azure Functions in Java.
+title: Create an Azure Cosmos DB trigger for Azure Functions in Java
+description: Learn how to create an Azure Cosmos DB trigger for Azure Functions in Java.
 ms.service: cosmos-db
 ms.topic: reference
 ms.date: 08/19/2022
@@ -10,15 +10,15 @@ ms.reviewer: mjbrown
 sequence: 9
 ---
 
-# Azure Cosmos DB Trigger for Azure Functions in Java
+# Create an Azure Cosmos DB trigger for Azure Functions in Java
 
-We used the change feed processor with reactive programming to monitor the change feed, in the Previous unit. We can also monitor the change feed by using an *Azure Cosmos DB Trigger* for *Azure Functions*.
+In the previous article, you used the change feed processor with reactive programming to monitor the change feed. As an alternative, you can also monitor the change feed by using an Azure Cosmos DB trigger for Azure Functions.
 
-In the upcoming code sample, we use an *Azure Function App* to listen to the change feed. We then pass changes along to an event store.
+The following code sample, shows how to use an Azure Function App to listen to the change feed, and then send the changes to an event store.
 
 ## Set up the Azure Function App
 
-To use Azure Functions, we need to create a storage account. When you create a storage account, you need to make sure you stay within the following guidelines:
+To use Azure Functions, you need to create a storage account. As you create your storage account, ensure you stay within the following guidelines:
 
 - Storage account names must be between 3 and 24 characters in length.
 
@@ -30,134 +30,127 @@ You can use the following command as a guide:
 az storage account create --name petsuppliesstorage -g pet-supplies-demo-rg --location eastus --sku Standard_LRS
 ```
 
-Store your Azure Storage connection string in this environment variable, as we may need it later:
+1. Store your Azure Storage connection string in this environment variable, as you might need it later:
 
-```azurecli
-AZURE_WEBJOBS_STORAGE=$(az storage account show-connection-string --name petsuppliesstorage -g pet-supplies-demo-rg --query "connectionString" -o tsv)
-```
+   ```azurecli
+   AZURE_WEBJOBS_STORAGE=$(az storage account show-connection-string --name petsuppliesstorage -g pet-supplies-demo-rg --query "connectionString" -o tsv)
+   ```
 
-Store your Azure Cosmos DB connection string in an environment variable as well:
+1. Store your Azure Cosmos DB connection string in an environment variable:
 
-```azurecli
-AZURE_COSMOS_CONNECTION_STRING=$(az cosmosdb keys list --type connection-strings --name pet-supplies-demo -g pet-supplies-demo-rg9 --query "connectionStrings[0].connectionString" -o tsv)
-```
+   ```azurecli
+   AZURE_COSMOS_CONNECTION_STRING=$(az cosmosdb keys list --type connection-strings --name pet-supplies-demo -g pet-supplies-demo-rg9 --query "connectionStrings[0].connectionString" -o tsv)
+   ```
 
 ## Azure Function App code
 
-We'll use Azure Functions with the Azure Cosmos DB Trigger for another example of how to process the change feed.
+Use Azure Functions with the Azure Cosmos DB trigger for another example of how to process the change feed. You can use a Maven archetype to scaffold Azure Functions. Because Java 11 functionality in Azure Functions is in preview, this section uses Java 8.
 
-There's a Maven archetype that we can use to scaffold Azure Functions. From an empty project folder, run the following Maven command:
+1. From an empty project folder, run the following Maven command:
 
-```cmd
-mvn archetype:generate -DarchetypeGroupId="com.microsoft.azure" -DarchetypeArtifactId="azure-functions-archetype" -DadvancedOptions
-```
+   ```cmd
+   mvn archetype:generate -DarchetypeGroupId="com.microsoft.azure" -DarchetypeArtifactId="azure-functions-archetype" -DadvancedOptions
+   ```
 
-Use the following settings:
+   Use the following settings:
 
-- groupId: com
+   - groupId: com
+   - artifactId: function
+   - package: com.function
 
-- artifactId: function
+1. When you're prompted, input *N* to trigger the advanced options prompts. The additional settings include:
 
-- package: com.function
+   - appName: cosmosChangeFeedProcessorFunction
+   - appRegion: \<Your region>
+   - resourceGroup: pet-supplies-demo-rg
+   - trigger: CosmosDBTrigger
 
-When prompted, input `N` to trigger the advanced options prompts. The additional settings include:
+   The Maven archetype generates boilerplate scaffolding. 
 
-- appName: cosmosChangeFeedProcessorFunction
+1. In *Function.java*, populate the following values:
 
-- appRegion: \<Your region>
+   - databaseName: pet-supplies
+   - collectionName: pet-supplies
+   - leaseCollectionName: lease
+   - connectionStringSetting: \<AzureCosmosDBConnectionString>
 
-- resourceGroup: pet-supplies-demo-rg
+     \<AzureCosmosDBConnectionString> is the connection string setting value, which you can store in *local.settings.json*.
 
-- trigger: CosmosDBTrigger
+1. Update the `@FunctionName` annotation to have a more meaningful name such as CosmosDBChangeFeedMonitor.
 
-> Java 11 functionality in Azure Functions is in preview at the time of this writing, so we're using Java 8 for this particular section.
+1. The archetype also creates a file named *local.settings.json* at the same level as the *host.json* file. Update this file with the following settings:
 
-The Maven archetype will generate boilerplate scaffolding. In `Function.java`, populate the following values:
-
-- databaseName: pet-supplies
-
-- collectionName: pet-supplies
-
-- leaseCollectionName: lease
-
-- connectionStringSetting: "AzureCosmosDBConnectionString"
-
-> "AzureCosmosDBConnectionString" is the connection string setting value. You can store the connection string in **local.settings.json**.
-
-Update the `@FunctionName` annotation to have a more meaningful name such as CosmosDBChangeFeedMonitor.
-
-The archetype also creates a file called `local.settings.json` at the same level as the `host.json` file. Update `local.settings.json` with the following settings:
-
-```json
-{
-   "IsEncrypted": false,
-   "Values": {
-      "AzureWebJobsStorage": "paste the value from AZURE_WEBJOBS_STORAGE",
-      "AzureCosmosDBConnectionString": "paste the value from AZURE_COSMOS_CONNECTION_STRING",
-      "FUNCTIONS_WORKER_RUNTIME": "java"
+   ```json
+   {
+      "IsEncrypted": false,
+      "Values": {
+         "AzureWebJobsStorage": "paste the value from AZURE_WEBJOBS_STORAGE",
+         "AzureCosmosDBConnectionString": "paste the value from AZURE_COSMOS_CONNECTION_STRING",
+         "FUNCTIONS_WORKER_RUNTIME": "java"
+      }
    }
-}
-```
+   ```
 
-Run this function locally with the following commands:
+1. Run this function locally with the following commands:
 
-```cmd
-mvn clean package
-func start host
-```
+   ```cmd
+   mvn clean package
+   func start host
+   ```
 
 ## Deploy the function to Azure
 
-We'll use [the Maven Plugin for Azure Functions](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions) to deploy our function to Azure.
+Use the [Maven Plugin for Azure Functions](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions) to deploy your function to Azure.
 
-We'll store our connection information in app settings variables on our Azure App Service resource.
+1. Store your connection information in app settings variables in your Azure App Service resource.
 
-In the `pom.xml` file, in the section for the Azure Functions Maven plugin, add the following properties to the **appSettings** section:
+1. In the *pom.xml* file, in the section for the Azure Functions Maven Plugin, add the following properties to the **appSettings** section:
 
-```xml
-<property>
-   <name>AzureWebJobsStorage</name>
-   <value>${AZURE_WEBJOBS_STORAGE}</value>
-</property>
-<property>
-   <name>AzureCosmosDBConnectionString</name>
-   <value>${AZURE_COSMOS_CONNECTION_STRING}</value>
-</property>
-```
+   ```xml
+   <property>
+      <name>AzureWebJobsStorage</name>
+      <value>${AZURE_WEBJOBS_STORAGE}</value>
+   </property>
+   <property>
+      <name><AzureCosmosDBConnectionString></name>
+      <value>${AZURE_COSMOS_CONNECTION_STRING}</value>
+   </property>
+   ```
 
-> The `@CosmosDBTrigger` annotation's connectionStringSetting property will look for the AzureCosmosDBConnectionString application setting.
+   The `@CosmosDBTrigger` annotation's connectionStringSetting property looks for the \<AzureCosmosDBConnectionString> application setting.
 
-To deploy the code to Azure, run:
+1. To deploy the code to Azure, run:
 
-```cmd
-mvn azure-functions:deploy
-```
+   ```cmd
+   mvn azure-functions:deploy
+   ```
 
-This plugin will create the following:
+   The plugin creates the following items:
 
-- App Service plan
+   - App Service plan
+   - Application Insights component
+   - Azure Function App with the Java runtime
 
-- Application Insights component
+1. After the code is successfully deployed, confirm your app settings were passed properly by using the following commands:
 
-- Azure Function App with the Java runtime
+   ```azurecli
+   az functionapp config appsettings list -g pet-supplies-demo-rg --name cosmosChangeFeedProcessorFunction --query "[? name=='AzureCosmosDBConnectionString']"
 
-Once the code is successfully deployed, you can confirm your app settings were passed properly by checking the following commands:
+   az functionapp config appsettings list -g pet-supplies-demo-rg --name cosmosChangeFeedProcessorFunction --query "[? name=='AzureWebJobsStorage']"
+   ```
 
-```azurecli
-az functionapp config appsettings list -g pet-supplies-demo-rg --name cosmosChangeFeedProcessorFunction --query "[? name=='AzureCosmosDBConnectionString']"
+1. You can also view these values in the Azure portal.
 
-az functionapp config appsettings list -g pet-supplies-demo-rg --name cosmosChangeFeedProcessorFunction --query "[? name=='AzureWebJobsStorage']"
-```
+   ![Screenshot showing the Configuration page of the Azure Function App.](media/change-feed-with-cosmos-db-trigger-function/function-app-configuration.png)
 
-You can also see these values in the Azure portal:
+   If you make changes to your Contoso Pet Supplies data, it should trigger your Azure Function to use those changes. There's a lag time between the action and when it appears in the logs.
 
-![Screenshot showing the Configuration page of the Azure Function App.](media/change-feed-with-cosmos-db-trigger-function/function-app-configuration.png)
+1. In the Azure portal, navigate to the function on the Function App resource and select **Monitor**.
 
-If you make changes to your Contoso Pet Supplies data, it should trigger your Azure Function to pick up those changes. There's some lag time between the action and when it appears in the logs.
+   The function app that was invoked for your changes appears.
 
-In Azure portal, navigate to the function on the Function App resource. Select **Monitor**. You should see the function app invoked for your changes. If you select timestamp, a panel with invocation details will appear.
+1. If you select timestamp, a panel with invocation details appears.
 
-
-![Screenshot showing the Monitor page of the Azure Function App.](media/change-feed-with-cosmos-db-trigger-function/function-app-monitor.png)
+   ![Screenshot showing the Monitor page of the Azure Function App.](media/change-feed-with-cosmos-db-trigger-function/function-app-monitor.png)
 
 [Next &#124; Event sourcing](event-sourcing.md){: .btn .btn-primary .btn-lg }
