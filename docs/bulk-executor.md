@@ -1,6 +1,6 @@
 ---
-title: Explore the Bulk executor feature of Azure Cosmos DB
-description: Learn about the bulk executor, which is a Azure Cosmos DB feature that allows bulk inserts, updates, and deletes.
+title: Add the bulk executor feature
+description: Add the bulk executor to your code sample, which is an Azure Cosmos DB feature that allows bulk inserts, updates, and deletes.
 ms.service: cosmos-db
 ms.topic: reference
 ms.date: 08/19/2022
@@ -10,11 +10,11 @@ ms.reviewer: mjbrown
 sequence: 13
 ---
 
-# Bulk executor
+# Add the bulk executor feature
 
- Bulk executor is an Azure Cosmos DB feature that allows bulk inserts, updates, and deletes. When inserts and updates occur, they appear in the change feed.
+ The bulk executor is an Azure Cosmos DB feature that allows bulk inserts, updates, and deletes. When inserts and updates occur, they appear in the change feed.
 
-Let's see how we can incorporate bulk executor into our code sample.
+The following sections incorporate the bulk executor into the code sample.
 
 ## Add a dependency
 
@@ -28,11 +28,11 @@ Add a new dependency in the *pom.xml* file:
 </dependency>
 ```
 
-As this moves away from the Spring Data setup, we create a `DocumentDbConfiguration` class specifically for use with bulk executor.
+Add to the Spring Data setup by creating a `DocumentDbConfiguration` class specifically for use with the bulk executor.
 
 ## Add application properties
 
-We add details to **application-default.properties**:
+Add bulk executer details to the *application-default.properties* file:
 
 ```properties
 # values for bulk executor
@@ -53,20 +53,20 @@ Most of the bulk operations occur in `BulkExecutorService`. Each operation is in
 
 - `BulkExecutorService`
 
-We update our models to inherit from a `BaseModel` class.
+Update your code as follows:
 
-We add a controller to call the bulk operations, with the following endpoints:
+1. Update your models to inherit from a `BaseModel` class.
 
-- `/api/bulk POST`: Bulk import
+1. Add a controller to call the bulk operations, with the following endpoints:
 
-- `/api/bulk PUT`: Bulk update
+   - `/api/bulk POST`: Bulk import
+   - `/api/bulk PUT`: Bulk update
+   - `/api/bulk DELETE`: Bulk delete
 
-- `/api/bulk DELETE`: Bulk delete
-
-We've included a section in the Postman collection for you to try each of these bulk operations against the sample code.
+In the Postman collection, we've included a section  for you to try each of these bulk operations against the sample code.
 
 ## Learn more
 
-- [Azure Cosmos DB bulk executor library overview](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-overview)
+[Azure Cosmos DB bulk executor library overview](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-overview)
 
 [Next &#124; Schema design considerations](schema-considerations.md){: .btn .btn-primary .btn-lg }
