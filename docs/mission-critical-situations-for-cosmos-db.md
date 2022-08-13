@@ -66,4 +66,4 @@ If service-managed keys aren't secure enough, you can use customer-managed keys 
 
 Another Azure Cosmos DB data encryption feature is *Always Encrypted*. This feature supports client-side encryption. Use it when you transmit sensitive data, such as credit card numbers or personal identification numbers, such as national identification numbers. Always Encrypted allows you to set access controls at the property level for stored objects. For more information, see [Use client-side encryption with Always Encrypted for Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-always-encrypted?tabs=java).
 
-[Next &#124; Migrate to Azure Spring Cloud](migrate-to-azure-spring-cloud.md){: .btn .btn-primary .btn-lg }
+[Next &#124; Migrate to Azure Spring Apps](migrate-to-azure-spring-apps.md){: .btn .btn-primary .btn-lg }
