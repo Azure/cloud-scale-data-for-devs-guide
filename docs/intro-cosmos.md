@@ -113,6 +113,4 @@ If there's a region-wide outage, the recovery point objective (RPO)&mdash;the am
 
 For more information on consistency levels, see [consistency levels in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/consistency-levels).
 
-## Next steps
-
-[Learn about security in Azure Cosmos DB](security.md)
+[Next &#124; Security in Azure Cosmos DB](security.md){: .btn .btn-primary .btn-lg }

@@ -83,6 +83,4 @@ For more information about setting up customer-managed keys, see [configure cust
 
 Azure Cosmos DB backs up your data. If you need to restore this data with a customer-managed key, the encryption key must be available in Azure Key Vault.
 
-## Next steps
-
-[Get started with Java and Azure Key Vault](get-started-with-java-and-key-vault.md)
+[Next &#124; Get started with Java and Azure Key Vault](get-started-with-java-and-key-vault.md){: .btn .btn-primary .btn-lg }

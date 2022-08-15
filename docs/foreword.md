@@ -34,6 +34,4 @@ This guide doesn't explain how to migrate existing Java applications to Azure. M
 
 Throughout this guide, we'll examine a pet store eCommerce scenario to showcase Azure platforms. In this example, a fictional company called Contoso has acquired an online pet supplies store that's considering migrating their Java eCommerce platform to Azure. 
 
-## Next steps
-
-[Learn about NoSQL databases](intro-nosql.md)
+[Next &#124; Introduction to NoSQL](intro-nosql.md){: .btn .btn-primary .btn-lg }
