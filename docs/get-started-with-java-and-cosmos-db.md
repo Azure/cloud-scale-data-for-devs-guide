@@ -1,6 +1,6 @@
 ---
 title: Get started with Java and Azure Cosmos DB
-description: Get started using Java and Azure Cosmos DB for the developers guide. 
+description: Learn how to create a Java demo application that uses Azure Cosmos DB for its data store.
 ms.service: cosmos-db
 ms.topic: reference
 ms.date: 08/19/2022
@@ -12,94 +12,100 @@ sequence: 5
 
 # Get started with Java and Azure Cosmos DB
 
-In this guide, we work with a *Spring Boot* application that uses *Azure Cosmos DB* for its data store. We'll use Cosmos DB's Core (SQL) API. This application takes an opinionated approach to development using *Java 11*, *Spring Data*, and *reactive development*.
+In this guide, you work with a Spring Boot application that uses Azure Cosmos DB for its data store and the Core (SQL) API. This application takes a prescribed approach to development using Java 11, Spring Data, and reactive development. This project was created using [Spring Initializr](https://start.spring.io/).
 
 ## Prerequisites
 
-- An Azure subscription or free Azure Cosmos DB trial account
+- An Azure subscription or free Azure Cosmos DB trial account:
   - If you don't have an [Azure subscription](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-  - For this example, we'll create an [Azure Cosmos DB free tier account](https://docs.microsoft.com/azure/cosmos-db/optimize-dev-test#azure-cosmos-db-free-tier). This account comes with 25 GB of free storage and also includes the first 1,000 RU/s for free.
+  - For this example, you create an [Azure Cosmos DB free tier account](https://docs.microsoft.com/azure/cosmos-db/optimize-dev-test#azure-cosmos-db-free-tier). This account comes with 25 GB of free storage and also includes the first 1,000 RU/s for free.
 
-- Azure CLI
-  - Azure CLI can be used with Windows, macOS, Linux, Docker, and in Azure Cloud Shell. For installation guidance, refer to [How to Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+- Azure CLI:
+  - You can use Azure CLI with Windows, macOS, Linux, Docker, and Azure Cloud Shell.
+  
+  - If you run Azure CLI commands in the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart), use the Bash environment.
 
-  - We'll use Azure CLI extensions to work with Azure Cosmos DB and Azure Spring Cloud.
+  - If you prefer to run Azure CLI commands locally, [install](/cli/azure/install-azure-cli) the Azure CLI. After you install it, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. For other sign-in options, see [Sign in with the Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
 
-- Java 11 or higher
+  - When you use Azure Spring Apps with Azure CLI for the first time, you're prompted to install the *spring* [Azure CLI extension](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview).
 
-- A Java development environment, such as Visual Studio Code, IntelliJ, NetBeans, or Eclipse
+  - Certain Azure Cosmos DB commands might prompt you to install the *cosmosdb-preview* Azure CLI extension.
 
-- Maven
+- Java:
+  - Use Java 11 or higher.
+  - Use a Java development environment, such as Visual Studio Code, IntelliJ, NetBeans, or Eclipse.
 
-  - We can use the following Maven plugins to assist with Azure deployments:
-    - [Maven Plugin for Azure App Service](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)
-    - [Maven Plugin for Azure Spring Cloud](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Spring-Cloud)
-    - [Maven Plugin for Azure Functions](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions)
+- Use the following Maven plugins to assist with Azure deployments:
+  - [Maven Plugin for Azure App Service](https://github.com/microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)
+  - [Maven Plugin for Azure Spring Apps](https://github.com/microsoft/azure-maven-plugins/tree/develop/azure-spring-apps-maven-plugin)
+  - [Maven Plugin for Azure Functions](https://github.com/microsoft/azure-maven-plugins/tree/develop/azure-functions-maven-plugin)
 
-## Create a resource group for the Pet supplies demo
+- For the Spring packages to work with Azure Cosmos DB and Azure CLI, you must use a version of Spring Boot \>= 2.2.11.RELEASE and \< 2.7.0-M1.
 
-We need a resource group to store Azure resources for this demo. Before you create your resource group, determine the location you'll use. If you're not sure which locations are available, run the following command:
+- If you use Visual Studio Code, consider installing the [Spring initializr extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr) for Spring Boot support. Install the [Lombok extension](https://marketplace.visualstudio.com/items?itemName=GabrielBB.vscode-lombok) if you want to automatically generate getters and setters.
 
-```azurecli
-az account list-locations -o table
-```
+## Create a resource group
 
-You'll need a value from the **Name** column.
+To store Azure resources for this demo, you need an Azure resource group:
 
-Create a resource group with the following command:
+1. Before you create your resource group, determine the location to use. If you're not sure which locations are available, run the following Azure CLI command and use the value from the `Name` column of the table:
 
-```azurecli
-az group create --location eastus --resource-group
-pet-supplies-demo-rg
-```
+   ```azurecli
+   az account list-locations -o table
+   ```
 
-## Create a Cosmos DB Core (SQL) API pet supplies demo instance
+1. Use the following command to create a resource group:
 
-In order to configure your Cosmos DB account to work with the demo, you'll need to do the following:
+   ```azurecli
+   az group create --location eastus --resource-group
+   pet-supplies-demo-rg
+   ```
 
-1. Create a Cosmos DB account
+## Create an Azure Cosmos DB account and database
 
-1. Create a Cosmos DB Core (SQL) API database
+To configure your Azure Cosmos DB account to work with the demo, do the following tasks:
 
-1. Create the pet-supplies container
+1. Create an Azure Cosmos DB account.
 
-These can all be created using the Azure CLI and the Cosmos DB extension.
+1. Create an Azure Cosmos DB Core (SQL) API database.
 
-### Create a Cosmos DB account
+1. Create the pet-supplies container.
 
-To create a Cosmos DB account, run the following command:
+### Create an Azure Cosmos DB account
+
+To create an Azure Cosmos DB account, run the following command:
 
 ```azurelcli
 az cosmosdb create -n pet-supplies-demo -g pet-supplies-demo-rg --enable-free-tier true --default-consistency-level Session
 ```
 
-It may take a few minutes to create your Cosmos DB account when you use this command.
+After you run this command, it may take a few minutes to create your Azure Cosmos DB account.
 
-### Create a Cosmos DB with Core (SQL) API
+### Create a database with the Azure Cosmos DB Core (SQL) API
 
-To create the pet-supplies database with Core (SQL) API, run the following command:
+To create the pet-supplies database with the Core (SQL) API, run the following command:
 
 ```azurecli
 az cosmosdb sql database create -g pet-supplies-demo-rg --account-name
 pet-supplies-demo -n pet-supplies
 ```
 
-### Create a container for Cosmos DB Core (SQL) API
+### Create a container with the Azure Cosmos DB Core (SQL) API
 
-Before creating a container for your Cosmos DB, you need to be sure of your data model and you must establish a partition key. A partition key is an immutable property on a document that is used to group documents logically.
+Before you create a container for your Azure Cosmos DB database, you need to be sure of your data model and establish a partition key. A partition key is an immutable property on a document that is used to group documents logically.
 
-> Once a partition key is set for a container, it can't change. The partition key is a design-time decision.
+> After a partition key is set for a container, it can't change. The partition key is a design-time decision.
 
 Keep the following information in mind when you choose your partition keys:
 
-- Partition keys should have a wide range of values
+- Partition keys should have a wide range of values.
 
-- Partition keys should have an even spread of data across their values
+- Partition keys should have an even spread of data across their values.
 
-- Cross-partition queries should be avoided because they are expensive
+- Avoid cross-partition queries because they're expensive.
 
-Now that we have a partition key, we can create the container. In this example, we use documentType for our partition key.
+After you've created a partition key, you can create the container. In this example, use \/documentType for your partition key.
 
 To create the pet-supplies container for the pet-supplies database, run the following command:
 
@@ -109,37 +115,31 @@ pet-supplies-demo --database-name pet-supplies --name pet-supplies
 --partition-key-path "/documentType"
 ```
 
-## Run the Code
+## Clone the repository and set environment variables
 
-There are a few things you need to set up before you can run your code.
+There are a few more things you need to set up before you can run your code:
 
-1. Clone the repository
+1. Clone the repository.
 
-1. Set up environment variables.
+1. Set the environment variables.
 
-1. Create an instance of Cosmos DB Core (SQL) API
-
-1. Run the code
+1. Create an instance of the Azure Cosmos DB Core (SQL) API.
 
 ### Clone the repository
 
-Sample code for this example is available in the [azure/azure-cosmos-db-java-dev-guide](https://github.com/Azure/azure-cosmos-db-java-dev-guide/tree/main/demos) repository. The repository contains the following:
+Clone the repository that contains the sample code, which is available in the [Azure Cosmos DB Java Developer Guide repository](https://github.com/Azure/azure-cosmos-db-java-dev-guide/tree/main/demos). The repository contains a folder named *demos*, with the following contents:
 
-- A folder named **Demos**, with the following:
+- hello-world-keyvault: An introduction to Java and Azure Key Vault, which is used to store your application secrets securely.
 
-  - Hello World Key Vault: An introduction to Java + Azure Key Vault, which is used to store your application secrets securely
-
-  - Cosmos-db: The main sample we'll refer to throughout the rest of the guide
-
-Once you clone the repository, you can continue to follow this guide.
+- cosmos-db: The main sample referred to throughout the rest of the guide.
 
 ### Set the environment variables
 
-Once you create your Cosmos DB Core (SQL) API instance, then create environment variables using the URI and the key. `application-default.properties` is configured to look for the following environment variables:
+After you create your Azure Cosmos DB Core (SQL) API instance, create environment variables by using the URI and the key. *application-default.properties* is configured to look for the following environment variables:
 
-- AZURE_COSMOS_URI
+- `AZURE_COSMOS_URI`
 
-- AZURE_COSMOS_KEY
+- `AZURE_COSMOS_KEY`
 
 #### Get the value for AZURE_COSMOS_URI
 
@@ -151,45 +151,37 @@ pet-supplies-demo-rg --query "readLocations[0].documentEndpoint" -o
 tsv)
 ```
 
-#### Get the value for AZURE_COSMOS_KEY*
+#### Get the value for AZURE_COSMOS_KEY
 
-`AZURE_COSMOS_KEY` is read and write. Use the following command to store the key in the environment variable named `AZURE_COSMOS_KEY`:
+ Use the following command to store the read and write key in the environment variable named AZURE_COSMOS_KEY:
 
 ```azurecli
 AZURE_COSMOS_KEY=$(az cosmosdb keys list --name pet-supplies-demo -g
 pet-supplies-demo-rg --query "primaryMasterKey" -o tsv)
 ```
 
-### Run the code
+## Run the code
 
-Install your dependencies:
+To run the code, follow these steps:
 
-```maven
-mvn install to install dependencies.
+1. Install your dependencies:
+
+```cmd
+mvn install
 ```
 
-Run the following code locally then access the API at `http://localhost:8080:`
+1. Run the following code locally, and then access the API at `http://localhost:8080`:
 
-```maven
+```cmd
 mvn spring-boot:run
 ```
 
-## Additional notes
+## Learn more
 
-- This project was created using [Spring Initializr](https://start.spring.io/).
-
-- If you use Visual Studio Code, [try the VS Code Spring initializr extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr).
-
-- If you use Visual Studio Code, [install the Lombok extension](https://marketplace.visualstudio.com/items?itemName=GabrielBB.vscode-lombok) for the getters and setters.
-
-- Spring Boot is a Spring packages dependency when you are working with Azure Cosmos DB and Azure \>= 2.2.11.RELEASE and \<2.7.0-M1.
-
-## Learn More
-
-- [Data modeling Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql/modeling-data)
+- [Data modeling in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql/modeling-data)
 
 - [How to model and partition data on Azure Cosmos DB using a real-world example](https://docs.microsoft.com/azure/cosmos-db/sql/how-to-model-partition-example)
 
 - [Partition Strategy - Azure Cosmos DB Essentials, Season 2](https://www.youtube.com/watch?v=QLgK8yhKd5U)
 
-[Next &#124; Deploying to Azure App Service](deploy-to-azure-app-service.md){: .btn .btn-primary .btn-lg }
+[Next &#124; Deploy to Azure App Service](deploy-to-azure-app-service.md){: .btn .btn-primary .btn-lg }
