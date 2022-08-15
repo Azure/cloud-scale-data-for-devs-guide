@@ -12,17 +12,15 @@ sequence: 2
 
 # What is Azure Cosmos DB?
 
-Azure Cosmos DB is a fully managed, distributed NoSQL database service. It's a globally distributed, massively scalable, multi-model database service. While Azure SQL DB is the flagship Azure product for *relational* data, Azure Cosmos DB is the flagship product for *non-relational* data.
-
-Unlike many other non-relational databases, Azure Cosmos DB offers [five consistency models](#consistency-models) for data durability. 
+Azure Cosmos DB is a fully managed, distributed NoSQL database service. It's a globally distributed, massively scalable, multi-model database service. Unlike many other non-relational databases, Azure Cosmos DB offers [five consistency models](#consistency-models) for data durability. 
 
 ## Non-relational database
 
-Azure Cosmos DB supports document data such as product information on an eCommerce site, blog posts on a website, and user profiles. Other non-relational data could include column-family data such as content management, sensor logs, and time series data. Graph data is used for applications such as recommendation engines, fraud detection algorithms, networks, and other relationship trends. Azure Cosmos DB supports these non-relational data types and schema-less JSON.
+While Azure SQL DB is the flagship Azure product for *relational* data, Azure Cosmos DB is the flagship product for *non-relational* data. Azure Cosmos DB supports document data such as product information on an eCommerce site, blog posts on a website, and user profiles. Other non-relational data could include column-family data such as content management, sensor logs, and time series data. Graph data is used for applications such as recommendation engines, fraud detection algorithms, networks, and other relationship trends. Azure Cosmos DB supports these non-relational data types and schema-less JSON.
 
 ## Globally distributed
 
-Azure Cosmos DB is built to support globally accessible data, with low latency at the 99th percentile, elastic scalable throughput, and high availability. Data in Azure Cosmos DB is automatically synchronized across replicas in multiple regions. Since it's a foundational part of Azure, Cosmos DB is distributed in all regions in the four key Azure cloud environments:
+Global distribution is one of the key pillars of Azure Cosmos DB. It's built to support globally accessible data, with low latency at the 99th percentile, elastic scalable throughput, and high availability. Data in Azure Cosmos DB is automatically synchronized across replicas in multiple regions. Since it's a foundational part of Azure, Cosmos DB is distributed in all regions in the four key Azure cloud environments:
 
 * Azure public cloud
 * Azure Government

@@ -69,7 +69,7 @@ When working in applications, you may be tempted to store key information in `ap
 
 ## Networking security
 
-Another approach is to secure Azure Cosmos DB through networking. Options include:
+Another approach to securing Azure Cosmos DB is through networking. Options include:
 
 * [IP firewall](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall)
 * [Virtual network support](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-vnet-service-endpoint)
