@@ -33,9 +33,9 @@ Data can be configured to be readable and writeable across multiple regions. The
 
 ## Massively scalable
 
-Azure Cosmos DB is horizontally scalable. Capacity can be added to increase storage and throughput as needed, scaling from 10s to 100s of millions of requests per second over multiple regions. With autoscaling capability, you can trust that Azure Cosmos DB will scale out when needed to accommodate surges in activity.
+Azure Cosmos DB is horizontally scalable. Capacity can be added to increase storage and throughput as needed, scaling from tens to hundreds of millions of requests per second over multiple regions. With autoscaling capability, you can trust that Azure Cosmos DB will scale out when needed to accommodate surges in activity.
 
-Azure Cosmos DB can be configured to scale according to your needs. You can manually provision throughput for when you have predictable request traffic. It can also autoscale to a pre-determined maximum throughput. 
+Azure Cosmos DB can be configured to scale according to your needs. You can manually set throughput for when you have predictable request traffic. It can also autoscale to a pre-determined maximum throughput. 
 
 While the system is massively scalable, there are quotas around resources such as the maximum storage across all items per partition. For more information, see [Azure Cosmos DB service quotas](https://docs.microsoft.com/azure/cosmos-db/concepts-limits).
 
@@ -45,7 +45,7 @@ Azure Cosmos DB's infrastructure is maintained by Microsoft. Other than configur
 
 ## Throughput and costs
 
-The cost of database operations in Azure Cosmos DB is expressed in a rate-based currency called Request Units (RUs). RUs are calculated based on usage of CPU, IOPS, and memory resources. For example, getting a 1KB item by its partition key and ID is one RU. Throughput can be provisioned at the database level and at the container level.
+The cost of database operations in Azure Cosmos DB is expressed in a rate-based currency called Request Units (RUs). RUs are calculated based on usage of CPU, IOPS, and memory resources. For example, getting a 1-KB item by its partition key and ID is one RU. Throughput can be provisioned at the database level and at the container level.
 
 Traditional Azure Cosmos DB pricing for the provisioned throughput capacity mode is broken into two components: provisioned throughput and consumed storage. The serverless capacity mode is handled on usage. For more information on choosing the capacity mode, see [how to choose between provisioned throughput and serverless](https://docs.microsoft.com/azure/cosmos-db/throughput-serverless).
 
@@ -55,10 +55,10 @@ For more information on managing costs, see [plan and manage costs for Azure Cos
 
 Azure Cosmos DB is considered multi-model because data can be stored in diverse ways. APIs can be used with each of these models. The models and their supported APIs in Azure Cosmos DB include:
 
-* key-value data using the Azure Cosmos DB Table API.
-* column-family data using the Azure Cosmos DB API for Cassandra.
-* document data using the Azure Cosmos DB API for MongoDB.
-* graph data using the Azure Cosmos DB API for Gremlin.
+* Key-value data using the Azure Cosmos DB Table API.
+* Column-family data using the Azure Cosmos DB API for Cassandra.
+* Document data using the Azure Cosmos DB API for MongoDB.
+* Graph data using the Azure Cosmos DB API for Gremlin.
 
 The Core (SQL) API is the main API for interacting with Azure Cosmos DB, used for querying JSON objects. When features are introduced, it's the first API to see the updates. This guide uses the SQL API.
 
@@ -88,7 +88,7 @@ With *consistent prefix* consistency, reads won't see out-of-order writes. Not a
 
 ### Session consistency
 
-*Session* is the mid-grade consistency offered in Azure Cosmos DB. It builds on top of *consistent prefix* consistency and offers monotonic reads and writes, read-your-writes, and write-follow-reads. *Session* is the default consistency level. If the user writes something, their updated item is guaranteed to be read.
+*Session* is the mid-grade consistency offered in Azure Cosmos DB. It builds on top of *consistent prefix* consistency and offers monotonic reads and writes, read-your-writes, and write-follow-reads. *Session* is the default consistency level. It guarantees that the updated item will be read if the user writes something.
 
 ### Bounded Staleness consistency
 
@@ -107,7 +107,7 @@ The strongest consistency model offered by Azure Cosmos DB is *Strong*. This con
 
 If there's a region-wide outage, the recovery point objective (RPO)&mdash;the amount of time you're able to lose&mdash;is tied to the consistency level. The RPO is dependent on the number of regions, the replication mode, and the consistency level. Consider the table below to show how they matter.
 
-| Consistency level | RPO in case of region outage |
+| Consistency level | RPO if region outage |
 | ---: | :--- |
 | Session, Consistent Prefix, Eventual | < 15 minutes |
 | Bounded Staleness | K & T |

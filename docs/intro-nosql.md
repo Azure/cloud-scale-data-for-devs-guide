@@ -53,11 +53,11 @@ Retrieving a single **Order** and its associated **Order Details** involves the 
 
 NoSQL databases are open-source, distributed, and non-relational. These characteristics lend themselves to the following benefits:
 
-* non-relational allows storage of semi-structured and unstructured data
-* schema-less, which allows flexible data models
-* rapidly adaptive to changing requirements
-* horizontally scalable due to the distributed nature
-* highly available due to the distributed nature
+* Non-relational allows storage of semi-structured and unstructured data
+* Schema-less, which allows flexible data models
+* Rapidly adaptive to changing requirements
+* Horizontally scalable due to the distributed nature
+* Highly available due to the distributed nature
 
 If you're coming from a relational background and still aren’t sure how NoSQL differs, see [Understanding the differences between NoSQL and relational databases](https://docs.microsoft.com/azure/cosmos-db/relational-nosql).
 
@@ -65,17 +65,17 @@ If you're coming from a relational background and still aren’t sure how NoSQL 
 
 The NoSQL space offers many options. When choosing a NoSQL database system, consider what kind of data you'll work with:
 
-* key-value data
-* column-family data
-* document data
-* graph data
-* schema-less JSON
+* Key-value data
+* Column-family data
+* Document data
+* Graph data
+* Schema-less JSON
 
 In this guide, we'll introduce you to Azure Cosmos DB, Microsoft's flagship non-relational database that supports each of these data options. You'll see an application that uses the Azure Cosmos DB Core (SQL) API to work with schema-less JSON.
 
 ## NoSQL for our scenario
 
-You'll see the benefits of NoSQL in our Contoso pet store eCommerce example. This scenario will rely on Azure Cosmos DB, our fully managed NoSQL database service.
+You'll see the benefits of NoSQL in our Contoso pet store eCommerce example.
 
 While the data may seem relational, there are cases for non-relational stores. New product information may come from vendors in various formats: structured, semi-structured, or unstructured. You may need to scale your operations for large traffic, such as running sales on an eCommerce site. Reporting on this data may be complicated. 
 

@@ -12,11 +12,11 @@ sequence: 3
 
 # Security in Azure Cosmos DB
 
-Security is a critical concern for any system. Azure Cosmos DB offers various options for keeping your data safe and controlling who can access it.
+Security is a critical concern for any system. Azure Cosmos DB offers various options for keeping your data safe and for controlling who can access it.
 
 ## Access data with keys
 
-When you create an Azure Cosmos DB account, it contains a set of keys for *read-write* access and a set of *read only* keys. If you're developing with keys, you need to secure those credentials so that they don't accidentally make it into source control. This guide outlines options for controlling keys rather than storing key values in `application.properties`.
+Your Azure Cosmos DB account contains a set of keys for *read-write* access and a set of *read only* keys. If you're developing with keys, you need to secure those credentials so that they don't accidentally make it into source control. This guide outlines options for controlling keys rather than storing key values in `application.properties`.
 
 If you must work with keys:
 
@@ -36,9 +36,9 @@ Azure Cosmos DB uses two built-in roles. The **Cosmos DB Built-in Data Reader** 
 
 There are no built-in Azure Cosmos DB-specific roles for:
 
-* creating, replacing, and deleting databases and containers.
-* replacing container throughput.
-* creating, replacing, deleting, and reading stored procedures, triggers, and user defined functions.
+* Creating, replacing, and deleting databases and containers.
+* Replacing container throughput.
+* Creating, replacing, deleting, and reading stored procedures, triggers, and user defined functions.
 
 ### Custom RBAC roles
 
@@ -49,9 +49,9 @@ Azure Cosmos DB actions support wildcard notation at the container and item leve
 
 There are three scopes for role assignments:
 
-* account level (`/`)
-* database level (`/dbs/<database-name>`)
-* container level (`/dbs/<database-name>/colls/<container-name>`)
+* Account level (`/`)
+* Database level (`/dbs/<database-name>`)
+* Container level (`/dbs/<database-name>/colls/<container-name>`)
 
 ## Using RBAC alone
 
