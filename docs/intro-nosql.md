@@ -77,6 +77,6 @@ In this guide, we'll introduce you to Azure Cosmos DB, Microsoft's flagship non-
 
 You'll see the benefits of NoSQL in our Contoso pet store eCommerce example.
 
-While the data may seem relational, there are cases for non-relational stores. New product information may come from vendors in various formats: structured, semi-structured, or unstructured. You may need to scale your operations for large traffic, such as running sales on an eCommerce site. Reporting on this data may be complicated. 
+While the data may seem relational, there are cases for non-relational stores. New product information may come from vendors in various formats: structured, semi-structured, or unstructured. You may need to scale your operations for large traffic, such as running sales on an eCommerce site. Reporting on this data may be complicated.
 
 [Next &#124; Introduction to Azure Cosmos DB](intro-cosmos.md){: .btn .btn-primary .btn-lg }

@@ -20,7 +20,7 @@ The following code sample builds on the Azure Cosmos DB trigger code for Azure F
 
 ## Create Azure Event Hubs resources
 
-1. To work with Azure Event Hubs, you first need to create an Azure Event Hubs namespace:
+1. To work with [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/), you first need to create an Azure Event Hubs namespace:
 
    ```azurecli
    az eventhubs namespace create --name pet-supplies-events -g pet-supplies-demo-rg -l eastus

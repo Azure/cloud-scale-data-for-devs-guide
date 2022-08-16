@@ -14,7 +14,7 @@ sequence: 8
 
 ## What is the change feed?
 
-The *change feed* is an Azure Cosmos DB feature that tracks changes to documents. Changes are tracked in a monitored container in the same order that they're processed.
+The [change feed](https://docs.microsoft.com/azure/cosmos-db/change-feed) is an Azure Cosmos DB feature that tracks changes to documents. Changes are tracked in a monitored container in the same order that they're processed.
 
 Some potential uses for the change feed include:
 

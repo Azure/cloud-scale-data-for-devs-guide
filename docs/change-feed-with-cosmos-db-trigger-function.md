@@ -12,13 +12,13 @@ sequence: 9
 
 # Create an Azure Cosmos DB trigger for Azure Functions in Java
 
-In the previous article, you used the change feed processor with reactive programming to monitor the change feed. As an alternative, you can also monitor the change feed by using an Azure Cosmos DB trigger for Azure Functions.
+In the previous article, you used the change feed processor with reactive programming to monitor the change feed. As an alternative, you can also monitor the change feed by using an [Azure Cosmos DB trigger](https://docs.microsoft.com/azure/azure-functions/functions-create-cosmos-db-triggered-function) for Azure Functions.
 
 The following code sample, shows how to use an Azure Function App to listen to the change feed, and then send the changes to an event store.
 
 ## Set up the Azure Function App
 
-To use Azure Functions, you need to create a storage account. As you create your storage account, ensure you stay within the following guidelines:
+To use [Azure Functions](https://docs.microsoft.com/azure/azure-functions/), you need to create a storage account. As you create your storage account, ensure you stay within the following guidelines:
 
 - Storage account names must be between 3 and 24 characters in length.
 
@@ -65,7 +65,7 @@ Use Azure Functions with the Azure Cosmos DB trigger for another example of how 
    - resourceGroup: pet-supplies-demo-rg
    - trigger: CosmosDBTrigger
 
-   The Maven archetype generates boilerplate scaffolding. 
+   The Maven archetype generates boilerplate scaffolding.
 
 1. In *Function.java*, populate the following values:
 

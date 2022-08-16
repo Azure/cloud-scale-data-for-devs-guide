@@ -388,7 +388,7 @@ To confirm that the key vault name was set successfully:
 
     ![Screenshot that shows the Configuration page of the App Service with Application settings selected and the hidden value of the key vault highlighted.](media/get-started-with-java-and-key-vault/select-key-vault-app-application-settings.png)
 
-1. To see the value of `KEY_VAULT_NAME`, select the **Hidden** value, and then select it to show the **value** link. 
+1. To see the value of `KEY_VAULT_NAME`, select the **Hidden** value, and then select it to show the **value** link.
 
    You should see the name of the key vault resource.
 
