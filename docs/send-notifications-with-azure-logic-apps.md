@@ -14,7 +14,7 @@ sequence: 11
 
 In the following sample app, we notify users when products are updated. We use *Azure Logic Apps* to automate this process.
 
-Azure Logic apps handle automations that integrate systems, services, apps, and data. They move data around, send notifications, monitor data sources, and connect with other services through connectors.
+[Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) handle automations that integrate systems, services, apps, and data. They move data around, send notifications, monitor data sources, and connect with other services through connectors.
 
 Logic app capabilities include:
 

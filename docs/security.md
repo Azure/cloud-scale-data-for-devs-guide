@@ -20,13 +20,13 @@ Your Azure Cosmos DB account contains a set of keys for *read-write* access and 
 
 If you must work with keys:
 
-* Store the keys in environment variables. Environment variables make it easy to store the values in a place without checking them in to source control. Azure App Service, Azure Functions, and Azure Spring Apps support environment variables as well.
+* Store the keys in environment variables. Environment variables make it easy to store the values in a place without checking them in to source control. [Azure App Service](https://docs.microsoft.com/azure/app-service/), [Azure Functions](https://docs.microsoft.com/azure/azure-functions/), and [Azure Spring Apps](https://docs.microsoft.com/azure/spring-apps/) support environment variables as well.
 
-* Another option for storing secure values is in Azure Key Vault. For more information on working with Java and Azure Key Vault, check out our [Hello World code sample with Java and Azure Key Vault](get-started-with-java-and-key-vault.md).
+* Another option for storing secure values is in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/). For more information on working with Java and Azure Key Vault, check out our [Hello World code sample with Java and Azure Key Vault](get-started-with-java-and-key-vault.md).
 
 ## Role-based access control
 
-One of the ways you can secure access to your Azure Cosmos DB account is with role-based access control (RBAC). With Azure RBAC, you can assign users, service principals, managed identities, and groups as members within a role. Azure RBAC can be managed in the section labeled **Access Control (IAM)** when working in the Azure portal. IAM is an acronym for Identity and Access Management.
+One of the ways you can secure access to your Azure Cosmos DB account is with [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview). With Azure RBAC, you can assign users, service principals, managed identities, and groups as members within a role. Azure RBAC can be managed in the section labeled **Access Control (IAM)** when working in the Azure portal. IAM is an acronym for Identity and Access Management.
 
 Azure RBAC uses [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) for the authentication portion. It uses role assignments for authorization determination. By assigning roles at the resource level, you have fine-grained control over your resource access.
 
@@ -77,7 +77,7 @@ Another approach to securing Azure Cosmos DB is through networking. Options incl
 
 ## Encrypting data
 
-Data stored in Azure Cosmos DB is automatically encrypted with service-managed keys. Service-managed keys are keys maintained by Microsoft. If you want to add another layer of encryption, you can bring your own customer-managed keys. These keys must be stored in Azure Key Vault. Customer-managed keys must be configured during account creation. There are no extra charges for enabling the feature for your own customer-managed key; however, there may be an increase in processor usage for encryption and decryption. This cost will be seen in the RU (Request Units) cost. 
+Data stored in Azure Cosmos DB is automatically encrypted with service-managed keys. Service-managed keys are keys maintained by Microsoft. If you want to add another layer of encryption, you can bring your own customer-managed keys. These keys must be stored in Azure Key Vault. Customer-managed keys must be configured during account creation. There are no extra charges for enabling the feature for your own customer-managed key; however, there may be an increase in processor usage for encryption and decryption. This cost will be seen in the RU (Request Units) cost.
 
 For more information about setting up customer-managed keys, see [configure customer-managed keys](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk).
 

@@ -24,7 +24,7 @@ import org.springframework.lang.Nullable;
 @EnableCosmosRepositories
 public class CosmosConfiguration extends AbstractCosmosConfiguration {
 
-    // These azure.cosmos variables are coming from the Azure Spring Cloud Config server if in Azure Spring Cloud.
+    // These azure.cosmos variables are coming from the Config server if in Azure Spring Apps.
     // Otherwise, for development purposes, these values are stored in application-default.properties.
     @Value("${azure.cosmos.uri}")
     private String uri;

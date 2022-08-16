@@ -12,7 +12,7 @@ sequence: 2
 
 # What is Azure Cosmos DB?
 
-Azure Cosmos DB is a fully managed, distributed NoSQL database service. It's a globally distributed, massively scalable, multi-model database service. Unlike many other non-relational databases, Azure Cosmos DB offers [five consistency models](#consistency-models) for data durability. 
+Azure Cosmos DB is a fully managed, distributed NoSQL database service. It's a globally distributed, massively scalable, multi-model database service. Unlike many other non-relational databases, Azure Cosmos DB offers [five consistency models](#consistency-models) for data durability.
 
 ## Non-relational database
 
@@ -33,7 +33,7 @@ Data can be configured to be readable and writeable across multiple regions. The
 
 Azure Cosmos DB is horizontally scalable. Capacity can be added to increase storage and throughput as needed, scaling from tens to hundreds of millions of requests per second over multiple regions. With autoscaling capability, you can trust that Azure Cosmos DB will scale out when needed to accommodate surges in activity.
 
-Azure Cosmos DB can be configured to scale according to your needs. You can manually set throughput for when you have predictable request traffic. It can also autoscale to a pre-determined maximum throughput. 
+Azure Cosmos DB can be configured to scale according to your needs. You can manually set throughput for when you have predictable request traffic. It can also autoscale to a pre-determined maximum throughput.
 
 While the system is massively scalable, there are quotas around resources such as the maximum storage across all items per partition. For more information, see [Azure Cosmos DB service quotas](https://docs.microsoft.com/azure/cosmos-db/concepts-limits).
 
@@ -58,7 +58,7 @@ Azure Cosmos DB is considered multi-model because data can be stored in diverse 
 * Document data using the Azure Cosmos DB API for MongoDB.
 * Graph data using the Azure Cosmos DB API for Gremlin.
 
-The Core (SQL) API is the main API for interacting with Azure Cosmos DB, used for querying JSON objects. When features are introduced, it's the first API to see the updates. This guide uses the SQL API.
+The [Core (SQL) API](https://docs.microsoft.com/azure/cosmos-db/scripts/cli/sql/create) is the main API for interacting with Azure Cosmos DB, used for querying JSON objects. When features are introduced, it's the first API to see the updates. This guide uses the SQL API.
 
 While the SQL API may suggest relational data could work in Azure Cosmos DB, this database platform was built with NoSQL in mind. The flavor of SQL with this API is designed for querying JSON data and structures.
 

@@ -12,15 +12,15 @@ sequence: 16
 
 ## Migrate to Azure Spring Apps
 
-If you want to use microservices and Java in Azure, consider Azure Spring Apps. It allows you to easily migrate Sprint Boot microservices to Azure without needing to change your code. It also supports scaling microservices, both vertically and horizontally, which makes it a smart choice for a Spring Boot native application host.
+If you want to use microservices and Java in Azure, consider [Azure Spring Apps](https://docs.microsoft.com/azure/spring-apps/). It allows you to easily migrate Sprint Boot microservices to Azure without needing to change your code. It also supports scaling microservices, both vertically and horizontally, which makes it a smart choice for a Spring Boot native application host.
 
 The components of Azure Spring Apps include:
 
-- Spring Cloud Config Server
+- [Config Server](https://docs.microsoft.com/azure/spring-apps/how-to-config-server)
 
-- Spring Boot microservices
+- [Spring Boot](https://spring.io/projects/spring-boot) microservices
 
-- Spring Cloud Service Registry for discovering microservices
+- [Service Registry](https://docs.microsoft.com/azure/spring-apps/how-to-service-registration) for discovering microservices
 
 When you deploy your sample application to Azure Spring Apps, you can divide it into the following parts:
 
@@ -28,7 +28,7 @@ When you deploy your sample application to Azure Spring Apps, you can divide it 
 
 - Discovery service
 
-- Spring Cloud Config Server linked to a Git repository
+- Config Server linked to a Git repository
 
 ![Diagram showing the parts of an application to be deployed to Azure Spring Apps.](media/migrate-to-azure-spring-apps/azure-spring-apps-deployment.png)
 
@@ -59,7 +59,7 @@ Create an Azure Spring Apps instance to hold your resources:
 1. For this example app, run the following command. Because this application isn't a production application, use the Basic SKU:
 
    ```azurecli
-   az spring-cloud create -n $AZURE_SPRING_CLOUD_NAME -g $AZURE_RESOURCE_GROUP --sku Basic
+   az spring create -n $AZURE_SPRING_CLOUD_NAME -g $AZURE_RESOURCE_GROUP --sku Basic
    ```
 
    After you run this command, it creates an Application Insights component for gathering analytics and telemetry.
@@ -71,9 +71,9 @@ Create an Azure Spring Apps instance to hold your resources:
    az configure --defaults spring-cloud=$AZURE_SPRING_CLOUD_NAME
    ```
 
-### Spring Cloud Config Server
+### Config Server
 
-The Spring Cloud Config Server needs a Git repository to store the Spring Boot configuration files. Using a Git repository has the following advantages:
+The Config Server needs a Git repository to store the Spring Boot configuration files. Using a Git repository has the following advantages:
 
 - Your configuration is stored in a central location, making it easier to maintain.
 
@@ -87,11 +87,11 @@ The Git repository can be public, secured by SSH, or secured using HTTP basic au
 
 You can store the configuration files in YAML in *application.yml* or in name-value pairs in *application.properties*.
 
-To run a Spring Cloud Config Server:
+To run a Config Server:
 
 1. Create a Git repository with an *application.yml* or *application.properties* file to store the configuration needed for the services.
 
-   The following sample shows the *application.properties* file for the Spring Cloud Config Server:
+   The following sample shows the *application.properties* file for the Config Server:
 
    ```properties
    # azure.cosmos properties are needed for the CosmosConfiguration bean
@@ -104,7 +104,7 @@ To run a Spring Cloud Config Server:
    spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
    ```
 
-1. Create a Git personal access token (PAT) with repo access for the Spring Cloud Config Server to use.
+1. Create a Git personal access token (PAT) with repo access for the Config Server to use.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to the Azure Spring Apps instance.
 
@@ -132,7 +132,7 @@ To run a Spring Cloud Config Server:
 
    ![Screenshot showing the default repository URI.](media/migrate-to-azure-spring-apps/default-repository-uri.png)
 
-   Your service settings are now stored in the *application.properties* or *application.yml* file in the Spring Cloud Config Server repository.
+   Your service settings are now stored in the *application.properties* or *application.yml* file in the Config Server repository.
 
 ## Deploy a Maven application to Azure Spring Apps
 
@@ -140,7 +140,7 @@ Deploy your service, complete with CRUD, to Azure Spring Apps.
 
 ### Create the Azure Spring Apps application
 
-After you create the Azure Spring Apps instance, you need to create an app for it. Each service has its own app. 
+After you create the Azure Spring Apps instance, you need to create an app for it. Each service has its own app.
 
 To create a new app:
 
@@ -159,7 +159,7 @@ To create a new app:
 1. Enter the following command to create the Azure Spring Apps pet-supplies-app application:
 
    ```azurecli
-   az spring-cloud app create -n pet-supplies-app --runtime-version Java_11 --assign-endpoint true
+   az spring app create -n pet-supplies-app --runtime-version Java_11 --assign-endpoint true
    ```
 
 ### Link the Azure Spring Apps application to Azure Cosmos DB
@@ -246,7 +246,7 @@ After you create the Azure Spring Apps instance and app, you can deploy the code
 1. Enter the following command:
 
    ```azurecli
-   az spring-cloud app deploy -n pet-supplies-app --artifact-path target/demo-0.0.1-SNAPSHOT.jar
+   az spring app deploy -n pet-supplies-app --artifact-path target/demo-0.0.1-SNAPSHOT.jar
    ```
 
    After this command is complete, you'll see a JSON response object in the output, which indicates that the deployment was successful.
@@ -254,7 +254,7 @@ After you create the Azure Spring Apps instance and app, you can deploy the code
 1. You can now use the URL of the app to test access. To do so, use the following curl command:
 
    ```curl
-   curl $(az spring-cloud app list --query "[?name=='pet-supplies-app'].[properties.url]" -o tsv)
+   curl $(az spring app list --query "[?name=='pet-supplies-app'].[properties.url]" -o tsv)
    ```
 
 ## Clean up resources

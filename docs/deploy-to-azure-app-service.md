@@ -12,7 +12,7 @@ sequence: 6
 
 # Deploy to Azure App Service
 
-Azure App Service is one of the ways to host Java applications in Azure. After your sample app is running locally, use the [Maven Plugin for Azure App Service](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/) to deploy the sample app to Azure App Service. This tool creates the resources if they don't exist.
+[Azure App Service](https://docs.microsoft.com/azure/app-service/) is one of the ways to host Java applications in Azure. After your sample app is running locally, use the [Maven Plugin for Azure App Service](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/) to deploy the sample app to Azure App Service. This tool creates the resources if they don't exist.
 
 ## Modify the pom.xml file
 
