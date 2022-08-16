@@ -1,6 +1,6 @@
 ---
-title: Foreword
-description: Review what this guide is, includes, and isn't.
+title: Azure Cosmos DB Java Developer Guide
+description: Learn how the Azure Cosmos DB Java Developer Guide can help you bring cloud-native Java applications to Azure.
 ms.service: cosmos-db
 ms.topic: reference
 ms.date: 08/19/2022
@@ -10,20 +10,28 @@ ms.reviewer: mjbrown
 sequence: 0
 ---
 
-# Foreword
+# Azure Cosmos DB Java Developer Guide: Foreword
 
-The Azure Cosmos DB Java Developer Guide is a guide for bringing Cloud Native Java applications to Azure and using Azure Cosmos DB for your data needs. This guide will offer insights on getting into NoSQL and why Azure Cosmos DB is the solution. These insights are designed to be useful whether you're starting with a NoSQL background or coming into  project with a relational mindset. Data isn't the only thing involved in an application, and this guide will take you through working with more Azure services that integrate well with Azure Cosmos DB. This developer guide will help you bring your data to Azure Cosmos DB and use the Java support in Azure. This guide will help you host your Java application in Azure Spring Cloud or set up notifications with Azure Functions and Azure Logic Apps.
+Welcome to the Azure Cosmos DB Java Developer Guide. The purpose of this guide is to help you build cloud-native Java applications in Azure. You'll gain insights about using NoSQL and why you should consider Azure Cosmos DB, our fully managed, distributed NoSQL database service on Azure. 
 
-## What this guide isn't
+These insights are designed to be useful whether you're starting with a NoSQL background or coming into a project with a relational mindset. Data isn't the only thing involved in an application, and this guide will take you through working with other Azure services that integrate well with Azure Cosmos DB. 
 
-This guide doesn't cover migrating existing Java applications to Azure. Migrating existing Java applications is well covered in the [Java to Azure migration strategy documentation](/azure/developer/java/migration/). It doesn't cover relational data storage in Azure. It isn't intended to be a complete compendium of all things Java and Azure, though there will be many Azure offerings showcased.
+You'll learn how to host Java applications in [Azure Spring Apps](https://azure.microsoft.com/services/spring-apps/) or set up notifications with [Azure Functions](https://azure.microsoft.com/services/functions/) and [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/).
 
-## What this guide includes
+## What this guide covers
 
-As the focus is on cloud native Java applications, Java with Spring Boot will be the main theme throughout the examples. The guide will showcase many of the free Azure offerings. In addition, this guide will showcase other offerings needed for getting Java cloud native applications established in Azure. The guide will get into detail on how to use Azure Cosmos DB for your data needs. It will include situations related to the retail world in addition to suggestions for other business cases. You'll have an application that can run in an Azure Pay-as-you-go account with the Azure Cosmos DB free tier for $20/month. By the end of this guide, you should have the confidence to build cloud native Java applications in Azure with Azure Cosmos DB as a data store.
+Real-world examples will showcase Azure platforms. Since the focus is on cloud-native Java applications, this guide will use Java with Spring Boot throughout.
+
+In addition, you'll learn how to use Azure Cosmos DB for your data needs, such as storing product information in Azure Cosmos DB or sending notifications with Azure Logic Apps to users when products have changed.
+
+Retail situations will be included, as well as suggestions for other business cases. By the end of this guide, you should have the confidence to build cloud-native Java applications in Azure with Azure Cosmos DB as a data store. You'll be able to run an application in an Azure pay-as-you-go account with the Azure Cosmos DB free tier. 
+
+## Not covered
+
+This guide doesn't explain how to migrate existing Java applications to Azure. Migrating existing Java applications is covered in the [Java to Azure migration strategy documentation](/azure/developer/java/migration/). As well, this guide doesn't cover relational data storage in Azure. It isn't intended to be a complete compendium of all things Java and Azure, though there will be many Azure offerings showcased.
 
 ## Scenario introduction
 
-Contoso has acquired an online pet supplies store that is considering migrating their Java eCommerce platform to Azure. In this guide, you'll see examples applying to an eCommerce situation. This guide showcases Azure platforms using real-world use cases. These cases could include storing product information in Azure Cosmos DB or sending notifications with Azure Logic Apps to notify someone when products have changed.
+Throughout this guide, we'll examine a pet store eCommerce scenario to showcase Azure platforms. In this example, a fictional company called Contoso has acquired an online pet supplies store that's considering migrating their Java eCommerce platform to Azure. 
 
 [Next &#124; Introduction to NoSQL](intro-nosql.md){: .btn .btn-primary .btn-lg }
