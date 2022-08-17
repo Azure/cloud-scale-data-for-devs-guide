@@ -110,7 +110,7 @@ To run a Config Server:
 
 1. On the left menu, select **Config Server**.
 
-   :::image type="content" source="media/migrate-to-azure-spring-apps/azure-spring-apps-config-server.png" alt-text="Screenshot showing the Azure Spring Apps page with Config Server selected.":::
+   ![Screenshot showing the Azure Spring Apps page with Config Server selected.](media/migrate-to-azure-spring-apps/azure-spring-apps-config-server.png)
 
 1. On the **Config Server** page, add a default repository with the following details:
 
@@ -128,7 +128,7 @@ To run a Config Server:
 
        - **Password/Personal access token**: Enter your password or personal access token.
 
-   :::image type="content" source="media/migrate-to-azure-spring-apps/config-server-settings.png" alt-text="Screenshot showing the Config Server settings.":::
+   ![Screenshot showing the Config Server settings.](media/migrate-to-azure-spring-apps/config-server-settings.png)
 
 1. From the top menu, select **Validate**. After the settings are validated, select **Apply**.
 
@@ -200,37 +200,37 @@ After you create the app, add a service binding for the app to talk directly wit
 
    ![Screenshot showing the View service binding page with the Property section highlighted.](media/migrate-to-azure-spring-apps/view-service-binding-page.png)
 
-### Set up logging (optional)
+### Set up diagnostic logging (optional)
 
-Setting up diagnostic logging makes it easier to debug issues in deploying the Azure Spring Apps solution, because you can then query the logs for information.
+Setting up diagnostic logging makes it easier to debug issues when you deploy an Azure Spring Apps solution, because you can then query the logs for information. 
 
 To set up diagnostic logging, follow these steps:
 
-1. Create a log workspace with the following Azure CLI command:
+1. Create a Log Analytics workspace with the following Azure CLI command:
 
    ```azurecli
    az monitor log-analytics workspace create --workspace-name ms-cosmos-db-java-guide-logs
    ```
 
-   After the log workspace is created, you're ready to set up diagnostic logging.
+   After the Log Analytics workspace is created, you're ready to continue setting up diagnostic logging.
 
 1. In the Azure portal, navigate to the Azure Spring Apps instance.
 
 1. From the left menu, select **Diagnostic settings**. Then, select **Add diagnostic setting**.
 
-   :::image type="content" source="media/migrate-to-azure-spring-apps/select-add-diagnostic-setting.png" alt-text="Screenshot showing the Diagnostic settings page of the Azure Spring Apps instance with Add diagnostic setting selected.":::
+   ![Screenshot showing the Diagnostic settings page of the Azure Spring Apps instance with Add diagnostic setting selected.](media/migrate-to-azure-spring-apps/select-add-diagnostic-setting.png)
 
 1. Configure the following settings:
 
-   - Set the **Diagnostic setting name** to **write-all-logs**.
+   - Set the **Diagnostic setting name** to *write-all-logs*.
 
-   - Select all categories under **Logs**.
+   - Under **Logs**, select every category.
 
    - Under **Metrics**, select **AllMetrics**.
 
-   - In **Destination details**, select **Send to Log Analytics workspace**, and then specify the log workspace you just created.
+   - Under **Destination details**, select **Send to Log Analytics workspace**, and then select the **Log Analytics workspace** you created in step 1.
 
-1. Select **Save**.
+1. From the top menu, select **Save**.
 
 ## Deploy the code to Azure Spring Apps application
 
