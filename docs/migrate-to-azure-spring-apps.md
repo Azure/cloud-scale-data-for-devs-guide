@@ -110,27 +110,27 @@ To run a Config Server:
 
 1. On the left menu, select **Config Server**.
 
-   ![Screenshot showing the Azure Spring Apps page with Config Server selected.](media/migrate-to-azure-spring-apps/azure-spring-apps-config-server.png)
+   :::image type="content" source="media/migrate-to-azure-spring-apps/azure-spring-apps-config-server.png" alt-text="Screenshot showing the Azure Spring Apps page with Config Server selected.":::
 
 1. On the **Config Server** page, add a default repository with the following details:
 
-    - **URI**: Git repository URI, including the .git extension.
+    - **URI**: Git repository URI, including the *.git* extension.
 
     - **Label**: The branch or tag to use, which defaults to main.
 
     - **Search Path**: \<blank>
 
-    - **Authentication**: Select **Public** to display the authentication dropdown and configure the following settings:
+    - **Authentication**: Select **Public** to display the **Edit Authentication** popup and configure the following settings:
 
-       - **Authentication Type**: Select **HTTP Basic**.
+       - **Authentication Type**: Select **HTTP Basic**, which displays the **Username** and **Password** fields.
 
        - **Username**: Enter your Git username.
 
-       - **Password**: Enter your password or personal access token.
+       - **Password/Personal access token**: Enter your password or personal access token.
 
-1. Select **Validate**. After the settings are validated, select **Apply**.
+   :::image type="content" source="media/migrate-to-azure-spring-apps/config-server-settings.png" alt-text="Screenshot showing the Config Server settings.":::
 
-   ![Screenshot showing the default repository URI.](media/migrate-to-azure-spring-apps/default-repository-uri.png)
+1. From the top menu, select **Validate**. After the settings are validated, select **Apply**.
 
    Your service settings are now stored in the *application.properties* or *application.yml* file in the Config Server repository.
 
@@ -218,7 +218,7 @@ To set up diagnostic logging, follow these steps:
 
 1. From the left menu, select **Diagnostic settings**. Then, select **Add diagnostic setting**.
 
-   ![Screenshot showing the Diagnostic settings page of the Azure Spring Apps instance with Add diagnostic setting selected.](media/migrate-to-azure-spring-apps/select-add-diagnostic-setting.png)
+   :::image type="content" source="media/migrate-to-azure-spring-apps/select-add-diagnostic-setting.png" alt-text="Screenshot showing the Diagnostic settings page of the Azure Spring Apps instance with Add diagnostic setting selected.":::
 
 1. Configure the following settings:
 
