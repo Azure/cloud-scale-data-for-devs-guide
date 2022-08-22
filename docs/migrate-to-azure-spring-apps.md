@@ -202,7 +202,7 @@ After you create the app, add a service binding for the app to talk directly wit
 
 ### Set up diagnostic logging (optional)
 
-Setting up diagnostic logging makes it easier to debug issues when you deploy an Azure Spring Apps solution, because you can then query the logs for information. 
+Setting up diagnostic logging makes it easier to debug issues when you deploy an Azure Spring Apps solution, because you can then query the logs for information.
 
 To set up diagnostic logging, follow these steps:
 
