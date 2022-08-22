@@ -34,4 +34,14 @@ This guide doesn't explain how to migrate existing Java applications to Azure. M
 
 Throughout this guide, we'll examine a pet store eCommerce scenario to showcase Azure platforms. In this example, a fictional company called Contoso has acquired an online pet supplies store that's considering migrating their Java eCommerce platform to Azure.
 
+## New Azure Digital Customer Experience Limited-Time Trial
+
+To help kickstart your Java for Azure Cosmos DB experience, Microsoft Azure is offering extended features and functionality in the free tier as a limited time offer. The new and enhanced Azure free tier now includes:
+
+* Azure Cosmos DB 1,000 RUs + 25GB Storage (monthly)
+* Azure DevOps with unlimited private Git Repos for up to 5 users
+* Azure Kubernetes Services (AKS) with free Cluster Management
+* Azure Functions with up to 1M requests for free
+* Azure Cognitive Services for free up to 5,000 transactions
+
 [Next &#124; Introduction to NoSQL](intro-nosql.md){: .btn .btn-primary .btn-lg }
