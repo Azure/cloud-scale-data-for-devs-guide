@@ -185,13 +185,13 @@ Set up environment variables for `DefaultAzureCredentialBuilder`. These variable
 
 To create a service principal, you first need to choose a name. Use the name **java-keyvault-demo-sp**. Create your service principal using the following command:
 
-```azureclie
+```azurecli
 az ad sp create-for-rbac -n java-keyvault-demo-sp --role=Contributor
 ```
 
 This command produces output values similar to the following sample:
 
-```output
+```json
 {
    "appId": "ac69d748-d878-4019-81c5-063c511d7857",
    "displayName": "java-keyvault-demo-sp",
@@ -217,13 +217,13 @@ There are four environment variables to set up locally for this example:
 
 1. After you've set your environment variables, run the following command to package the demo:
 
-   ```cmd
+   ```bash
    mvn clean package -DskipTests` 
    ```
 
 1. Run the Spring Boot web application in Tomcat:
 
-   ```cmd
+   ```bash
    mvn spring-boot:run
    ```
 
@@ -255,7 +255,7 @@ Use the [Maven Plugin for Azure Web Apps](https://github.com/microsoft/azure-mav
 
 1. To install the Maven Plugin for Azure Web Apps, run the following command:
 
-   ```cmd
+   ```bash
    mvn com.microsoft.azure:azure-webapp-maven-plugin:2.3.0:config`.
    ```
 
@@ -330,7 +330,7 @@ java-keyvault-demo-rg --sku FREE --is-linux
 
 When you deploy the app to Azure App Service, it creates the Azure App, if it doesn't already exist. To deploy the application, run:
 
-```cmd
+```bash
 mvn package azure-webapp:deploy
 ```
 

@@ -166,13 +166,13 @@ To run the code, follow these steps:
 
 1. Install your dependencies:
 
-```cmd
+```bash
 mvn install
 ```
 
 1. Run the following code locally, and then access the API at `http://localhost:8080`:
 
-```cmd
+```bash
 mvn spring-boot:run
 ```
 

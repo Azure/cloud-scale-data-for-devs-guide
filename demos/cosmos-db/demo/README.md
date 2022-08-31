@@ -28,7 +28,7 @@ Then, set up the following environment variables with these values:
 
 To create an Azure Cosmos DB Core (SQL) API Free Tier account, use the following command:
 
-```shell
+```azurecli
 az cosmosdb create -n "pet-supplies-demo" -g "java-keyvault-demo-rg" --enable-free-tier true --default-consistency-level "Session"
 ```
 
@@ -44,7 +44,7 @@ Once the Azure Cosmos DB Core (SQL) API instance is created, then add these secr
 
 Use the following command to store the URI in the secret named **azure-documentdb-uri**:
 
-```shell
+```azurecli
 az keyvault secret set --vault-name java-keyvault-demo-kv --name "azure-documentdb-uri" --value (az cosmosdb show --name pet-supplies-demo -g java-keyvault-demo-rg --query "readLocations[0].documentEndpoint" -o tsv)
 ```
 
@@ -52,7 +52,7 @@ az keyvault secret set --vault-name java-keyvault-demo-kv --name "azure-document
 
 This is for the read and write key.  Use the following command to store the URI in the secret named **azure-documentdb-uri**:
 
-```shell
+```azurecli
 az keyvault secret set --vault-name java-keyvault-demo-kv --name "azure-documentdb-key" --value (az cosmosdb keys list --name pet-supplies-demo -g java-keyvault-demo-rg --query "primaryMasterKey")
 ```
 
@@ -60,7 +60,7 @@ az keyvault secret set --vault-name java-keyvault-demo-kv --name "azure-document
 
 Use the following command to store the URI in the secret named **azure-documentdb-database**:
 
-```shell
+```azurecli
 az keyvault secret set --vault-name java-keyvault-demo-kv --name "azure-documentdb-database" --value "pet-supplies-demo"
 ```
 
@@ -83,7 +83,7 @@ In the **pom.xml** file, update the `<properties>` section for the following pro
 
 Once the configuration information is updated for your values, deploy the application with the following command:
 
-```shell
+```bash
 mvn package azure-webapp:deploy
 ```
 

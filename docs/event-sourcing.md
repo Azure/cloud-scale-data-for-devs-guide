@@ -110,7 +110,7 @@ public Object[] pushToEventGrid(
 
 1. Deploy the previous changes to Azure App Service by using the following commands:
 
-   ```cmd
+   ```bash
    mvn clean package
    mvn azure-functions:deploy
    ```

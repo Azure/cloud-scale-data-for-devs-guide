@@ -253,7 +253,7 @@ After you create the Azure Spring Apps instance and app, you can deploy the code
 
 1. You can now use the URL of the app to test access. To do so, use the following curl command:
 
-   ```curl
+   ```bash
    curl $(az spring app list --query "[?name=='pet-supplies-app'].[properties.url]" -o tsv)
    ```
 

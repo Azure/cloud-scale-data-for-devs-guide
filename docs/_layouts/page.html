@@ -88,7 +88,11 @@ layout: default
                             languageClass == 'language-java' ? 'java' :
                                 languageClass == 'language-xml' ? 'xml' :
                                     languageClass == 'language-sql' ? 'sql' :
-                                        languageClass == 'language-csharp' ? 'c#' : 'code';
+                                        languageClass == 'language-csharp' ? 'c#' :
+                                            languageClass == 'language-azurecli' ? 'azure cli' : 
+                                                languageClass == 'language-output' ? 'output' : 
+                                                    languageClass == 'language-bash' ? 'shell' :
+                                                        languageClass == 'language-properties' ? 'properties' :   'code';
                 $(this).attr('id', generatedId);
                 var header = $('<div/>', {
                     class: 'code-header mt-3 mb-0 bg-light d-flex justify-content-between border',

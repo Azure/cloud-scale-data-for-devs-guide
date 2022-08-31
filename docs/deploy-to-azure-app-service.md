@@ -33,7 +33,7 @@ The plugin section in the *pom.xml* file has an \<appSettings> section, which co
 
 1. After you update your configuration information with your values, deploy the application by using the following command:
 
-   ```cmd
+   ```bash
    mvn package azure-webapp:deploy
    ```
 

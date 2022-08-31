@@ -48,7 +48,7 @@ Use Azure Functions with the Azure Cosmos DB trigger for another example of how 
 
 1. From an empty project folder, run the following Maven command:
 
-   ```cmd
+   ```bash
    mvn archetype:generate -DarchetypeGroupId="com.microsoft.azure" -DarchetypeArtifactId="azure-functions-archetype" -DadvancedOptions
    ```
 
@@ -93,7 +93,7 @@ Use Azure Functions with the Azure Cosmos DB trigger for another example of how 
 
 1. Run this function locally with the following commands:
 
-   ```cmd
+   ```bash
    mvn clean package
    func start host
    ```
@@ -121,7 +121,7 @@ Use the [Maven Plugin for Azure Functions](https://github.com/microsoft/azure-ma
 
 1. To deploy the code to Azure, run:
 
-   ```cmd
+   ```bash
    mvn azure-functions:deploy
    ```
 
