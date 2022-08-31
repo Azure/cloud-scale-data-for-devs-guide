@@ -17,13 +17,24 @@ p {
 }
 
 main {
+
     a:active,
     a:hover {
         color: #50e6ff;
     }
-    
+
     a:visited {
         color: #0050C5;
+    }
+
+    a.btn {
+        &:visited {
+            color: #50e6ff;
+        }
+
+        &:hover {
+            color: #243a5e;
+        }
     }
 }
 
