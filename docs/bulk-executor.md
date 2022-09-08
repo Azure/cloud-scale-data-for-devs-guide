@@ -10,23 +10,9 @@ ms.reviewer: mjbrown
 sequence: 13
 ---
 
-# Add the bulk executor feature
+# Bulk Execution
 
- The bulk executor is an Azure Cosmos DB feature that allows bulk inserts, updates, and deletes. When inserts and updates occur, they appear in the change feed.
-
-The following sections incorporate the bulk executor into the code sample.
-
-## Add a dependency
-
-Add a new dependency in the *pom.xml* file:
-
-```xml
-<dependency>
-   <groupId>com.microsoft.azure</groupId>
-   <artifactId>documentdb-bulkexecutor</artifactId>
-   <version>2.12.5</version>
-</dependency>
-```
+ Bulk Execution is an Azure Cosmos DB feature that allows bulk inserts, updates, and deletes. When inserts and updates occur, they appear in the change feed. Bulk Execution is part of the Java V4 SDK for Azure Cosmos DB.
 
 Add to the Spring Data setup by creating a `DocumentDbConfiguration` class specifically for use with the bulk executor.
 

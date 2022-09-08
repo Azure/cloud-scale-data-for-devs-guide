@@ -2,14 +2,9 @@ package com.example.demo.controller;
 
 import java.util.List;
 
+import com.azure.cosmos.models.CosmosBulkItemResponse;
 import com.example.demo.model.BaseModel;
-import com.example.demo.model.BulkDeleteItem;
-import com.example.demo.model.BulkUpdateItem;
 import com.example.demo.service.BulkExecutorService;
-import com.microsoft.azure.documentdb.bulkexecutor.BulkDeleteResponse;
-import com.microsoft.azure.documentdb.bulkexecutor.BulkImportResponse;
-import com.microsoft.azure.documentdb.bulkexecutor.BulkUpdateResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,17 +21,17 @@ public class BulkController {
     BulkExecutorService bulkExecutorService;
 
     @PostMapping(produces = "application/json", consumes = "application/json")
-    public BulkImportResponse create(@RequestBody List<BaseModel> documents) {      
+    public CosmosBulkItemResponse create(@RequestBody List<BaseModel> documents) {      
         return this.bulkExecutorService.bulkImport(documents);
     }
 
     @PutMapping(produces = "application/json", consumes = "application/json")
-    public BulkUpdateResponse update(@RequestBody List<BulkUpdateItem> updates) {
+    public CosmosBulkItemResponse update(@RequestBody List<BaseModel> updates) {
         return this.bulkExecutorService.bulkUpdate(updates);
     }
 
     @DeleteMapping(produces = "application/json", consumes = "application/json")
-    public BulkDeleteResponse delete(@RequestBody List<BulkDeleteItem> deleteItems){
+    public CosmosBulkItemResponse delete(@RequestBody List<BaseModel> deleteItems){
         return this.bulkExecutorService.bulkDelete(deleteItems);
     }
 }
