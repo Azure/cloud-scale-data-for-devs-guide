@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "83930195-5591-49b9-ab8f-fd8d6aeaaad7",
+		"_postman_id": "3c5e7df1-124e-4450-bbd0-9bbcc15e0cf8",
 		"name": "Cosmosdb",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"type\": \"test type\",\r\n    \"name\": \"test name\",\r\n    \"description\": \"test description\",\r\n    \"manufacturerId\": \"test manufacturer\",\r\n    \"msrp\": 10.00\r\n}",
+							"raw": "{\r\n    \"type\": \"test type\",\r\n    \"documentType\": \"product\",\r\n    \"name\": \"test name\",\r\n    \"description\": \"test description\",\r\n    \"manufacturerId\": \"test manufacturer\",\r\n    \"msrp\": 10.00\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -612,7 +612,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\n    { \n        \"partitionKey\":\"product\", \n        \"id\": \"4e33d133-3490-4fe0-944a-cbffaab96ec2\"    \n    }\n]",
+							"raw": "[\n    {\n        \"id\": \"1\",\n        \"documentType\": \"product\"\n    },\n    {\n        \"id\": \"2\",\n        \"documentType\": \"customer\"\n    },\n    {\n        \"id\": \"3\",\n        \"documentType\": \"manufacturer\"\n    }\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -641,7 +641,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\n    { \n        \"documentType\": \"product\",\n        \"type\": \"bulk product type\",\n        \"name\": \"bulk product #1\",\n        \"description\": \"products imported in bulk\",\n        \"manufacturerId\": \"d73154c6-c657-4c81-b97a-756de35819ef\",\n        \"msrp\": 100\n    },\n    {\n        \"documentType\": \"customer\",\n        \"firstName\": \"Bulk Customer\",\n        \"lastName\": \"Number 1\",\n        \"email\": \"customer@example.demo\"\n    },\n    {\n        \"documentType\": \"manufacturer\",\n        \"name\": \"bulk manufacturer #1\"\n    }\n]",
+							"raw": "[\n    {\n        \"id\": \"1\",\n        \"documentType\": \"product\",\n        \"type\": \"bulk product type\",\n        \"name\": \"bulk product #1\",\n        \"description\": \"products imported in bulk\",\n        \"manufacturerId\": \"d73154c6-c657-4c81-b97a-756de35819ef\",\n        \"msrp\": 100\n    },\n    {\n        \"id\": \"2\",\n        \"documentType\": \"customer\",\n        \"firstName\": \"Bulk Customer\",\n        \"lastName\": \"Number 1\",\n        \"email\": \"customer@example.demo\"\n    },\n    {\n        \"id\": \"3\",\n        \"documentType\": \"manufacturer\",\n        \"name\": \"bulk manufacturer #1\"\n    }\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -670,7 +670,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\n    {\n        \"id\": \"684a1471-4ec2-44cb-bc8b-0cc8604eed30\",\n        \"partitionKey\": \"product\",\n        \"operations\": [\n            {\n                \"type\": \"Set\",\n                \"field\": \"name\",\n                \"value\": \"derp\"\n            }\n        ]\n\n    }\n]",
+							"raw": "[\n    {\n        \"id\": \"1\",\n        \"documentType\": \"product\",\n        \"type\": \"bulk product type\",\n        \"name\": \"bulk product #1\",\n        \"description\": \"products bulk updated\",\n        \"manufacturerId\": \"d73154c6-c657-4c81-b97a-756de35819ef\",\n        \"msrp\": 100\n    },\n    {\n        \"id\": \"2\",\n        \"documentType\": \"customer\",\n        \"firstName\": \"Bulk Update Customer\",\n        \"lastName\": \"Number 1\",\n        \"email\": \"customer@example.demo\"\n    },\n    {\n        \"id\": \"3\",\n        \"documentType\": \"manufacturer\",\n        \"name\": \"bulk update manufacturer #1\"\n    }\n]",
 							"options": {
 								"raw": {
 									"language": "json"
