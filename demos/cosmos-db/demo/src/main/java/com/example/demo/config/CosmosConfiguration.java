@@ -92,56 +92,19 @@ public class CosmosConfiguration extends AbstractCosmosConfiguration {
 
     @Primary
     @Bean
-    public CosmosAsyncClient CosmosClientBuilder(){
-        return client = new CosmosClientBuilder()
-        .endpoint(uri)
-        .key(key)
-        .contentResponseOnWriteEnabled(true)
-        .consistencyLevel(ConsistencyLevel.SESSION).buildAsyncClient();
+    public CosmosAsyncClient getClient(){
+        return client = getCosmosClientBuilder().buildAsyncClient();
     }
 
     @Bean
     public CosmosAsyncDatabase CosmosDatabaseBuilder() {
-        logger.info("Create database " + dbName + " if not exists.");
-        Mono<CosmosDatabaseResponse> databaseIfNotExists = client.createDatabaseIfNotExists(dbName);
-        databaseIfNotExists.flatMap(databaseResponse -> {
-            database = client.getDatabase(databaseResponse.getProperties().getId());
-            logger.info("Checking database " + database.getId() + " completed!\n");
-            return Mono.empty();
-        }).block();
+        database = client.getDatabase(this.dbName);
         return database;
     }
 
     @Bean
     public CosmosAsyncContainer CosmosContainerBuilder() {
-        logger.info("Create container " + feedContainer + " if not exists.");
-        CosmosContainerProperties containerProperties = new CosmosContainerProperties(
-            feedContainer, "/documentType");
-        ThroughputProperties throughputProperties = ThroughputProperties.createManualThroughput(400);
-        Mono<CosmosContainerResponse> containerIfNotExists = database
-            .createContainerIfNotExists(containerProperties, throughputProperties);
-        CosmosContainerResponse cosmosContainerResponse = containerIfNotExists.block();
-        assert(cosmosContainerResponse != null);
-        assert(cosmosContainerResponse.getProperties() != null);
-        container = database.getContainer(cosmosContainerResponse.getProperties().getId());
-        containerProperties = cosmosContainerResponse.getProperties();
-        Mono<CosmosContainerResponse> propertiesReplace =
-            container.replace(containerProperties, new CosmosContainerRequestOptions());
-        propertiesReplace.flatMap(containerResponse -> {
-            logger.info(
-                "setupContainer(): Container {}} in {} has been updated with it's new properties.",
-                container.getId(),
-                database.getId());
-            return Mono.empty();
-        }).onErrorResume((exception) -> {
-            logger.error(
-                "setupContainer(): Unable to update properties for container {} in database {}. e: {}",
-                container.getId(),
-                database.getId(),
-                exception.getLocalizedMessage(),
-                exception);
-            return Mono.empty();
-        }).block();
+        container = database.getContainer(this.feedContainer);
         return container;
     }
 

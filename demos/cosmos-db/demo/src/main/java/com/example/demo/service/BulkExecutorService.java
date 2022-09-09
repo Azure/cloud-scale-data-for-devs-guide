@@ -36,14 +36,16 @@ public class BulkExecutorService {
     @Value("${azure.cosmos.feed-container}")
     private String feedContainer;
 
-    @Autowired
     CosmosAsyncClient client;
-
-    @Autowired
     CosmosAsyncDatabase database;
-
-    @Autowired
     CosmosAsyncContainer container;
+
+    //favouring constructor dependency injection
+    public BulkExecutorService(CosmosAsyncClient client, CosmosAsyncDatabase database, CosmosAsyncContainer container){
+        this.client = client;
+        this.database = database;
+        this.container = container;
+    }
 
 
     @Autowired
