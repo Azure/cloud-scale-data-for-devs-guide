@@ -8,8 +8,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import reactor.core.publisher.Flux;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,32 +22,18 @@ public class BulkExecutorService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BulkExecutorService.class);
 
-    @Value("${azure.cosmos.uri}")
-    private String uri;
-
-    @Value("${azure.cosmos.key}")
-    private String key;
-
-    @Value("${azure.cosmos.database}")
-    private String dbName;
-
-    @Value("${azure.cosmos.feed-container}")
-    private String feedContainer;
-
     CosmosAsyncClient client;
     CosmosAsyncDatabase database;
     CosmosAsyncContainer container;
+    ObjectMapper mapper;
 
     //favouring constructor dependency injection
-    public BulkExecutorService(CosmosAsyncClient client, CosmosAsyncDatabase database, CosmosAsyncContainer container){
+    public BulkExecutorService(CosmosAsyncClient client, CosmosAsyncDatabase database, CosmosAsyncContainer container, ObjectMapper mapper){
         this.client = client;
         this.database = database;
         this.container = container;
+        this.mapper = mapper;
     }
-
-
-    @Autowired
-    ObjectMapper mapper;
 
     public CosmosBulkItemResponse bulkDelete(List<BaseModel> deleteItems) {
         Flux<BaseModel> docs = Flux.fromIterable(deleteItems);
