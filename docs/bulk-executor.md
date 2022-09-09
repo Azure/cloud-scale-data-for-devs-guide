@@ -30,7 +30,7 @@ azure.cosmos.collectionThroughput = 100000;
 
 All bulk operations occur in `BulkExecutorService`.
 
-A controller to call the bulk operations, with the following endpoints:
+A controller calls the bulk operations, with the following endpoints:
 
 - `/api/bulk POST`: Bulk import
 - `/api/bulk PUT`: Bulk update
