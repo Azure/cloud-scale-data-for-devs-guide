@@ -28,7 +28,7 @@ Retail situations will be included, as well as suggestions for other business ca
 
 ## Not covered
 
-This guide doesn't explain how to migrate existing Java applications to Azure. Migrating existing Java applications is covered in the [Java to Azure migration strategy documentation](/azure/developer/java/migration/). As well, this guide doesn't cover relational data storage in Azure. It isn't intended to be a complete compendium of all things Java and Azure, though there will be many Azure offerings showcased.
+This guide doesn't explain how to migrate existing Java applications to Azure. Migrating existing Java applications is covered in the [Java to Azure migration strategy documentation](/azure/developer/java/migration/). As well, this guide doesn't cover relational data storage in Azure. It isn't intended to be a complete compendium of all things Java and Azure, though there will be many Azure offerings showcased. The guide also does not offer a complete coverage of the Java SDK for Azure Cosmos DB, or the wider Java ecosystem for Azure Cosmos DB. It is not intended as a comprehensive recommendation for how to build *any* Java app using Azure Cosmos DB, but rather as a guide for how to get started with Spring Boot, featuring the `azure-spring-boot-starter-cosmos` library, as well as coverage of some core Java V4 SDK features and concepts.
 
 ## Scenario introduction
 
