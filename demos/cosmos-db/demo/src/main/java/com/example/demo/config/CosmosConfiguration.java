@@ -14,9 +14,11 @@ import com.azure.spring.data.cosmos.core.ResponseDiagnostics;
 import com.azure.spring.data.cosmos.core.ResponseDiagnosticsProcessor;
 import com.azure.spring.data.cosmos.repository.config.EnableCosmosRepositories;
 import com.fasterxml.jackson.databind.JsonNode;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.lang.Nullable;
 
@@ -40,6 +42,12 @@ public class CosmosConfiguration extends AbstractCosmosConfiguration {
 
     @Value("${azure.cosmos.lease-container}")
     private String leaseContainer;
+
+    private CosmosAsyncClient client;
+    private CosmosAsyncDatabase database;
+    private CosmosAsyncContainer container;
+
+    private static final Logger logger = LoggerFactory.getLogger(CosmosConfiguration.class);
 
     public CosmosConfiguration() {}
 
@@ -71,6 +79,24 @@ public class CosmosConfiguration extends AbstractCosmosConfiguration {
                     System.out.println(item);
                 }
             });
+    }
+
+    @Primary
+    @Bean
+    public CosmosAsyncClient getClient(){
+        return client = getCosmosClientBuilder().buildAsyncClient();
+    }
+
+    @Bean
+    public CosmosAsyncDatabase CosmosDatabaseBuilder() {
+        database = client.getDatabase(this.dbName);
+        return database;
+    }
+
+    @Bean
+    public CosmosAsyncContainer CosmosContainerBuilder() {
+        container = database.getContainer(this.feedContainer);
+        return container;
     }
 
     @Override

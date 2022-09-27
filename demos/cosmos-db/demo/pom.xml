@@ -56,11 +56,6 @@
             <version>4.22.0</version>
         </dependency>
 		<dependency>
-  			<groupId>com.microsoft.azure</groupId>
-  			<artifactId>documentdb-bulkexecutor</artifactId>
-  			<version>2.12.5</version>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
