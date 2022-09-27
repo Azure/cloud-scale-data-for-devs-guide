@@ -1,5 +1,5 @@
 ---
-title: Cloud-Scale Data for Spring Developersr Guide
+title: Cloud-Scale Data for Spring Developers Guide
 description: Learn how the Cloud-Scale Data for Spring Developers Quick Start Guide can help you bring cloud-native Java applications to Azure.
 ms.service: cosmos-db
 ms.topic: reference
