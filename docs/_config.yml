@@ -9,6 +9,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-mentions
   - jemoji
+  - jekyll-relative-links
 markdown: kramdown
 kramdown:
    syntax_highlighter_opts:
