@@ -1,4 +1,4 @@
-# Azure Cosmos DB Java Developer Guide
+# Cloud-Scale Data for Spring Developers Guide
 
 > Java + Azure Cosmos DB + Azure Spring Apps + Azure Functions + Azure Cognitive Search + more!
 
