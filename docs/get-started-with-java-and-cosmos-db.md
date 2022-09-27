@@ -127,7 +127,7 @@ There are a few more things you need to set up before you can run your code:
 
 ### Clone the repository
 
-Clone the repository that contains the sample code, which is available in the [Cloud-Scale Data for Spring Developers repository](https://github.com/Azure/cloud-scale-for-spring-developer/tree/main/demos). The repository contains a folder named *demos*, with the following contents:
+Clone the repository that contains the sample code, which is available in the [Cloud-Scale Data for Spring Developers repository](https://github.com/Azure/cloud-scale-data-for-devs-guide/tree/main/demos). The repository contains a folder named *demos*, with the following contents:
 
 - hello-world-keyvault: An introduction to Java and Azure Key Vault, which is used to store your application secrets securely.
 
