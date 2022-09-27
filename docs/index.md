@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB Java Developers Guide
-description: The Azure Cosmos DB Java Developer Guide is a guide for bringing Cloud Native Java applications to Azure and using Azure Cosmos DB for your data needs.
+title: Cloud-Scale Data for Spring Developers
+description: The Cloud-Scale Data for Spring Developers Quick Start Guide is a guide for bringing Cloud Native Java applications to Azure and using Azure Cosmos DB for your data needs.
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 08/19/2022
@@ -9,7 +9,7 @@ ms.author: sidandrews
 ms.reviewer: mjbrown
 ---
 
-# Azure Cosmos DB Java Developers Guide
+# Cloud-Scale Data for Spring Developers
 
 ## VERSION v1.0
 

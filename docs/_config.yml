@@ -1,6 +1,6 @@
 theme: jekyll-theme-cayman
 title: |
-  Azure Cosmos DB Java Developer Guide
+  Cloud-Scale Data for Spring Developers
 description: |
   Java + Azure Cosmos DB + Azure Spring Apps + Azure Functions + Azure Cognitive Search + more!
 exclude:
