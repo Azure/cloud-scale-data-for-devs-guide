@@ -1,5 +1,5 @@
 ---
-title: Cloud-Scale Data for Spring Developers Guide
+title: Cloud-Scale Data for Spring Developers
 description: Learn how the Cloud-Scale Data for Spring Developers Quick Start Guide can help you bring cloud-native Java applications to Azure.
 ms.service: cosmos-db
 ms.topic: reference
@@ -10,9 +10,9 @@ ms.reviewer: mjbrown
 sequence: 0
 ---
 
-# Cloud-Scale Data for Spring Developers Guide: Foreword
+# Cloud-Scale Data for Spring Developers Quickstart guide: Foreword
 
-Welcome to the Cloud-Scale Data for Spring Developers Developer Quick Start Guide. The purpose of this guide is to help you build cloud-native Java applications in Azure. You'll gain insights about using NoSQL and why you should consider Azure Cosmos DB, our fully managed, distributed NoSQL database service on Azure.
+Welcome to the Cloud-Scale for Spring Developers Quick Start Guide. The purpose of this guide is to help you build cloud-native Java applications in Azure. You'll gain insights about using NoSQL and why you should consider Azure Cosmos DB, our fully managed, distributed NoSQL database service on Azure.
 
 These insights are designed to be useful whether you're starting with a NoSQL background or coming into a project with a relational mindset. Data isn't the only thing involved in an application, and this guide will take you through working with other Azure services that integrate well with Azure Cosmos DB.
 
@@ -28,7 +28,7 @@ Retail situations will be included, as well as suggestions for other business ca
 
 ## Not covered
 
-This guide doesn't explain how to migrate existing Java applications to Azure. Migrating existing Java applications is covered in the [Java to Azure migration strategy documentation](/azure/developer/java/migration/). As well, this guide doesn't cover relational data storage in Azure. It isn't intended to be a complete compendium of all things Java and Azure, though there will be many Azure offerings showcased.
+This guide doesn't explain how to migrate existing Java applications to Azure. Migrating existing Java applications is covered in the [Java to Azure migration strategy documentation](/azure/developer/java/migration/). As well, this guide doesn't cover relational data storage in Azure. It isn't intended to be a complete compendium of all things Java and Azure, though there will be many Azure offerings showcased. The guide also does not offer a complete coverage of the Java SDK for Azure Cosmos DB, or the wider Java ecosystem for Azure Cosmos DB. It is not intended as a comprehensive recommendation for how to build *any* Java app using Azure Cosmos DB, but rather as a guide for how to get started with Spring Boot, featuring the `azure-spring-boot-starter-cosmos` library, as well as coverage of some core Java V4 SDK features and concepts.
 
 ## Scenario introduction
 
