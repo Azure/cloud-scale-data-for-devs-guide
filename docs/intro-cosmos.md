@@ -53,12 +53,12 @@ For more information on managing costs, see [plan and manage costs for Azure Cos
 
 Azure Cosmos DB is considered multi-model because data can be stored in diverse ways. APIs can be used with each of these models. The models and their supported APIs in Azure Cosmos DB include:
 
-* Key-value data using the Azure Cosmos DB Table API.
-* Column-family data using the Azure Cosmos DB API for Cassandra.
-* Document data using the Azure Cosmos DB API for MongoDB.
-* Graph data using the Azure Cosmos DB API for Gremlin.
+* Key-value data using Azure Cosmos DB  for Table.
+* Column-family data using Azure Cosmos DB for Apache Cassandra.
+* Document data using Azure Cosmos DB for MongoDB .
+* Graph data using Azure Cosmos DB  for Apache Gremlin.
 
-The [Core (SQL) API](https://docs.microsoft.com/azure/cosmos-db/scripts/cli/sql/create) is the main API for interacting with Azure Cosmos DB, used for querying JSON objects. When features are introduced, it's the first API to see the updates. This guide uses the SQL API.
+[Azure Cosmos DB for NoSQL ](https://docs.microsoft.com/azure/cosmos-db/scripts/cli/sql/create) is the main API for interacting with Azure Cosmos DB, used for querying JSON objects. When features are introduced, it's the first API to see the updates. This guide uses the SQL API.
 
 While the SQL API may suggest relational data could work in Azure Cosmos DB, this database platform was built with NoSQL in mind. The flavor of SQL with this API is designed for querying JSON data and structures.
 

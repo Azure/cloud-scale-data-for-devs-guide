@@ -12,7 +12,7 @@ sequence: 7
 
 # CRUD operations with Azure Cosmos DB
 
-To do create, read, update, and delete (CRUD) operations on records in Azure Cosmos DB, a small amount of code is required. Spring Data for the Azure Cosmos DB Core (SQL) API artifact supports the `CrudRepository` and `ReactiveCrudRepository` interfaces. It also includes `CosmosRepository` and `ReactiveCosmosRepository`.
+To do create, read, update, and delete (CRUD) operations on records in Azure Cosmos DB, a small amount of code is required. Spring Data for the Azure Cosmos DB for NoSQL artifact supports the `CrudRepository` and `ReactiveCrudRepository` interfaces. It also includes `CosmosRepository` and `ReactiveCosmosRepository`.
 
 For this application, you use `ReactiveCosmosRepository`.
 
@@ -49,7 +49,7 @@ ReactiveCosmosRepository<Thing, String> {
 }
 ```
 
-Repositories in Spring Data for Azure Cosmos DB Core (SQL) API artifact support these additional operations than the ones used in the sample code:
+Repositories in Spring Data for the Azure Cosmos DB for NoSQL artifact support these additional operations than the ones used in the sample code:
 
 - Delete entity
 
@@ -75,7 +75,7 @@ For partial document updates, note the following points:
 
 - Because you need to suppress attempts to bind queries to the method, you should assign a Query annotation over the method in the repository.
 
-- Partial document updates are in Azure Cosmos DB Java SDK v4, not Spring Data for the Azure Cosmos DB Core (SQL) API artifact.
+- Partial document updates are in Azure Cosmos DB Java SDK v4, not Spring Data for the Azure Cosmos DB for NoSQL artifact.
 
 ## Learn more
 

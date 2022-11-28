@@ -12,7 +12,7 @@ sequence: 5
 
 # Get started with Java and Azure Cosmos DB
 
-In this guide, you work with a Spring Boot application that uses Azure Cosmos DB for its data store and the Core (SQL) API. This application takes a prescribed approach to development using Java 11, Spring Data, and reactive development. This project was created using [Spring Initializr](https://start.spring.io/).
+In this guide, you work with a Spring Boot application that uses Azure Cosmos DB for its data store and Azure Cosmos DB for NoSQL. This application takes a prescribed approach to development using Java 11, Spring Data, and reactive development. This project was created using [Spring Initializr](https://start.spring.io/).
 
 ## Prerequisites
 
@@ -68,7 +68,7 @@ To configure your Azure Cosmos DB account to work with the demo, do the followin
 
 1. Create an Azure Cosmos DB account.
 
-1. Create an Azure Cosmos DB Core (SQL) API database.
+1. Create an Azure Cosmos DB for NoSQL database.
 
 1. Create the pet-supplies container.
 
@@ -82,16 +82,16 @@ az cosmosdb create -n pet-supplies-demo -g pet-supplies-demo-rg --enable-free-ti
 
 After you run this command, it may take a few minutes to create your Azure Cosmos DB account.
 
-### Create a database with the Azure Cosmos DB Core (SQL) API
+### Create a database with Azure Cosmos DB for NoSQL 
 
-To create the pet-supplies database with the Core (SQL) API, run the following command:
+To create the pet-supplies database with Azure Cosmos DB for NoSQL, run the following command:
 
 ```azurecli
 az cosmosdb sql database create -g pet-supplies-demo-rg --account-name
 pet-supplies-demo -n pet-supplies
 ```
 
-### Create a container with the Azure Cosmos DB Core (SQL) API
+### Create a container with Azure Cosmos DB for NoSQL
 
 Before you create a container for your Azure Cosmos DB database, you need to be sure of your data model and establish a partition key. A partition key is an immutable property on a document that is used to group documents logically.
 
@@ -123,7 +123,7 @@ There are a few more things you need to set up before you can run your code:
 
 1. Set the environment variables.
 
-1. Create an instance of the Azure Cosmos DB Core (SQL) API.
+1. Create an instance of Azure Cosmos DB for NoSQL.
 
 ### Clone the repository
 
@@ -135,7 +135,7 @@ Clone the repository that contains the sample code, which is available in the [C
 
 ### Set the environment variables
 
-After you create your Azure Cosmos DB Core (SQL) API instance, create environment variables by using the URI and the key. *application-default.properties* is configured to look for the following environment variables:
+After you create your Azure Cosmos DB for NoSQL instance, create environment variables by using the URI and the key. *application-default.properties* is configured to look for the following environment variables:
 
 - `AZURE_COSMOS_URI`
 

@@ -71,7 +71,7 @@ The NoSQL space offers many options. When choosing a NoSQL database system, cons
 * Graph data
 * Schema-less JSON
 
-In this guide, we'll introduce you to Azure Cosmos DB, Microsoft's flagship non-relational database that supports each of these data options. You'll see an application that uses the Azure Cosmos DB Core (SQL) API to work with schema-less JSON.
+In this guide, we'll introduce you to Azure Cosmos DB, Microsoft's flagship non-relational database that supports each of these data options. You'll see an application that uses Azure Cosmos DB for NoSQL to work with schema-less JSON.
 
 ## NoSQL for our scenario
 

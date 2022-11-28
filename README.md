@@ -2,7 +2,7 @@
 
 > Java + Azure Cosmos DB + Azure Spring Apps + Azure Functions + Azure Cognitive Search + more!
 
-![Screenshot of book cover featuring title, an illustration of developer tools, the Azure Cosmos DB logo, a subtitle, and a version moniker. In this screenshot, the title is "Cloud-Scale Data for Spring Developers", the subtitle is "Bring cloud-native Java applications to Azure using Azure Cosmos DB SQL API", and the version is "1.0".](docs/media/index/cover.svg)
+![Screenshot of book cover featuring title, an illustration of developer tools, the Azure Cosmos DB logo, a subtitle, and a version moniker. In this screenshot, the title is "Cloud-Scale Data for Spring Developers", the subtitle is "Bring cloud-native Java applications to Azure using Azure Cosmos DB SQL API", and the version is "1.0".](docs/media/index/cover2.png)
 
 [Get started reading the guide!](docs/index.md)
 
