@@ -70,14 +70,14 @@ To configure your Azure Cosmos DB account to work with the demo, do the followin
 
 1. Create an Azure Cosmos DB for NoSQL database.
 
-1. Create the pet-supplies container.
+1. Create the pet-supplies container.globaly
 
 ### Create an Azure Cosmos DB account
 
-To create an Azure Cosmos DB account, run the following command:
+To create an Azure Cosmos DB account, run the following command.  Note that Cosmos DB account names are globally unique.  Choose a name that is memorable to you, such as *yourname-pet-supplies-demo*.:
 
 ```azurelcli
-az cosmosdb create -n pet-supplies-demo -g pet-supplies-demo-rg --enable-free-tier true --default-consistency-level Session
+az cosmosdb create -n <your-cosmosdb-name> -g pet-supplies-demo-rg --enable-free-tier true --default-consistency-level Session
 ```
 
 After you run this command, it may take a few minutes to create your Azure Cosmos DB account.
@@ -88,7 +88,7 @@ To create the pet-supplies database with Azure Cosmos DB for NoSQL, run the foll
 
 ```azurecli
 az cosmosdb sql database create -g pet-supplies-demo-rg --account-name
-pet-supplies-demo -n pet-supplies
+<your-cosmosdb-name> -n pet-supplies
 ```
 
 ### Create a container with Azure Cosmos DB for NoSQL
@@ -111,7 +111,7 @@ To create the pet-supplies container for the pet-supplies database, run the foll
 
 ```azurecli
 az cosmosdb sql container create -g pet-supplies-demo-rg --account-name
-pet-supplies-demo --database-name pet-supplies --name pet-supplies
+<your-cosmosdb-name> --database-name pet-supplies --name pet-supplies
 --partition-key-path "/documentType"
 ```
 
@@ -120,6 +120,8 @@ pet-supplies-demo --database-name pet-supplies --name pet-supplies
 There are a few more things you need to set up before you can run your code:
 
 1. Clone the repository.
+
+1. Navigate to the demo directory
 
 1. Set the environment variables.
 
@@ -132,6 +134,14 @@ Clone the repository that contains the sample code, which is available in the [C
 - hello-world-keyvault: An introduction to Java and Azure Key Vault, which is used to store your application secrets securely.
 
 - cosmos-db: The main sample referred to throughout the rest of the guide.
+
+### Navigate to the demo directory
+
+The files you will need for this demo are in demos\cosmos-db\demo.  Open the repo in a terminal then navigate to the demo directory:
+
+```azurecli
+cd demos\cosmos-db\demo
+```
 
 ### Set the environment variables
 
@@ -146,7 +156,7 @@ After you create your Azure Cosmos DB for NoSQL instance, create environment var
 Use the following command to store the URI in the environment variable named `AZURE_COSMOS_URI`:
 
 ```azurecli
-AZURE_COSMOS_URI=$(az cosmosdb show --name pet-supplies-demo -g
+AZURE_COSMOS_URI=$(az cosmosdb show --name <your-cosmosdb-name> -g
 pet-supplies-demo-rg --query "readLocations[0].documentEndpoint" -o
 tsv)
 ```
@@ -156,7 +166,7 @@ tsv)
  Use the following command to store the read and write key in the environment variable named AZURE_COSMOS_KEY:
 
 ```azurecli
-AZURE_COSMOS_KEY=$(az cosmosdb keys list --name pet-supplies-demo -g
+AZURE_COSMOS_KEY=$(az cosmosdb keys list --name <your-cosmosdb-name> -g
 pet-supplies-demo-rg --query "primaryMasterKey" -o tsv)
 ```
 
@@ -175,6 +185,8 @@ mvn install
 ```bash
 mvn spring-boot:run
 ```
+
+You should see a home page for Contoso Pet Supplies at `http://localhost:8080`.  Most of the links will return errors for now, we will be setting up the services that support the rest of the site in future exercises. 
 
 ## Learn more
 
