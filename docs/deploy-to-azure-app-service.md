@@ -18,16 +18,28 @@ sequence: 6
 
 To deploy to Azure App Service, you don't need to install any separate components. The *pom.xml* file has a reference in the \<build> section for the `azure-webapp-maven-plugin` artifact.
 
-In the *pom.xml* file, update the following properties in the \<properties> section:
+In the *pom.xml* file, update the following properties in the \<properties> section. Note that zure.webapp.AppName must be globally unique.  Choose a name that is memorable to you, such as *yourname-app-name*.:
 
-- azure.webapp.AppName: \<App name>
+- azure.webapp.AppName: \<Unique App name>
 - azure.webapp.appServicePlanName: \<App service plan name>
 - azure.webapp.region: \<Region code, such as eastus, westus>
 - azure.webapp.resourceGroup: \<Resource group name>
 
 ## Deploy the application
 
-The plugin section in the *pom.xml* file has an \<appSettings> section, which contains the environment variables and their values. These variable values are copied to the Azure App Service app's settings.
+The plugin section in the *pom.xml* file has an \<appSettings> section, which will use the environment variables and values that you set up in the last exercise. These variable values are copied to the Azure App Service app's settings when the app is deployed:
+
+```bash
+						<name>AZURE_COSMOS_URI</name>
+							<value>${AZURE_COSMOS_URI}</value>
+						</property>
+						<property>
+							<name>AZURE_COSMOS_KEY</name>
+							<value>${AZURE_COSMOS_KEY}</value>
+						</property>
+```
+
+Here's where the environment variables will be in the deployed app service when viewed in the portal:
 
    ![Screenshot showing the App Service Configuration page.](media/deploy-to-azure-app-service/app-service-configuration.png)
 

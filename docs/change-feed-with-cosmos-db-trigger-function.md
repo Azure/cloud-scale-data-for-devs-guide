@@ -39,7 +39,7 @@ az storage account create --name petsuppliesstorage -g pet-supplies-demo-rg --lo
 1. Store your Azure Cosmos DB connection string in an environment variable:
 
    ```azurecli
-   AZURE_COSMOS_CONNECTION_STRING=$(az cosmosdb keys list --type connection-strings --name pet-supplies-demo -g pet-supplies-demo-rg9 --query "connectionStrings[0].connectionString" -o tsv)
+   AZURE_COSMOS_CONNECTION_STRING=$(az cosmosdb keys list --type connection-strings --name pet-supplies-demo -g pet-supplies-demo-rg --query "connectionStrings[0].connectionString" -o tsv)
    ```
 
 ## Azure Function App code
@@ -60,11 +60,17 @@ Use Azure Functions with the Azure Cosmos DB trigger for another example of how 
 
 1. When you're prompted, input *N* to trigger the advanced options prompts. The additional settings include:
 
-   - appName: cosmosChangeFeedProcessorFunction
-   - appRegion: \<Your region>
-   - resourceGroup: pet-supplies-demo-rg
-   - trigger: CosmosDBTrigger
-
+    - appName: cosmosChangeFeedProcessorFunction
+    - docker: false
+    - appRegion: \<Your region>
+    - resourceGroup: pet-supplies-demo-rg
+    - appServicePlanName: java-functions-app-service-plan
+    - trigger: CosmosDBTrigger
+    - groupId: com
+    - artifactId: function
+    - version: 1.0-SNAPSHOT
+    - package: com.function
+    
    The Maven archetype generates boilerplate scaffolding.
 
 1. In *Function.java*, populate the following values:
@@ -112,7 +118,7 @@ Use the [Maven Plugin for Azure Functions](https://github.com/microsoft/azure-ma
       <value>${AZURE_WEBJOBS_STORAGE}</value>
    </property>
    <property>
-      <name><AzureCosmosDBConnectionString></name>
+      <name>AzureCosmosDBConnectionString</name>
       <value>${AZURE_COSMOS_CONNECTION_STRING}</value>
    </property>
    ```
